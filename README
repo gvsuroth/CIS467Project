@@ -1,2 +1,17 @@
+h2. Setup Account
+Add your public key to your github account. Run ssh-keygen on your terminal. Press enter at every option that it prompts you. Your key will be located at .ssh/id_rsa.pub
 
-kalsjdklfjl
+Log into GitHub. Click on your user name. Click on Edit Your Profile.  Click on SSH Public Keys.
+
+h2. Checkout Repo
+git clone git@github.com:gvsuroth/CIS467Project.git
+
+This will create a folder with the repo from wherever you run the command.
+
+h2. Make changes and commit
+Go ahead and edit files.
+
+git add .
+git commit -m "Note about commit"
+git push remote origin
+
