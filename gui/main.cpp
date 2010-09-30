@@ -1,26 +1,26 @@
 #include <QtGui/QApplication>
-#include "mainwindow.h"
+#include "gui.h"
 
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
-	MainWindow w;
+	Gui gui;
 
 	// Test the maze display
 	int height = 5, width = 5;
-	MainWindow::CellType mazeArr[height][width];
+	Gui::CellType mazeArr[height][width];
 	for(int y = 0; y < height; ++y)
 	{
 		for(int x = 0; x < width; ++x)
 		{
 			if((x+y)%3)
-					mazeArr[y][x] = MainWindow::WALL;
+					mazeArr[y][x] = Gui::WALL;
 			else
-				mazeArr[y][x] = MainWindow::NOTHING;
+				mazeArr[y][x] = Gui::NOTHING;
 		}
 	}
-	w.setMaze(height, width, (MainWindow::CellType*)mazeArr);
+	gui.setMaze(height, width, (Gui::CellType*)mazeArr);
 
-	w.show();
+	gui.show();
 	return a.exec();
 }
