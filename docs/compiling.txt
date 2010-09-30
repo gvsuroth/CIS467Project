@@ -1,0 +1,1 @@
+As of now, the Qt GUI can only be compiled on my server.  The EOS Fedora computers have a partial Qt install, but not enough as far as I know to compile.  The executable, called CIS467Project, should be able to be run from any Linux computer.  Maybe Mac too (using and X server).
