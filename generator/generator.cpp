@@ -17,5 +17,5 @@ void Generator::generate(const int height, const int width)
 			maze[y][x] = Cell::SPRITE;
 	// END MAZE GENERATION CODE
 
-	emit generationDone(height, width, (Cell::Type*)maze);
+	emit generationDone(height, width, *maze);
 }
