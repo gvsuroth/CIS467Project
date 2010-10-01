@@ -14,8 +14,8 @@ void Generator::generate(const int height, const int width)
 	// BEGIN MAZE GENERATION CODE
 	for(int y = 0; y < height; ++y)
 		for(int x = 0; x < width; ++x)
-			maze[y][x] = Cell::SPRITE;
+			maze[y][x] = Cell::PATH;
 	// END MAZE GENERATION CODE
 
-	emit generationDone(height, width, *maze);
+	emit generationDone(height, width, maze);
 }

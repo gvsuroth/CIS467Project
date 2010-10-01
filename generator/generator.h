@@ -12,7 +12,7 @@ public:
 	explicit Generator(QObject *parent = 0);
 
 signals:
-	void generationDone(int height, int width, Cell::Type *maze);
+	void generationDone(int height, int width, Cell::Type **maze);
 
 public slots:
 	void generate(int height, int width);

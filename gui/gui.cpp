@@ -10,8 +10,8 @@ Gui::Gui(QWidget *parent) :
 	maze = new QGridLayout(centralWidget());
 	gen = new Generator();
 	connect(this, SIGNAL(generate(int,int)), gen, SLOT(generate(int,int)));
-	connect(gen, SIGNAL(generationDone(int,int,Cell::Type*)), this, SLOT(generationDone(int,int,Cell::Type*)));
-	emit generate(5,5);
+	connect(gen, SIGNAL(generationDone(int,int,Cell::Type**)), this, SLOT(generationDone(int,int,Cell::Type**)));
+	emit generate(8,8);
 }
 
 Gui::~Gui()
@@ -26,15 +26,15 @@ inline void Gui::setCell(int y, int x, Cell::Type type)
 	maze->addWidget(new Cell(0,type),y,x);
 }
 
-void Gui::setMaze(int height, int width, Cell::Type *mazeArr)
+void Gui::setMaze(int height, int width, Cell::Type **mazeArr)
 {
 	QString name;
 	for(int y = 0; y < height; ++y)
 		for(int x = 0; x < width; ++x)
-			setCell(y,x,mazeArr[y*height+x]);
+			setCell(y, x, mazeArr[y][x]);
 }
 
-void Gui::generationDone(int height, int width, Cell::Type *maze)
+void Gui::generationDone(int height, int width, Cell::Type **maze)
 {
 	setMaze(height, width, maze);
 }
