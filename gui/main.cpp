@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 	Gui gui;
 
 	// Test the maze display
-	int height = 5, width = 5;
+	/*int height = 5, width = 5;
 	Cell::Type mazeArr[height][width];
 	for(int y = 0; y < height; ++y)
 	{
@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 				mazeArr[y][x] = Cell::PATH;
 		}
 	}
-	gui.setMaze(height, width, (Cell::Type*)mazeArr);
+	gui.setMaze(height, width, (Cell::Type*)mazeArr);*/
 
 	gui.show();
 	return a.exec();

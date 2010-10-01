@@ -11,8 +11,10 @@ INCLUDEPATH += . \
 # Input
 HEADERS += ui_mainwindow.h \
     gui/gui.h \
-    gui/cell.h
+    gui/cell.h \
+    generator/generator.h
 FORMS += gui/gui.ui
 SOURCES += gui/gui.cpp \
     gui/main.cpp \
-    gui/cell.cpp
+    gui/cell.cpp \
+    generator/generator.cpp

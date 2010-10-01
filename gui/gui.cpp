@@ -1,5 +1,6 @@
 #include "gui.h"
 #include "ui_gui.h"
+#include "generator/generator.h"
 
 Gui::Gui(QWidget *parent) :
 	QMainWindow(parent),
@@ -7,12 +8,17 @@ Gui::Gui(QWidget *parent) :
 {
 	ui->setupUi(this);
 	maze = new QGridLayout(centralWidget());
+	gen = new Generator();
+	connect(this, SIGNAL(generate(int,int)), gen, SLOT(generate(int,int)));
+	connect(gen, SIGNAL(generationDone(int,int,Cell::Type*)), this, SLOT(generationDone(int,int,Cell::Type*)));
+	emit generate(5,5);
 }
 
 Gui::~Gui()
 {
 	delete ui;
 	delete maze;
+	delete gen;
 }
 
 inline void Gui::setCell(int y, int x, Cell::Type type)
@@ -24,17 +30,13 @@ void Gui::setMaze(int height, int width, Cell::Type *mazeArr)
 {
 	QString name;
 	for(int y = 0; y < height; ++y)
-	{
 		for(int x = 0; x < width; ++x)
-		{
-			/*if(mazeArr[y*height+x] == Cell::WALL)
-				name = "Wall";
-			else
-				name = "Nothing";
-			maze->addWidget(new QLabel(name),y,x);*/
 			setCell(y,x,mazeArr[y*height+x]);
-		}
-	}
+}
+
+void Gui::generationDone(int height, int width, Cell::Type *maze)
+{
+	setMaze(height, width, maze);
 }
 
 void Gui::changeEvent(QEvent *e)

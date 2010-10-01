@@ -4,7 +4,9 @@
 #include <QMainWindow>
 #include <QGridLayout>
 #include <QLabel>
+
 #include "cell.h"
+#include "generator/generator.h"
 
 namespace Ui {
 	class Gui;
@@ -21,9 +23,16 @@ public:
 protected:
 	void changeEvent(QEvent *e);
 
+signals:
+	void generate(int height, int width); // Temp function
+
+public slots:
+	void generationDone(int height, int width, Cell::Type *maze);
+
 private:
 	Ui::Gui *ui;
 	QGridLayout *maze;
+	Generator *gen;
 };
 
 #endif // MAINWINDOW_H
