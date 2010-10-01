@@ -58,6 +58,7 @@
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
    <value key="QtVersionId" type="int">4</value>
    <value key="ToolChain" type="int">0</value>
+   <value key="addQDumper" type=""></value>
    <value key="buildConfiguration" type="int">0</value>
   </valuemap>
  </data>
@@ -66,19 +67,19 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-9seY8rdmpR,guid=ad7a6c79034d1f67db363e364ca4b7cd</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-69iw2qnavL,guid=600398fd1cea921ea39fa4034ca57490</value>
     <value type="QString">DISPLAY=:10.0</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-1G51lS</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-QNkhWb</value>
     <value type="QString">HOME=/home/sean</value>
     <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator:</value>
     <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-sean</value>
     <value type="QString">PATH=/usr/bin:/bin:/usr/bin:/usr/X11R6/bin:/usr/local/bin</value>
     <value type="QString">PWD=/home/sean</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
-    <value type="QString">SESSION_MANAGER=local/palpatine:@/tmp/.ICE-unix/1956,unix/palpatine:/tmp/.ICE-unix/1956</value>
+    <value type="QString">SESSION_MANAGER=local/palpatine:@/tmp/.ICE-unix/3892,unix/palpatine:/tmp/.ICE-unix/3892</value>
     <value type="QString">SHELL=/bin/bash</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-1G51lS/ssh</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-QNkhWb/ssh</value>
     <value type="QString">UID=1000</value>
     <value type="QString">USER=sean</value>
    </valuelist>
@@ -98,19 +99,19 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-9seY8rdmpR,guid=ad7a6c79034d1f67db363e364ca4b7cd</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-69iw2qnavL,guid=600398fd1cea921ea39fa4034ca57490</value>
     <value type="QString">DISPLAY=:10.0</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-1G51lS</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-QNkhWb</value>
     <value type="QString">HOME=/home/sean</value>
     <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator:</value>
     <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-sean</value>
     <value type="QString">PATH=/usr/bin:/bin:/usr/bin:/usr/X11R6/bin:/usr/local/bin</value>
     <value type="QString">PWD=/home/sean</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
-    <value type="QString">SESSION_MANAGER=local/palpatine:@/tmp/.ICE-unix/1956,unix/palpatine:/tmp/.ICE-unix/1956</value>
+    <value type="QString">SESSION_MANAGER=local/palpatine:@/tmp/.ICE-unix/3892,unix/palpatine:/tmp/.ICE-unix/3892</value>
     <value type="QString">SHELL=/bin/bash</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-1G51lS/ssh</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-QNkhWb/ssh</value>
     <value type="QString">UID=1000</value>
     <value type="QString">USER=sean</value>
    </valuelist>
