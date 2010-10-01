@@ -12,20 +12,27 @@ Gui::Gui(QWidget *parent) :
 Gui::~Gui()
 {
 	delete ui;
+	delete maze;
 }
 
-void Gui::setMaze(int height, int width, CellType *mazeArr)
+inline void Gui::setCell(int y, int x, Cell::Type type)
+{
+	maze->addWidget(new Cell(0,type),y,x);
+}
+
+void Gui::setMaze(int height, int width, Cell::Type *mazeArr)
 {
 	QString name;
 	for(int y = 0; y < height; ++y)
 	{
 		for(int x = 0; x < width; ++x)
 		{
-			if(mazeArr[y*height+x] == WALL)
+			/*if(mazeArr[y*height+x] == Cell::WALL)
 				name = "Wall";
 			else
 				name = "Nothing";
-			maze->addWidget(new QLabel(name),y,x);
+			maze->addWidget(new QLabel(name),y,x);*/
+			setCell(y,x,mazeArr[y*height+x]);
 		}
 	}
 }

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QGridLayout>
 #include <QLabel>
+#include "cell.h"
 
 namespace Ui {
 	class Gui;
@@ -14,15 +15,8 @@ class Gui : public QMainWindow {
 public:
 	Gui(QWidget *parent = 0);
 	~Gui();
-	enum CellType
-	{
-		NOTHING,
-		WALL,
-		MOUSE,
-		START,
-		END
-	};
-	void setMaze(int height, int width, CellType *mazeArr);
+	inline void setCell(int y, int x, Cell::Type type);
+	void setMaze(int height, int width, Cell::Type *mazeArr);
 
 protected:
 	void changeEvent(QEvent *e);
