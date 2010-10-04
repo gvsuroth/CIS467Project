@@ -1,0 +1,15 @@
+Functions needed to interface with gui.
+
+struct Maze {
+    int height;
+    int width;
+    int *mazeArr;
+}
+
+void setMaze(struct Maze *maze)
+struct Maze *getMaze()
+
+
+void displayCurrentLocation(int x, int y)
+
+void displayPath(int *xs, int *ys)
