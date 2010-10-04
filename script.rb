@@ -1,3 +1,3 @@
 require "ReadMaze"
 require "SolveMaze"
-SolveMaze.right_hand(ReadMaze.fetch("maze1.dat"))
+SolveMaze.fill_dead_ends(ReadMaze.fetch("maze1.dat"))

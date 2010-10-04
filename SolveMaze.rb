@@ -20,6 +20,7 @@ class SolveMaze
       cur_loc = location_to_direction(maze, cur_loc, next_direction)
       direction = next_direction
     end
+    print_maze(maze, cur_loc)
   end
 
   def self.location_to_direction(maze, loc, dir)
@@ -45,7 +46,35 @@ class SolveMaze
     end
   end
 
-  def self.print_maze(maze, cur_loc)
+  def self.fill_dead_ends(maze)
+    dead_ends = find_dead_ends(maze)
+    p dead_ends
+    while !dead_ends.empty?
+      print_maze(maze)
+      dead_ends.each { |de| maze[de[0]][de[1]] = false }
+      dead_ends = []
+    end
+    print_maze(maze)
+  end
+
+  def self.find_dead_ends(maze)
+    dead_ends = Array.new
+    for row in (0..maze.size-1)
+      for column in (0..maze[1].size-1)
+        if maze[row][column]
+          paths = 4
+          paths -= 1 if row - 1 < 0 || !maze[row-1][column]
+          paths -= 1 if column - 1 < 0 || !maze[row][column-1]
+          paths -= 1 if row + 1 >= maze.size || !maze[row+1][column]
+          paths -= 1 if column - 1 >= maze[0].size || !maze[row][column+1]
+          dead_ends << [row, column] if paths == 1
+        end
+      end
+    end
+    dead_ends
+  end
+
+  def self.print_maze(maze, cur_loc = [-1, -1])
     puts "===================="
     for row in (0..maze.size-1)
       for column in (0..maze[1].size-1)
