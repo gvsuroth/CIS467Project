@@ -1,10 +1,15 @@
 #ifndef CELL_H
 #define CELL_H
 
-#include <QLabel>
-#include <QPixmap>
+#include <QGraphicsWidget>
+#include <QGraphicsSvgItem>
+//#include <QSizeF>
 
-class Cell : public QLabel
+#include <QDebug>
+
+#define IMG_PATH "gui/img/"
+
+class Cell : public QGraphicsWidget
 {
 public:
 	enum Type
@@ -13,7 +18,10 @@ public:
 		WALL,
 		SPRITE
 	};
-	Cell(QWidget *parent = 0, Type type = SPRITE);
+	Cell(QGraphicsItem *parent = 0, Type type = PATH);
+protected:
+	//QSizeF sizeHint(Qt::SizeHint which, const QSizeF& constraint = QSizeF()) const;
+	QGraphicsSvgItem *img;
 };
 
 #endif // CELL_H

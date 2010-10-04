@@ -1,8 +1,9 @@
 #include "cell.h"
 
-Cell::Cell(QWidget *parent, Type type)
-	: QLabel(parent)
+Cell::Cell(QGraphicsItem *parent, Type type)
+	: QGraphicsWidget(parent)
 {
+	img = 0; // If I don't set the pointer to null, sizeHint will fail
 	QString imgName;
 	switch(type)
 	{
@@ -13,9 +14,18 @@ Cell::Cell(QWidget *parent, Type type)
 		imgName = "sprite";
 		break;
 	case PATH:
-	default:
-		imgName = "path";
 		break;
 	}
-	setPixmap(QPixmap("gui/img/"+imgName+".png"));
+	setPreferredSize(70, 70);
+	setSizePolicy(QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed));
+	if(!imgName.isNull())
+	{
+		img = new QGraphicsSvgItem(IMG_PATH+imgName+".svg", this);
+		img->scale(preferredWidth() / img->boundingRect().width(), preferredHeight() / img->boundingRect().height());
+	}
 }
+
+/*QSizeF Cell::sizeHint(Qt::SizeHint which, const QSizeF &constraint) const
+{
+	return img ? QSizeF(img->boundingRect().size()) : QSizeF();
+}*/
