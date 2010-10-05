@@ -24,6 +24,6 @@ int main(int argc, char *argv[])
 	}
 	gui.setMaze(height, width, (Cell::Type*)mazeArr);*/
 
-	gui.show();
+	gui.showMaximized();
 	return a.exec();
 }

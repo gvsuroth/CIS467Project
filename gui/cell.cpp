@@ -3,7 +3,6 @@
 Cell::Cell(QGraphicsItem *parent, Type type)
 	: QGraphicsWidget(parent)
 {
-	img = 0; // If I don't set the pointer to null, sizeHint will fail
 	QString imgName;
 	switch(type)
 	{
@@ -17,7 +16,8 @@ Cell::Cell(QGraphicsItem *parent, Type type)
 		break;
 	}
 	setPreferredSize(70, 70);
-	setSizePolicy(QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed));
+	//setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
+	updateGeometry();
 	if(!imgName.isNull())
 	{
 		img = new QGraphicsSvgItem(IMG_PATH+imgName+".svg", this);
@@ -25,7 +25,18 @@ Cell::Cell(QGraphicsItem *parent, Type type)
 	}
 }
 
-/*QSizeF Cell::sizeHint(Qt::SizeHint which, const QSizeF &constraint) const
+Cell::~Cell()
 {
-	return img ? QSizeF(img->boundingRect().size()) : QSizeF();
-}*/
+	delete img;
+}
+
+void Cell::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+	QPoint topLeft(0,0), bottomLeft(0,boundingRect().height()), bottomRight(boundingRect().width(),boundingRect().height()), topRight(boundingRect().width(),0);
+	//qDebug() << painter->background();
+	//painter->setBackground(QBrush(QColor(55, 55, 55), Qt::SolidPattern));
+	painter->drawLine(topLeft, bottomLeft);
+	painter->drawLine(bottomLeft, bottomRight);
+	painter->drawLine(bottomRight, topRight);
+	painter->drawLine(topRight, topLeft);
+}

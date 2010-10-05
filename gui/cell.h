@@ -3,7 +3,7 @@
 
 #include <QGraphicsWidget>
 #include <QGraphicsSvgItem>
-//#include <QSizeF>
+#include <QPainter>
 
 #include <QDebug>
 
@@ -18,10 +18,11 @@ public:
 		WALL,
 		SPRITE
 	};
-	Cell(QGraphicsItem *parent = 0, Type type = PATH);
+	Cell(QGraphicsItem * = 0, Type = PATH);
+	~Cell();
 protected:
-	//QSizeF sizeHint(Qt::SizeHint which, const QSizeF& constraint = QSizeF()) const;
 	QGraphicsSvgItem *img;
+	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 };
 
 #endif // CELL_H

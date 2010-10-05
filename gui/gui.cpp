@@ -16,7 +16,11 @@ Gui::Gui(QWidget *parent) :
 	mazeContainer = new QGraphicsWidget;
 	mazeGrid = new QGraphicsGridLayout;
 
+	//mazeContainer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+	//mazeGrid->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+	//mazeGrid->setContentsMargins(0, 0, 0, 0);
 	mazeContainer->setLayout(mazeGrid);
+	scene->setBackgroundBrush(QBrush(QColor("lightgreen"), Qt::SolidPattern)); // Set background color
 	scene->addItem(mazeContainer);
 	gridLayout->addWidget(view);
 
@@ -39,11 +43,7 @@ Gui::~Gui()
 
 inline void Gui::setCell(int y, int x, Cell::Type type)
 {
-	//mazeGrid->addWidget(new Cell(0,type),y,x);
 	mazeGrid->addItem(new Cell(0, type), y, x);
-	//QGraphicsWidget *widget = new QGraphicsWidget;
-	//QGraphicsSvgItem *svg = new QGraphicsSvgItem("gui/img/sprite.svg", widget);
-	//mazeGrid->addItem(widget, y, x);
 }
 
 void Gui::setMaze(int height, int width, Cell::Type **mazeArr)

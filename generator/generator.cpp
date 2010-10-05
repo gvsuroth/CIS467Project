@@ -19,6 +19,14 @@ void Generator::generate(const int height, const int width)
 			maze[dir ? y : height-y-1][x] = Cell::WALL;
 		dir=!dir;
 	}
+	/*for(int y = 0; y < height; ++y)
+	{
+		for(int x = 0; x < width; ++x)
+		{
+			if(y == 2)
+				maze[y][x] = Cell::WALL;
+		}
+	}*/
 	maze[0][0] = Cell::SPRITE;
 	maze[height-1][width-1] = Cell::PATH;
 	// END MAZE GENERATION CODE
