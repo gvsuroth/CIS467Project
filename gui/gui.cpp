@@ -20,14 +20,14 @@ Gui::Gui(QWidget *parent) :
 	//mazeGrid->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 	//mazeGrid->setContentsMargins(0, 0, 0, 0);
 	mazeContainer->setLayout(mazeGrid);
-	scene->setBackgroundBrush(QBrush(QColor("lightgreen"), Qt::SolidPattern)); // Set background color
+	scene->setBackgroundBrush(QBrush(QColor("chocolate"), Qt::SolidPattern)); // Set background color
 	scene->addItem(mazeContainer);
 	gridLayout->addWidget(view);
 
 	gen = new Generator();
 	connect(this, SIGNAL(generate(int,int)), gen, SLOT(generate(int,int)));
 	connect(gen, SIGNAL(generationDone(int,int,Cell::Type**)), this, SLOT(setMaze(int,int,Cell::Type**)));
-	emit generate(8,8);
+	emit generate(20,20);
 }
 
 Gui::~Gui()

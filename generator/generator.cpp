@@ -12,6 +12,7 @@ void Generator::generate(const int height, const int width)
 		maze[y] = new Cell::Type[width];
 
 	// BEGIN MAZE GENERATION CODE
+	// Back and forth
 	bool dir = true;
 	for(int x = 1; x < width; x+=2)
 	{
