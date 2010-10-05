@@ -8,6 +8,7 @@ int main() {
 	if (ioperm(port, 1, 1))
 		printf("Could not connect to the port.\n"), exit(1);
 
+	// 255 sets all ports to high
 	outb(255, port);
 	sleep(2);
 	return 0;
