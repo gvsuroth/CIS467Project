@@ -5,6 +5,7 @@
 
 int x,y;
 void init(int rows, int cols, Cell * cells[rows][cols]);
+void translate(int rows, int cols, Cell * cells[rows][cols]);
 
 int main(int argc, char *argv[]) {
 	if (argc != 3) {
@@ -18,6 +19,7 @@ int main(int argc, char *argv[]) {
 	init(x,y,cells);
 	srand(time(NULL));
 
+	printf("RAW: \n");
 	int i,j;
 	for(i=0;i<x;i++) {
 		for(j=0;j<y;j++) {
@@ -25,6 +27,8 @@ int main(int argc, char *argv[]) {
 		}
 		printf("\n");
 	}
+	printf("TRANSLATED: \n");
+	translate(x,y,cells);
 	return 0;
 }
 
@@ -67,4 +71,33 @@ void init(int rows, int cols, Cell * cells[rows][cols]) {
 	if(h<x-1) {
 		cells[v][h+1]->state=2;
 	}
+}
+
+void translate(int rows, int cols, Cell * cells[rows][cols]) {
+	Cell * c = (Cell *)malloc(sizeof(Cell));
+	int i,j;
+	for(i=0;i<y;i++) {
+		for(j=0;j<x;j++) {
+			c = cells[i][j];
+			printf(" 0 %d",c->northWall);
+			c = NULL;
+		}
+		printf(" 0\n");
+		for(j=0;j<x;j++) {
+			c = cells[i][j];
+			if(j==0) {
+				printf(" %d %d %d",c->eastWall,c->state,c->westWall);
+			} else {
+				printf(" %d %d",c->state,c->westWall);
+			}
+			c = NULL;
+		}
+		printf("\n");
+	}
+	for(j=0;j<x-1;j++) {
+		c = cells[y-1][j];
+		printf(" 0 %d",c->southWall);
+		c = NULL;
+	}
+	printf(" 0\n");
 }
