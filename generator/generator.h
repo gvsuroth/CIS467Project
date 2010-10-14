@@ -3,20 +3,22 @@
 
 #include <QObject>
 
-#include "gui/cell.h"
+#include "models/maze.h"
 
 class Generator : public QObject
 {
 Q_OBJECT
 public:
-	explicit Generator(QObject *parent = 0);
+	explicit Generator(Maze *maze, QObject *parent = 0);
+	void prims();
 
 signals:
-	void generationDone(int height, int width, Cell::Type **maze);
+	//void generationDone(int height, int width, Maze::CellType **maze);
 
 public slots:
-	void generate(int height, int width);
 
+private:
+	Maze *maze;
 };
 
 #endif // GENERATOR_H

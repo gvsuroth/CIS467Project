@@ -13,7 +13,7 @@
 
 #include <QDebug>
 
-#include "cell.h"
+#include "models/maze.h"
 #include "generator/generator.h"
 
 namespace Ui {
@@ -25,7 +25,6 @@ class Gui : public QMainWindow {
 public:
 	Gui(QWidget *parent = 0);
 	~Gui();
-	inline void setCell(int y, int x, Cell::Type type);
 
 protected:
 	void changeEvent(QEvent *e);
@@ -35,13 +34,14 @@ protected:
 	QGraphicsView *view;
 	QGraphicsWidget *mazeContainer;
 	QGraphicsGridLayout *mazeGrid;
+	Maze *maze;
 	Generator *gen;
 
 signals:
 	void generate(int height, int width); // Temp function
 
 public slots:
-	void setMaze(int height, int width, Cell::Type **mazeArr);
+	void setCell(unsigned y, unsigned x, Maze::CellType type);
 };
 
 #endif // MAINWINDOW_H

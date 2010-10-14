@@ -1,18 +1,18 @@
 #include "cell.h"
 
-Cell::Cell(QGraphicsItem *parent, Type type)
+Cell::Cell(QGraphicsItem *parent, Maze::CellType type)
 	: QGraphicsWidget(parent)
 {
 	QString imgName;
 	switch(type)
 	{
-	case WALL:
+	case Maze::WALL:
 		imgName = "wall";
 		break;
-	case SPRITE:
+	case Maze::SPRITE:
 		imgName = "sprite";
 		break;
-	case PATH:
+	case Maze::PATH:
 		break;
 	}
 	setPreferredSize(70, 70);

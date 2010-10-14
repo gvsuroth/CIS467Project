@@ -1,12 +1,12 @@
 #include "gui.h"
 #include "ui_gui.h"
-#include "generator/generator.h"
 #include "cell.h"
 
 Gui::Gui(QWidget *parent) :
 	QMainWindow(parent),
 	ui(new Ui::Gui)
 {
+	// Setup gui
 	ui->setupUi(this);
 	showMaximized(); // Default to maximized
 
@@ -24,10 +24,12 @@ Gui::Gui(QWidget *parent) :
 	scene->addItem(mazeContainer);
 	gridLayout->addWidget(view);
 
-	gen = new Generator();
-	connect(this, SIGNAL(generate(int,int)), gen, SLOT(generate(int,int)));
-	connect(gen, SIGNAL(generationDone(int,int,Cell::Type**)), this, SLOT(setMaze(int,int,Cell::Type**)));
-	emit generate(20,20);
+	// Generator / maze setup
+	maze = new Maze();
+	connect(maze, SIGNAL(cellChanged(uint,uint,Maze::CellType)), this, SLOT(setCell(uint,uint,Maze::CellType)));
+	maze->setDimensions(10, 10);
+	gen = new Generator(maze);
+	gen->prims();
 }
 
 Gui::~Gui()
@@ -38,20 +40,17 @@ Gui::~Gui()
 	delete view;
 	delete mazeContainer;
 	delete mazeGrid;
+	delete maze;
 	delete gen;
 }
 
-inline void Gui::setCell(int y, int x, Cell::Type type)
+void Gui::setCell(unsigned y, unsigned x, Maze::CellType type)
 {
+	/*QGraphicsLayoutItem *item = mazeGrid->itemAt(y, x);
+	if(item)
+		item = new Cell(0, type);
+	else*/
 	mazeGrid->addItem(new Cell(0, type), y, x);
-}
-
-void Gui::setMaze(int height, int width, Cell::Type **mazeArr)
-{
-	QString name;
-	for(int y = 0; y < height; ++y)
-		for(int x = 0; x < width; ++x)
-			setCell(y, x, mazeArr[y][x]);
 }
 
 void Gui::changeEvent(QEvent *e)

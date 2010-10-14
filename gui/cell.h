@@ -7,18 +7,14 @@
 
 #include <QDebug>
 
+#include "models/maze.h"
+
 #define IMG_PATH "gui/img/"
 
 class Cell : public QGraphicsWidget
 {
 public:
-	enum Type
-	{
-		PATH,
-		WALL,
-		SPRITE
-	};
-	Cell(QGraphicsItem * = 0, Type = PATH);
+	Cell(QGraphicsItem * = 0, Maze::CellType = Maze::PATH);
 	~Cell();
 protected:
 	QGraphicsSvgItem *img;

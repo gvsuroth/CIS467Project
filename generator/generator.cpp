@@ -1,15 +1,32 @@
 #include "generator.h"
 
-Generator::Generator(QObject *parent) :
+Generator::Generator(Maze* maze, QObject *parent) :
 	QObject(parent)
 {
+	this->maze = maze;
 }
 
-void Generator::generate(const int height, const int width)
+void Generator::prims()
 {
-	Cell::Type **maze = new Cell::Type*[height];
+	// Disclaimer: THIS IS NOT PRIM'S, IT'S JUST A TEST
+	// Back and forth
+	bool dir = true;
+	unsigned width = maze->width(), height = maze->height();
+	for(unsigned x = 1; x < width; x+=2)
+	{
+		for(unsigned y = 0; y < height - 1; ++y)
+			maze->setCell(dir ? y : height-y-1, x, Maze::WALL);
+		dir=!dir;
+	}
+	maze->setCell(0, 0, Maze::SPRITE);
+	maze->setCell(height - 1, width - 1, Maze::PATH);
+}
+
+//void Generator::generate(const int height, const int width)
+//{
+	/*Maze::CellType **maze = new Maze::CellType*[height];
 	for(int y = 0; y < height; ++y)
-		maze[y] = new Cell::Type[width];
+		maze[y] = new Maze::CellType[width];
 
 	// BEGIN MAZE GENERATION CODE
 	// Back and forth
@@ -17,9 +34,9 @@ void Generator::generate(const int height, const int width)
 	for(int x = 1; x < width; x+=2)
 	{
 		for(int y = 0; y < height - 1; ++y)
-			maze[dir ? y : height-y-1][x] = Cell::WALL;
+			maze[dir ? y : height-y-1][x] = Maze::WALL;
 		dir=!dir;
-	}
+	}*/
 	/*for(int y = 0; y < height; ++y)
 	{
 		for(int x = 0; x < width; ++x)
@@ -28,8 +45,8 @@ void Generator::generate(const int height, const int width)
 				maze[y][x] = Cell::WALL;
 		}
 	}*/
-	maze[0][0] = Cell::SPRITE;
-	maze[height-1][width-1] = Cell::PATH;
+	/*maze[0][0] = Maze::SPRITE;
+	maze[height-1][width-1] = Maze::PATH;*/
 	/*for(int y = 0; y < height; ++y)
 		for(int x = 0; x < width; ++x)
 			maze[y][x] = Cell::PATH;*/
@@ -135,5 +152,5 @@ void Generator::generate(const int height, const int width)
 	maze[9][9]=Cell::WALL;*/
 	// END MAZE GENERATION CODE
 
-	emit generationDone(height, width, maze);
-}
+	//emit generationDone(height, width, maze);
+//}

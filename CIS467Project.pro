@@ -13,9 +13,11 @@ INCLUDEPATH += . \
 HEADERS += ui_mainwindow.h \
     gui/gui.h \
     gui/cell.h \
-    generator/generator.h
+    generator/generator.h \
+    models/maze.h
 FORMS += gui/gui.ui
 SOURCES += gui/gui.cpp \
     gui/main.cpp \
     gui/cell.cpp \
-    generator/generator.cpp
+    generator/generator.cpp \
+    models/maze.cpp
