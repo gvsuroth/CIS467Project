@@ -20,17 +20,18 @@ public:
 	void setDimensions(unsigned width, unsigned height);
 	unsigned width();
 	unsigned height();
-	CellType operator()(unsigned r, unsigned c) const;
-	CellType getCell(unsigned r, unsigned c) const;
-	void setCell(unsigned r, unsigned c, CellType type);
-private:
+	CellType operator()(unsigned row, unsigned column) const;
+	CellType getCell(unsigned row, unsigned column) const;
+	void setCell(unsigned row, unsigned column, CellType type);
+protected:
 	unsigned _height;
 	unsigned _width;
 	CellType **data;
+	bool validCoord(unsigned row, unsigned column) const;
 signals:
-	void cellChanged(unsigned r, unsigned c, Maze::CellType type);
+	void dimensionsSet(unsigned width, unsigned height);
+	void cellChanged(unsigned row, unsigned column, Maze::CellType type);
 public slots:
-
 };
 
 #endif // MAZE_H

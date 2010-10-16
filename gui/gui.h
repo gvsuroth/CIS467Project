@@ -41,6 +41,7 @@ signals:
 	void generate(int height, int width); // Temp function
 
 public slots:
+	void setDimensions(unsigned width, unsigned height);
 	void setCell(unsigned y, unsigned x, Maze::CellType type);
 };
 

@@ -3,6 +3,20 @@
 Cell::Cell(QGraphicsItem *parent, Maze::CellType type)
 	: QGraphicsWidget(parent)
 {
+	setPreferredSize(70, 70);
+	setCellType(type);
+	//setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
+	//updateGeometry();
+}
+
+Cell::~Cell()
+{
+	delete img;
+}
+
+void Cell::setCellType(Maze::CellType type)
+{
+	_type = type;
 	QString imgName;
 	switch(type)
 	{
@@ -15,9 +29,6 @@ Cell::Cell(QGraphicsItem *parent, Maze::CellType type)
 	case Maze::PATH:
 		break;
 	}
-	setPreferredSize(70, 70);
-	//setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
-	updateGeometry();
 	if(!imgName.isNull())
 	{
 		img = new QGraphicsSvgItem(IMG_PATH+imgName+".svg", this);
@@ -25,9 +36,9 @@ Cell::Cell(QGraphicsItem *parent, Maze::CellType type)
 	}
 }
 
-Cell::~Cell()
+Maze::CellType Cell::cellType() const
 {
-	delete img;
+	return _type;
 }
 
 void Cell::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)

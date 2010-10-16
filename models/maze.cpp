@@ -15,6 +15,7 @@ Maze::~Maze()
 
 void Maze::setDimensions(unsigned width, unsigned height)
 {
+	emit dimensionsSet(width, height);
 	_width = width;
 	_height = height;
 	data = new CellType*[height];
@@ -37,22 +38,27 @@ unsigned Maze::height()
 	return _height;
 }
 
-Maze::CellType Maze::operator()(unsigned r, unsigned c) const
+bool Maze::validCoord(unsigned row, unsigned column) const
 {
-	if(r > 0 && r < _height && c > 0 && c < _width)
-		return data[r][c];
+	return row >= 0 && row < _height && column >= 0 && column < _width;
 }
 
-Maze::CellType Maze::getCell(unsigned r, unsigned c) const
+Maze::CellType Maze::operator()(unsigned row, unsigned column) const
 {
-	return operator()(r, c);
+	if(validCoord(row, column))
+		return data[row][column];
 }
 
-void Maze::setCell(unsigned r, unsigned c, Maze::CellType type)
+Maze::CellType Maze::getCell(unsigned row, unsigned column) const
 {
-	if(type != data[r][c] && r > 0 && r < _height && c > 0 && c < _width) // the new CellType must be different from the current CellType
+	return operator()(row, column);
+}
+
+void Maze::setCell(unsigned row, unsigned column, Maze::CellType type)
+{
+	if(type != data[row][column] && validCoord(row, column)) // the new CellType must be different from the current CellType
 	{
-		data[r][c] = type;
-		emit cellChanged(r, c, type);
+		data[row][column] = type;
+		emit cellChanged(row, column, type);
 	}
 }

@@ -14,9 +14,12 @@
 class Cell : public QGraphicsWidget
 {
 public:
-	Cell(QGraphicsItem * = 0, Maze::CellType = Maze::PATH);
+	Cell(QGraphicsItem *parent = 0, Maze::CellType type = Maze::PATH);
 	~Cell();
+	void setCellType(Maze::CellType type);
+	Maze::CellType cellType() const;
 protected:
+	Maze::CellType _type;
 	QGraphicsSvgItem *img;
 	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 };

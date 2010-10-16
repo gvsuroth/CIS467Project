@@ -27,9 +27,11 @@ Gui::Gui(QWidget *parent) :
 	// Generator / maze setup
 	maze = new Maze();
 	connect(maze, SIGNAL(cellChanged(uint,uint,Maze::CellType)), this, SLOT(setCell(uint,uint,Maze::CellType)));
+	connect(maze, SIGNAL(dimensionsSet(uint,uint)), this, SLOT(setDimensions(uint,uint)));
 	maze->setDimensions(10, 10);
 	gen = new Generator(maze);
 	gen->prims();
+	//gen->lukes();
 }
 
 Gui::~Gui()
@@ -44,13 +46,21 @@ Gui::~Gui()
 	delete gen;
 }
 
-void Gui::setCell(unsigned y, unsigned x, Maze::CellType type)
+void Gui::setDimensions(unsigned width, unsigned height)
+{
+	for(unsigned r = 0; r < height; ++r)
+		for(unsigned c = 0; c < width; ++c)
+			mazeGrid->addItem(new Cell(), r, c);
+}
+
+void Gui::setCell(unsigned row, unsigned column, Maze::CellType type)
 {
 	/*QGraphicsLayoutItem *item = mazeGrid->itemAt(y, x);
 	if(item)
 		item = new Cell(0, type);
 	else*/
-	mazeGrid->addItem(new Cell(0, type), y, x);
+	//mazeGrid->addItem(new Cell(0, type), y, x);
+	((Cell*)mazeGrid->itemAt(row, column))->setCellType(type);
 }
 
 void Gui::changeEvent(QEvent *e)
