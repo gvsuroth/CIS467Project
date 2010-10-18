@@ -5,13 +5,7 @@ Cell::Cell(QGraphicsItem *parent, Maze::CellType type)
 {
 	img = 0;
 	setGraphicsItem(this);
-	//setPreferredSize(70, 70);
 	setCellType(type);
-	//setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
-	//QGraphicsLayoutItem::setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-	//setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-	updateGeometry();
-	//qDebug() << geometry().size() << boundingRect();
 }
 
 Cell::~Cell()
@@ -36,7 +30,6 @@ void Cell::setCellType(Maze::CellType type)
 		return;
 	}
 	img = new QGraphicsSvgItem(IMG_PATH+imgName+".svg", this);
-		//img->scale(preferredWidth() / img->boundingRect().width(), preferredHeight() / img->boundingRect().height());
 }
 
 Maze::CellType Cell::cellType() const
@@ -55,13 +48,6 @@ void Cell::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 	Q_UNUSED(option);
 
 	painter->drawRect(boundingRect()); // Add a frame to the cell
-	//img->scale(geometry().width() / img->boundingRect().width(), geometry().height() / img->boundingRect().height());
-	/*if(img)
-	{
-		qreal scaleX = geometry().width() / img->boundingRect().width();
-		qreal scaleY = geometry().height() / img->boundingRect().height();
-		img->setScale(scaleX > scaleY ? scaleY : scaleX);
-	}*/
 }
 
 QSizeF Cell::sizeHint(Qt::SizeHint which, const QSizeF &constraint) const
@@ -82,7 +68,6 @@ QSizeF Cell::sizeHint(Qt::SizeHint which, const QSizeF &constraint) const
 
 void Cell::setGeometry(const QRectF &rect)
 {
-	//qDebug() << "setGeom" << rect;
 	prepareGeometryChange();
 	QGraphicsLayoutItem::setGeometry(rect);
 	setPos(rect.topLeft());
@@ -92,7 +77,5 @@ void Cell::setGeometry(const QRectF &rect)
 		qreal scaleX = rect.width() / img->boundingRect().width();
 		qreal scaleY = rect.height() / img->boundingRect().height();
 		img->setScale(scaleX > scaleY ? scaleY : scaleX);
-		//qDebug() << scaleX << scaleY;
-		//qDebug() << rect.width();
 	}
 }

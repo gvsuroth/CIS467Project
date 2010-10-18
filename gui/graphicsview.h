@@ -14,11 +14,11 @@ public:
 signals:
 
 public slots:
-
+	void zoomIn();
+	void zoomOut();
+	void zoomReset();
 protected:
 	void resizeEvent(QResizeEvent *event);
-	//void keyPressEvent(QKeyEvent *event);
-	//void keyReleaseEvent(QKeyEvent *event);
 	void wheelEvent(QWheelEvent *event);
 };
 

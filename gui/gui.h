@@ -2,15 +2,11 @@
 #define GUI_H
 
 #include <QMainWindow>
-#include <QGridLayout>
-#include <QLabel>
-#include <QGraphicsScene>
-#include <QGraphicsView>
-//#include <QGLWidget>
-#include <QSizePolicy>
-#include <QGraphicsGridLayout>
 #include <QGraphicsWidget>
-#include <QGraphicsSvgItem>
+#include <QGraphicsScene>
+#include <QGraphicsGridLayout>
+#include <QGLWidget>
+#include <QSizePolicy>
 
 #include <QDebug>
 
@@ -31,7 +27,6 @@ public:
 protected:
 	void changeEvent(QEvent *e);
 	Ui::Gui *ui;
-	//QGridLayout *gridLayout;
 	QGraphicsScene *scene;
 	GraphicsView *view;
 	QGraphicsWidget *mazeContainer;
@@ -40,7 +35,7 @@ protected:
 	Generator *gen;
 
 signals:
-	void generate(int height, int width); // Temp function
+	void generate(int height, int width);
 
 public slots:
 	void setDimensions(unsigned width, unsigned height);

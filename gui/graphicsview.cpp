@@ -7,21 +7,36 @@ GraphicsView::GraphicsView(QGraphicsScene *scene, QWidget *parent) :
 	setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
 }
 
+void GraphicsView::zoomIn()
+{
+	scale(1.2, 1.2);
+}
+
+void GraphicsView::zoomOut()
+{
+	scale(1 / 1.2, 1 / 1.2);
+}
+
+void GraphicsView::zoomReset()
+{
+	fitInView(sceneRect(), Qt::KeepAspectRatio);
+}
+
 void GraphicsView::resizeEvent(QResizeEvent *event)
 {
+	Q_UNUSED(event);
+
 	fitInView(sceneRect(), Qt::KeepAspectRatio);
 }
 
 void GraphicsView::wheelEvent(QWheelEvent *event)
 {
-	if(event->orientation() == Qt::Vertical && (event->modifiers() & Qt::ControlModifier))
+	if(event->orientation() == Qt::Vertical && event->modifiers() & Qt::ControlModifier)
 	{
-		int numDegrees = event->delta() / 8;
-		int numSteps = numDegrees / 15;
-		scale(1 + .1 * numSteps, 1 + .1 * numSteps);
-		qDebug() << numSteps;
+		qreal factor = 1 / (1 + (qreal)event->delta() / 600); // 1 /*normalize*/ / (1 /*add 100%*/ + (qreal)event->delta() /*mouse wheel*/ / 8 /*now in degrees*/ / 15 /*now in "steps"*/ / 5 /*now in fifths of steps*/
+		scale(factor,factor);
 		event->accept();
 	}
 	else
-		event->ignore();
+		QGraphicsView::wheelEvent(event);
 }
