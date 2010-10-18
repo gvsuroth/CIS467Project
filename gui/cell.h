@@ -1,7 +1,8 @@
 #ifndef CELL_H
 #define CELL_H
 
-#include <QGraphicsWidget>
+#include <QGraphicsItem>
+#include <QGraphicsLayoutItem>
 #include <QGraphicsSvgItem>
 #include <QPainter>
 
@@ -11,17 +12,24 @@
 
 #define IMG_PATH "gui/img/"
 
-class Cell : public QGraphicsWidget
+class Cell : public QGraphicsLayoutItem, public QGraphicsItem
 {
 public:
 	Cell(QGraphicsItem *parent = 0, Maze::CellType type = Maze::PATH);
 	~Cell();
 	void setCellType(Maze::CellType type);
 	Maze::CellType cellType() const;
-protected:
+
+	// Inherited from QGraphicsLayoutItem
+	QSizeF sizeHint(Qt::SizeHint which, const QSizeF &constraint) const;
+	void setGeometry(const QRectF &rect);
+
+	// Inherited from QGraphicsItem
+	QRectF boundingRect() const;
+	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = 0);
+private:
 	Maze::CellType _type;
 	QGraphicsSvgItem *img;
-	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 };
 
 #endif // CELL_H

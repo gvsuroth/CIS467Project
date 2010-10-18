@@ -13,7 +13,8 @@ public:
 	{
 		PATH,
 		WALL,
-		SPRITE
+		SPRITE,
+		ERROR
 	};
 	explicit Maze(QObject *parent = 0);
 	~Maze();

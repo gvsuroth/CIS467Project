@@ -40,13 +40,14 @@ unsigned Maze::height()
 
 bool Maze::validCoord(unsigned row, unsigned column) const
 {
-	return row >= 0 && row < _height && column >= 0 && column < _width;
+	return row < _height && column < _width;
 }
 
 Maze::CellType Maze::operator()(unsigned row, unsigned column) const
 {
 	if(validCoord(row, column))
 		return data[row][column];
+	return Maze::ERROR;
 }
 
 Maze::CellType Maze::getCell(unsigned row, unsigned column) const

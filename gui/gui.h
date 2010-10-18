@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QGraphicsScene>
 #include <QGraphicsView>
+//#include <QGLWidget>
 #include <QSizePolicy>
 #include <QGraphicsGridLayout>
 #include <QGraphicsWidget>
@@ -15,6 +16,7 @@
 
 #include "models/maze.h"
 #include "generator/generator.h"
+#include "gui/graphicsview.h"
 
 namespace Ui {
 	class Gui;
@@ -29,9 +31,9 @@ public:
 protected:
 	void changeEvent(QEvent *e);
 	Ui::Gui *ui;
-	QGridLayout *gridLayout;
+	//QGridLayout *gridLayout;
 	QGraphicsScene *scene;
-	QGraphicsView *view;
+	GraphicsView *view;
 	QGraphicsWidget *mazeContainer;
 	QGraphicsGridLayout *mazeGrid;
 	Maze *maze;
