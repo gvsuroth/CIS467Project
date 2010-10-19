@@ -17,16 +17,16 @@ void GraphicsView::zoomOut()
 	scale(1 / 1.2, 1 / 1.2);
 }
 
-void GraphicsView::zoomAuto()
+void GraphicsView::zoomReset()
 {
 	fitInView(sceneRect(), Qt::KeepAspectRatio);
 	//qDebug() << "Zoom auto event";
 }
 
-void GraphicsView::zoomReset()
+/*void GraphicsView::zoomReset()
 {
 	resetTransform();
-}
+}*/
 
 /*void GraphicsView::resizeEvent(QResizeEvent *event)
 {
@@ -46,7 +46,7 @@ void GraphicsView::wheelEvent(QWheelEvent *event)
 {
 	if(event->orientation() == Qt::Vertical && event->modifiers() & Qt::ControlModifier)
 	{
-		qreal factor = 1 / (1 + (qreal)event->delta() / 600); // 1 /*normalize*/ / (1 /*add 100%*/ + (qreal)event->delta() /*mouse wheel*/ / 8 /*now in degrees*/ / 15 /*now in "steps"*/ / 5 /*now in fifths of steps*/
+		qreal factor = 1 / (1 - (qreal)event->delta() / 600); // 1 /*normalize*/ / (1 /*add 100%*/ + (qreal)event->delta() /*mouse wheel*/ / 8 /*now in degrees*/ / 15 /*now in "steps"*/ / 5 /*now in fifths of steps*/
 		scale(factor,factor);
 		event->accept();
 	}

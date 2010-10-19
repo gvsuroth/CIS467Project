@@ -25,11 +25,10 @@ Gui::Gui(QWidget *parent) :
 	// Setup view
 	view = new GraphicsView(scene);
 	//view->setViewport(new QGLWidget(QGLFormat(QGL::SampleBuffers))); // Enable OpenGL support
-	connect(scene, SIGNAL(sceneRectChanged(QRectF)), view, SLOT(zoomAuto())); // Auto-reset when scene size changes
+	connect(scene, SIGNAL(sceneRectChanged(QRectF)), view, SLOT(zoomReset())); // Auto-reset when scene size changes
 	connect(ui->action_Zoom_In, SIGNAL(activated()), view, SLOT(zoomIn()));
 	connect(ui->action_Zoom_Out, SIGNAL(activated()), view, SLOT(zoomOut()));
 	connect(ui->action_Reset, SIGNAL(activated()), view, SLOT(zoomReset()));
-	connect(ui->action_Fit, SIGNAL(activated()), view, SLOT(zoomAuto()));
 	connect(ui->action_New, SIGNAL(activated()), this, SLOT(showNewMazeDialog()));
 	setCentralWidget(view);
 

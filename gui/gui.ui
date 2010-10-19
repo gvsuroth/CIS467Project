@@ -36,7 +36,6 @@
     <addaction name="action_Zoom_In"/>
     <addaction name="action_Zoom_Out"/>
     <addaction name="action_Reset"/>
-    <addaction name="action_Fit"/>
    </widget>
    <widget class="QMenu" name="menuMaze">
     <property name="title">
@@ -90,11 +89,6 @@
   <action name="action_Prims">
    <property name="text">
     <string>&amp;Prims</string>
-   </property>
-  </action>
-  <action name="action_Fit">
-   <property name="text">
-    <string>&amp;Fit</string>
    </property>
   </action>
  </widget>

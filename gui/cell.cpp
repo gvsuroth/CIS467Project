@@ -11,26 +11,32 @@ Cell::Cell(QGraphicsItem *parent, Maze::CellType type)
 
 Cell::~Cell()
 {
-	delete img;
+	if(img)
+		delete img;
 }
+
+QSvgRenderer Cell::wallImage(QString(IMG_PATH"wall.svg"));
+QSvgRenderer Cell::spriteImage(QString(IMG_PATH"sprite.svg"));
 
 void Cell::setCellType(Maze::CellType type)
 {
 	_type = type;
-	QString imgName;
+	//QString imgName;
 	switch(type)
 	{
 	case Maze::WALL:
-		imgName = "wall";
+		img = new QGraphicsSvgItem(this);//imgName = "wall";
+		img->setSharedRenderer(&wallImage);
 		break;
 	case Maze::SPRITE:
-		imgName = "sprite";
+		img = new QGraphicsSvgItem(this);//imgName = "sprite";
+		img->setSharedRenderer(&spriteImage);
 		break;
 	case Maze::PATH:
 	default:
 		return;
 	}
-	img = new QGraphicsSvgItem(IMG_PATH+imgName+".svg", this);
+	//img = new QGraphicsSvgItem(IMG_PATH+imgName+".svg", this);
 	//img->scale(rect.width() / img->boundingRect().width(), rect.height() / img->boundingRect().height());
 	qreal scaleX = boundingRect().width() / img->boundingRect().width();
 	qreal scaleY = boundingRect().height() / img->boundingRect().height();

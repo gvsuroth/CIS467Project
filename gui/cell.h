@@ -4,6 +4,7 @@
 #include <QGraphicsItem>
 #include <QGraphicsLayoutItem>
 #include <QGraphicsSvgItem>
+#include <QSvgRenderer>
 #include <QPainter>
 
 #include <QDebug>
@@ -30,6 +31,8 @@ public:
 private:
 	Maze::CellType _type;
 	QGraphicsSvgItem *img;
+	static QSvgRenderer wallImage;// = new QGraphicsSvgItem(IMG_PATH"wall.svg");
+	static QSvgRenderer spriteImage;// = new QGraphicsSvgItem(IMG_PATH"sprite.svg");
 };
 
 #endif // CELL_H

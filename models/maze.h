@@ -24,7 +24,7 @@ public:
 	CellType operator()(unsigned row, unsigned column) const;
 	CellType getCell(unsigned row, unsigned column) const;
 	void setCell(unsigned row, unsigned column, CellType type);
-protected:
+private:
 	unsigned _height;
 	unsigned _width;
 	CellType **data;
@@ -32,7 +32,6 @@ protected:
 signals:
 	void dimensionsSet(unsigned width, unsigned height);
 	void cellChanged(unsigned row, unsigned column, Maze::CellType type);
-public slots:
 };
 
 #endif // MAZE_H
