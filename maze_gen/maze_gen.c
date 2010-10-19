@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <time.h>
 #include "cell.h"
+#include "list.h"
 
 int x,y;
 void init(int rows, int cols, Cell * cells[rows][cols]);
@@ -17,7 +18,6 @@ int main(int argc, char *argv[]) {
 	}
 	Cell * cells[x][y];
 	init(x,y,cells);
-	srand(time(NULL));
 
 	printf("RAW: \n");
 	int i,j;
@@ -34,6 +34,10 @@ int main(int argc, char *argv[]) {
 
 void init(int rows, int cols, Cell * cells[rows][cols]) {
 	int a,b;
+	int neighbors_left = 0;
+	List * neighbors;
+	List * head = NULL;
+	srand(time(NULL));
 	for(a=0;a<x;a++) {
 		for(b=0;b<y;b++) {
 			cells[a][b] = (Cell *)malloc(sizeof(Cell));
@@ -61,21 +65,140 @@ void init(int rows, int cols, Cell * cells[rows][cols]) {
 	cells[v][h]->state=1;
 	if(v>0) {
 		cells[v-1][h]->state=2;
+		neighbors = (List *)malloc(sizeof(List));
+		neighbors->x=v-1;
+		neighbors->y=h;
+		neighbors->next=head;
+		neighbors->prev=NULL;
+		if(head!=NULL) head->prev=neighbors;
+		head=neighbors;
+		neighbors_left++;
 	}
 	if(v<y-1) {
 		cells[v+1][h]->state=2;
+		neighbors = (List *)malloc(sizeof(List));
+		neighbors->x=v+1;
+		neighbors->y=h;
+		neighbors->next=head;
+		neighbors->prev=NULL;
+		if(head!=NULL) head->prev=neighbors;
+		head=neighbors;
+		neighbors_left++;
 	}
 	if(h>0) {
 		cells[v][h-1]->state=2;
+		neighbors = (List *)malloc(sizeof(List));
+		neighbors->x=v;
+		neighbors->y=h-1;
+		neighbors->next=head;
+		neighbors->prev=NULL;
+		if(head!=NULL) head->prev=neighbors;
+		head=neighbors;
+		neighbors_left++;
 	}
 	if(h<x-1) {
 		cells[v][h+1]->state=2;
+		neighbors = (List *)malloc(sizeof(List));
+		neighbors->x=v;
+		neighbors->y=h+1;
+		neighbors->next=head;
+		neighbors->prev=NULL;
+		if(head!=NULL) head->prev=neighbors;
+		head=neighbors;
+		neighbors_left++;
+	}
+	while(neighbors_left>=0) {
+		int r;
+		if (neighbors_left > 0) {
+			r=rand()%neighbors_left;
+		} else {
+			r=0;
+		}
+		List * tmp = head;
+		int i;
+		for(i=0;i!=r;i++)
+			if(tmp->next != NULL)
+				tmp = tmp->next;
+			else
+				printf("ERROR");
+		printf("cells[%d][%d]=1",tmp->x,tmp->y);
+		cells[tmp->x][tmp->y]->state=1;
+		
+		v=tmp->x;
+		h=tmp->y;
+		if(v>0 && cells[v-1][h]->state!=1) {
+			cells[v-1][h]->state=2;
+			if(rand()%2==1) {
+				cells[v-1][h]->southWall=1;
+				cells[v][h]->northWall=1;
+			}
+			neighbors = (List *)malloc(sizeof(List));
+			neighbors->x=v-1;
+			neighbors->y=h;
+			neighbors->next=head;
+			neighbors->prev=NULL;
+			if(head!=NULL) head->prev=neighbors;
+			head=neighbors;
+			neighbors_left++;
+		}
+		if(v<y-1 && cells[v+1][h]->state!=1) {
+			cells[v+1][h]->state=2;
+			if(rand()%2==1) {
+				cells[v+1][h]->northWall=1;
+				cells[v][h]->southWall=1;
+			}
+			neighbors = (List *)malloc(sizeof(List));
+			neighbors->x=v+1;
+			neighbors->y=h;
+			neighbors->next=head;
+			neighbors->prev=NULL;
+			if(head!=NULL) head->prev=neighbors;
+			head=neighbors;
+			neighbors_left++;
+		}
+		if(h>0 && cells[v][h-1]->state!=1) {
+			cells[v][h-1]->state=2;
+			if(rand()%2==1) {
+				cells[v][h-1]->eastWall=1;
+				cells[v][h]->westWall=1;
+			}
+			neighbors = (List *)malloc(sizeof(List));
+			neighbors->x=v;
+			neighbors->y=h-1;
+			neighbors->next=head;
+			neighbors->prev=NULL;
+			if(head!=NULL) head->prev=neighbors;
+			head=neighbors;
+			neighbors_left++;
+		}
+		if(h<x-1 && cells[v][h+1]->state!=1) {
+			cells[v][h+1]->state=2;
+			if(rand()%2==1) {
+				cells[v][h+1]->westWall=1;
+				cells[v][h]->eastWall=1;
+			}
+			neighbors = (List *)malloc(sizeof(List));
+			neighbors->x=v;
+			neighbors->y=h+1;
+			neighbors->next=head;
+			neighbors->prev=NULL;
+			if(head!=NULL) head->prev=neighbors;
+			head=neighbors;
+			neighbors_left++;
+		}
+	
+		if(tmp->prev!=NULL) tmp->prev->next=tmp->next;
+		if(tmp->next!=NULL) tmp->next->prev=tmp->prev;
+		tmp=NULL;
+		neighbors_left--;
 	}
 }
 
 void translate(int rows, int cols, Cell * cells[rows][cols]) {
 	Cell * c = (Cell *)malloc(sizeof(Cell));
 	int i,j;
+	cells[y-1][x-1]->southWall=1;
+	cells[0][0]->northWall=1;
 	for(i=0;i<y;i++) {
 		for(j=0;j<x;j++) {
 			c = cells[i][j];
@@ -86,15 +209,15 @@ void translate(int rows, int cols, Cell * cells[rows][cols]) {
 		for(j=0;j<x;j++) {
 			c = cells[i][j];
 			if(j==0) {
-				printf(" %d %d %d",c->eastWall,c->state,c->westWall);
+				printf(" %d %d %d",c->westWall,c->state,c->eastWall);
 			} else {
 				printf(" %d %d",c->state,c->westWall);
 			}
 			c = NULL;
 		}
-		printf("\n");
+		printf(" \n");
 	}
-	for(j=0;j<x-1;j++) {
+	for(j=0;j<x;j++) {
 		c = cells[y-1][j];
 		printf(" 0 %d",c->southWall);
 		c = NULL;
