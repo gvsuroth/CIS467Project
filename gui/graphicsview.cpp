@@ -3,8 +3,8 @@
 GraphicsView::GraphicsView(QGraphicsScene *scene, QWidget *parent) :
 	QGraphicsView(scene, parent)
 {
-	setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
-	setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+	/*setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+	setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);*/
 }
 
 void GraphicsView::zoomIn()
