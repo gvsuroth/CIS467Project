@@ -16,6 +16,7 @@
 
 namespace Ui {
 	class Gui;
+	class Dialog;
 }
 
 class Gui : public QMainWindow {
@@ -24,9 +25,10 @@ public:
 	Gui(QWidget *parent = 0);
 	~Gui();
 
-protected:
+private:
 	void changeEvent(QEvent *e);
 	Ui::Gui *ui;
+	Ui::Dialog *newMazeUi;
 	QGraphicsScene *scene;
 	GraphicsView *view;
 	QGraphicsWidget *mazeContainer;
@@ -40,6 +42,8 @@ signals:
 public slots:
 	void setDimensions(unsigned width, unsigned height);
 	void setCell(unsigned y, unsigned x, Maze::CellType type);
+	void showNewMazeDialog();
+	void setNewMazeDimensions();
 };
 
 #endif // MAINWINDOW_H

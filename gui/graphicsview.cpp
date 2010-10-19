@@ -17,17 +17,30 @@ void GraphicsView::zoomOut()
 	scale(1 / 1.2, 1 / 1.2);
 }
 
+void GraphicsView::zoomAuto()
+{
+	fitInView(sceneRect(), Qt::KeepAspectRatio);
+	//qDebug() << "Zoom auto event";
+}
+
 void GraphicsView::zoomReset()
 {
-	fitInView(sceneRect(), Qt::KeepAspectRatio);
+	resetTransform();
 }
 
-void GraphicsView::resizeEvent(QResizeEvent *event)
+/*void GraphicsView::resizeEvent(QResizeEvent *event)
 {
 	Q_UNUSED(event);
-
+	qDebug() << "resizeEvent";
 	fitInView(sceneRect(), Qt::KeepAspectRatio);
-}
+}*/
+
+/*void GraphicsView::showEvent(QShowEvent *event)
+{
+	Q_UNUSED(event);
+	qDebug() << "showEvent" << sceneRect();
+	fitInView(sceneRect(), Qt::KeepAspectRatio);
+}*/
 
 void GraphicsView::wheelEvent(QWheelEvent *event)
 {

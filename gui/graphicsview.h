@@ -16,9 +16,11 @@ signals:
 public slots:
 	void zoomIn();
 	void zoomOut();
+	void zoomAuto();
 	void zoomReset();
 protected:
-	void resizeEvent(QResizeEvent *event);
+	//void resizeEvent(QResizeEvent *event);
+	//void showEvent(QShowEvent *event);
 	void wheelEvent(QWheelEvent *event);
 };
 

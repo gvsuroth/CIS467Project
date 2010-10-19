@@ -3,6 +3,7 @@
 Cell::Cell(QGraphicsItem *parent, Maze::CellType type)
 	: QGraphicsLayoutItem(), QGraphicsItem(parent)
 {
+	//qDebug() << "Cell constructor";
 	img = 0;
 	setGraphicsItem(this);
 	setCellType(type);
@@ -30,6 +31,10 @@ void Cell::setCellType(Maze::CellType type)
 		return;
 	}
 	img = new QGraphicsSvgItem(IMG_PATH+imgName+".svg", this);
+	//img->scale(rect.width() / img->boundingRect().width(), rect.height() / img->boundingRect().height());
+	qreal scaleX = boundingRect().width() / img->boundingRect().width();
+	qreal scaleY = boundingRect().height() / img->boundingRect().height();
+	img->setScale(scaleX > scaleY ? scaleY : scaleX);
 }
 
 Maze::CellType Cell::cellType() const
@@ -48,6 +53,14 @@ void Cell::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 	Q_UNUSED(option);
 
 	painter->drawRect(boundingRect()); // Add a frame to the cell
+
+	/*if(img)
+	{
+		//img->scale(rect.width() / img->boundingRect().width(), rect.height() / img->boundingRect().height());
+		qreal scaleX = boundingRect().width() / img->boundingRect().width();
+		qreal scaleY = boundingRect().height() / img->boundingRect().height();
+		img->setScale(scaleX > scaleY ? scaleY : scaleX);
+	}*/
 }
 
 QSizeF Cell::sizeHint(Qt::SizeHint which, const QSizeF &constraint) const
@@ -57,7 +70,7 @@ QSizeF Cell::sizeHint(Qt::SizeHint which, const QSizeF &constraint) const
 	case Qt::MinimumSize:
 		return QSizeF(20, 20);
 	case Qt::PreferredSize:
-		return QSizeF(70, 70);
+		return QSizeF(100, 100);
 	case Qt::MaximumSize:
 		return QSizeF(1000, 1000);
 	default:
@@ -71,11 +84,11 @@ void Cell::setGeometry(const QRectF &rect)
 	prepareGeometryChange();
 	QGraphicsLayoutItem::setGeometry(rect);
 	setPos(rect.topLeft());
-	if(img)
+	/*if(img)
 	{
 		//img->scale(rect.width() / img->boundingRect().width(), rect.height() / img->boundingRect().height());
 		qreal scaleX = rect.width() / img->boundingRect().width();
 		qreal scaleY = rect.height() / img->boundingRect().height();
 		img->setScale(scaleX > scaleY ? scaleY : scaleX);
-	}
+	}*/
 }

@@ -3,7 +3,6 @@
 Maze::Maze(QObject *parent)
 	: QObject(parent)
 {
-
 }
 
 Maze::~Maze()
@@ -19,12 +18,14 @@ void Maze::setDimensions(unsigned width, unsigned height)
 	_width = width;
 	_height = height;
 	data = new CellType*[height];
-
 	for(unsigned r = 0; r < height; ++r)
 	{
 		data[r] = new CellType[width];
 		for(unsigned c = 0; c < width; ++c)
+		{
+			data[r][c] = ERROR;
 			setCell(r, c, PATH);
+		}
 	}
 }
 

@@ -10,8 +10,10 @@ void Generator::prims()
 {
 	// Disclaimer: THIS IS NOT PRIM'S, IT'S JUST A TEST
 	// Back and forth
+	//qDebug() << "Prims";
 	bool dir = true;
 	unsigned width = maze->width(), height = maze->height();
+	//qDebug() << width << height;
 	for(unsigned c = 1; c < width; c+=2)
 	{
 		for(unsigned r = 0; r < height - 1; ++r)
