@@ -69,6 +69,7 @@ int getNewCurrY(int rows, int cols, Cell * cells[cols][rows],int counter, int xL
 
 void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLoc, int yLoc){
 	int a, b, tempNum, cont = 0, currentX, currentY;
+	int errorFound = 0;
 	tempNum = 0;
 	currentX = xLoc;
 	currentY = yLoc;
@@ -99,9 +100,14 @@ void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLo
 		printf("\nBefore RAND\n");
 		tempNum = makeRand(2);
 		printf("%d\n", tempNum);
-		if(tempNum == 0){//Adds down
+
+		
+
+
+		if(tempNum == 0 && (cells[currentX + 1][currentY]->state == 0 || cells[currentX + 1][currentY]->state == 2)){//Adds down
 			cells[currentX + 1][currentY]->state = 1;
 			cells[currentX + 2][currentY]->state = 1;
+	
 			if((currentX + 3) < rows && cells[currentX + 3][currentY]->state == 2)
 				cells[currentX + 3][currentY]->state = 3;
 			else if((currentX + 3) < rows && cells[currentX + 3][currentY]->state == 0)
@@ -119,7 +125,8 @@ void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLo
 			currentX++;
 		}
 
-		else if(tempNum == 1){//Adds to the right
+
+		else if(tempNum == 1 && (cells[currentX][currentY + 1]->state == 0 || cells[currentX][currentY + 1]->state == 2)){//Adds to the right
 			cells[currentX][currentY + 1]->state = 1;
 			cells[currentX][currentY + 2]->state = 1;	
 			if((currentY + 3) < rows && cells[currentX][currentY + 3]->state == 2)
@@ -133,6 +140,7 @@ void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLo
 
 			if(cells[currentX + 1][currentY]->state == 0)
 				cells[currentX + 1][currentY]->state = 2;
+
 			cells[currentX + 1][currentY + 1]->state = 3;
 			currentY++;
 			currentY++;
@@ -145,7 +153,7 @@ void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLo
 		tempNum = makeRand(3);
 
 		//ADDS DOWN	
-		if(tempNum == 0 && cells[currentX + 1][currentY]->state < 3){
+		if(tempNum == 0 && (cells[currentX + 1][currentY]->state == 0 || cells[currentX + 1][currentY]->state == 2)){
 			cells[currentX + 1][currentY]->state = 1;
 			cells[currentX + 2][currentY]->state = 1;
 			cells[currentX + 1][currentY + 1]->state = 3;
@@ -164,7 +172,7 @@ void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLo
 		}
 
 		//ADDS RIGHT
-		else if(tempNum == 1 && cells[currentX][currentY + 1]->state < 3){
+		else if(tempNum == 1 && (cells[currentX][currentY + 1]->state == 0 || cells[currentX][currentY + 1]->state == 2)){
 			cells[currentX][currentY + 1]->state = 1;
 			cells[currentX][currentY + 2]->state = 1;
 			cells[currentX + 1][currentY + 1]->state = 3;
@@ -189,7 +197,7 @@ void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLo
 		}
 
 		//ADDS UP
-		else if(tempNum == 2 && cells[currentX - 1][currentY]->state < 3){
+		else if(tempNum == 2 && (cells[currentX - 1][currentY]->state == 0 || cells[currentX - 1][currentY]->state == 2)){
 			cells[currentX - 1][currentY]->state = 1;
 			cells[currentX - 2][currentY]->state = 1;
 			cells[currentX - 1][currentY + 1]->state = 3;
@@ -218,7 +226,7 @@ void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLo
 		printf("\n%d\n", tempNum);
 
 		//ADDS DOWN
-		if(tempNum == 0 && cells[currentX + 1][currentY]->state < 3){
+		if(tempNum == 0 && (cells[currentX + 1][currentY]->state == 0 || cells[currentX + 1][currentY]->state == 2)){
 			cells[currentX + 1][currentY]->state = 1;
 			cells[currentX + 2][currentY]->state = 1;
 			//South Cell of new cell
@@ -244,7 +252,7 @@ void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLo
 			currentX++;
 		}
 		//ADDS RIGHT
-		else if(tempNum == 1 && cells[currentX][currentY + 1]->state < 3){
+		else if(tempNum == 1 && (cells[currentX][currentY + 1]->state == 0 || cells[currentX][currentY + 1]->state == 2)){
 			cells[currentX][currentY + 1]->state = 1;
 			cells[currentX][currentY + 2]->state = 1;
 			
@@ -262,7 +270,7 @@ void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLo
 			currentY++;currentY++;
 		}
 		//ADDS LEFT
-		else if(tempNum == 2 && cells[currentX][currentY - 1]->state < 3 && cells[currentX][currentY - 1]->state < 3){
+		else if(tempNum == 2 && (cells[currentX][currentY - 1]->state == 0 || cells[currentX][currentY - 1]->state == 2)){
 			cells[currentX][currentY - 1]->state = 1;
 			cells[currentX][currentY - 2]->state = 1;
 
@@ -276,7 +284,7 @@ void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLo
 		tempNum = makeRand(2);
 
 		//ADDS DOWN
-		if(tempNum == 0){
+		if(tempNum == 0 && (cells[currentX + 1][currentY]->state == 0 || cells[currentX + 1][currentY]->state == 2)){
 			if(cells[currentX + 1][currentY]->state != 3){
 				cells[currentX + 1][currentY]->state = 1;
 				cells[currentX + 2][currentY]->state = 1;
@@ -297,7 +305,7 @@ void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLo
 		}
 
 		//ADDS LEFT
-		if(tempNum == 1){
+		if(tempNum == 1 && (cells[currentX][currentY - 1]->state == 2 || cells[currentX][currentY - 1]->state == 0)){
 			if(cells[currentX][currentY - 1]-> state != 3){
 				cells[currentX][currentY - 1]->state = 1;
 				cells[currentX][currentY - 2]->state = 1;
@@ -318,77 +326,193 @@ void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLo
 
 	}
 
-	//Bottom Row not at the ends
-	else if(currentX == (rows - 1) && (currentY > 0 && currentY < (rows - 1))){
-			tempNum = makeRand(3);
+	//BOTTOM LEFT CORNER
+	else if(currentX == (rows - 1) && currentY == 0){
+		tempNum = makeRand(2);
 
-			//ADDS RIGHT
-			if(tempNum == 0 && cells[currentX][currentY + 1]->state < 3){				
-				cells[currentX][currentY + 1]->state = 1;
-				cells[currentX][currentY + 2]->state = 1;
+		if(tempNum == 0 && (cells[currentX - 1][currentY]->state == 0 || cells[currentX - 1][currentY]->state == 2)){
+			cells[currentX - 1][currentY]->state = 1;
+			cells[currentX - 2][currentY]->state = 1;
+			cells[currentX - 1][currentY + 1]->state = 3;
 
-				//Mid North Cell
-				cells[currentX - 1][currentY + 1]->state == 3;
+			if((currentX - 3) > 0 && cells[currentX - 3][currentY]->state == 2)
+				cells[currentX - 3][currentY]->state = 3;
+			else if((currentX - 3) > 0 && cells[currentX - 3][currentY]->state == 0)
+				cells[currentX - 3][currentY]->state = 2;
 
-				//East Cell
-				if((currentY + 3) < rows && (cells[currentX][currentY + 3]->state == 0))
-					cells[currentX][currentY + 3]->state = 2;
-				else if((currentY + 3) < rows && (cells[currentX][currentY + 3]->state == 2))
-					cells[currentX][currentY + 3]->state = 3;
-				//North Cell
-				if(cells[currentX - 1][currentY + 2]->state == 2)
-					cells[currentX - 1][currentY + 2]->state = 3;
-				else if(cells[currentX - 1][currentY + 2]->state == 0)
-					cells[currentX - 1][currentY + 2]->state = 2;
-			
-				currentY ++;currentY++;
-			}
+			if(cells[currentX - 2][currentY + 1]->state == 2)
+				cells[currentX - 2][currentY + 1]->state = 3;
+			else if(cells[currentX - 2][currentY + 1]->state == 0)
+				cells[currentX - 2][currentY + 1]->state = 2;
 
-			//ADDS LEFT
-			else if(tempNum == 1 && cells[currentX][currentY - 1]->state < 3){
-				cells[currentX][currentY - 1]->state = 1;
-				cells[currentX][currentY - 2]->state = 1;
-				cells[currentX - 1][currentY - 1]->state = 3;
+			currentX--;currentX--;
 
-				if((currentY - 3) > 0 && cells[currentX][currentY - 3]->state == 0)
-					cells[currentX][currentY - 3]->state = 2;
-				else if((currentY - 3) > 0 && cells[currentX][currentY - 3]->state == 2)
-					cells[currentX][currentY - 3]->state = 3;
-			
-				if(cells[currentX - 1][currentY - 2]->state = 0)
-					cells[currentX - 1][currentY - 2]->state = 2;
-				else if(cells[currentX - 1][currentY - 2]->state = 2)
-					cells[currentX - 1][currentY - 2]->state = 3;
+		}
 
-				currentY--;currentY--;
-			}
+		else if(tempNum == 1 && (cells[currentX][currentY + 1]->state = 0 || cells[currentX][currentY + 1]->state == 2)){
+			cells[currentX][currentY + 1]->state = 1;
+			cells[currentX][currentY + 2]->state = 1;
+			cells[currentX - 1][currentY + 1]->state = 3;
 
-			//ADDS UP
-			else if(tempNum == 2 && cells[currentX - 1][currentY]->state < 3){
-				cells[currentX - 1][currentY]->state = 1;
-				cells[currentX - 2][currentY]->state = 1;
-				cells[currentX - 1][currentY - 1]->state = 3;
-				cells[currentX - 1][currentY + 1]->state = 3;
+			if((currentY + 3) < rows && cells[currentX][currentY + 3]->state == 2)
+				cells[currentX][currentY]->state = 3;
+			else if((currentY + 3) < rows && cells[currentX][currentY + 3]->state == 0)
+				cells[currentX][currentY + 3]->state = 2;
 
-				if(cells[currentX - 3][currentY]->state == 0)
-					cells[currentX - 3][currentY]->state = 2;
-				else if(cells[currentX - 3][currentY]->state == 2)
-					cells[currentX - 3][currentY]->state = 3;
-				
-				if(cells[currentX - 2][currentY - 1]->state == 0)
-					cells[currentX - 2][currentY - 1]->state = 2;
-				else if (cells[currentX - 2][currentY - 1]->state == 2)
-					cells[currentX - 2][currentY - 1]->state = 3;
-
-				if(cells[currentX - 2][currentY + 1]->state == 0)
-					cells[currentX - 2][currentY + 1]->state = 2;
-				else if(cells[currentX - 2][currentY + 1]->state == 2)
-					cells[currentX - 2][currentY + 1]->state = 3;
-
-				currentX--;currentX--;
-			}
+			if(cells[currentX - 1][currentY + 2]->state == 2)
+				cells[currentX - 1][currentY + 2]->state = 3;
+			else if(cells[currentX - 1][currentY + 2]->state == 0)
+				cells[currentX - 1][currentY + 2]->state = 2;
+		
+			currentY++;currentY++;
+		}
 
 	}
+
+
+	//BOTTOM ROW NOT AT ENDS
+	else if((currentX == (rows - 1)) && (currentY > 0 && currentY < (rows -1))){
+		tempNum = makeRand(3);
+
+		//ADDS RIGHT
+		if(tempNum == 0 && (cells[currentX][currentY + 1]->state == 0 || cells[currentX][currentY + 1]->state == 2)){
+			cells[currentX][currentY + 1]->state = 1;
+			cells[currentX][currentY + 2]->state = 1;
+			cells[currentX - 1][currentY + 1]->state = 3;
+
+			if((currentY + 3) < (rows - 1) && cells[currentX][currentY + 3]->state == 2)
+				cells[currentX][currentY + 3]->state = 3;
+			else if((currentY + 3) < (rows - 1) && cells[currentX][currentY + 3]->state == 0)
+				cells[currentX][currentY + 3]->state = 2;
+
+			if(cells[currentX - 1][currentY + 2]->state == 2)
+				cells[currentX - 1][currentY + 2]->state = 3;
+			else if(cells[currentX - 1][currentY + 2]->state == 0)
+				cells[currentX - 1][currentY + 2]->state = 2;
+
+			currentY++;currentY++;
+		}		
+	
+		//ADDS LEFT
+		else if(tempNum == 1 && (cells[currentX][currentY - 1]->state == 0 || cells[currentX][currentY - 1]->state == 2)){
+			cells[currentX][currentY - 1]->state = 1;
+			cells[currentX][currentY - 2]->state = 1;
+			cells[currentX - 1][currentY - 1]->state = 3;
+
+			if((currentY - 3) > 0 && cells[currentX][currentY - 3]->state == 2)
+				cells[currentX][currentY - 3]->state = 3;
+			else if((currentY - 3) > 0 && cells[currentX][currentY - 3]->state == 0)
+				cells[currentX][currentY - 3]->state = 2;
+
+			if(cells[currentX - 1][currentY - 2]->state == 2)
+				cells[currentX - 1][currentY - 2]->state = 3;
+			else if(cells[currentX - 1][currentY - 2]->state == 0)
+				cells[currentX - 1][currentY - 2]->state = 2;
+
+			currentY--;currentY--;
+		}
+
+		//ADDS UP
+		else if(tempNum == 2 && (cells[currentX - 1][currentY]->state == 0 || cells[currentX - 1][currentY]->state == 2)){
+			cells[currentX - 1][currentY]->state = 1;
+			cells[currentX - 2][currentY]->state = 1;
+			cells[currentX - 1][currentY - 1]->state = 3;
+			cells[currentX - 1][currentY + 1]->state = 3;
+
+			if((currentX - 3) > 0 && cells[currentX - 3][currentY]->state == 2)
+				cells[currentX - 3][currentY]->state = 3;
+			else if((currentX - 3) > 9 && cells[currentX - 3][currentY]->state == 0)
+				cells[currentX - 3][currentY]->state = 2;
+
+			if(cells[currentX - 2][currentY - 1]->state == 2)
+				cells[currentX - 2][currentY - 1]->state = 3;
+			else if(cells[currentX - 2][currentY - 1]->state == 0)
+				cells[currentX - 2][currentY - 1]->state = 2;
+
+			if(cells[currentX - 2][currentY + 1]->state == 2)
+				cells[currentX - 2][currentY + 1]->state = 3;
+			else if(cells[currentX - 2][currentY + 1]->state == 0)
+				cells[currentX - 2][currentY + 1]->state = 2;
+
+			currentX--;currentX--;
+		}
+	}
+
+
+
+
+
+	//RIGHT ROW
+	else if((currentX > 0 && currentX < (rows - 1)) && currentY == (rows - 1)){
+		tempNum = makeRand(3);
+
+		//ADDS DOWN
+		if(tempNum == 0 && (cells[currentX + 1][currentY]->state == 0 || cells[currentX + 1][currentY]->state == 2)){
+			cells[currentX + 1][currentY]->state = 1;
+			cells[currentX + 2][currentY]->state = 1;
+			cells[currentX + 1][currentY - 1]->state = 3;
+
+			if((currentX + 3) < (rows - 1) && cells[currentX + 3][currentY]->state == 2)
+				cells[currentX + 3][currentY]->state = 3;
+			else if((currentX + 3) < (rows - 1) && cells[currentX + 3][currentY]->state == 0)
+				cells[currentX + 3][currentY]->state = 2;
+
+			if(cells[currentX + 2][currentY - 1]->state == 2)
+				cells[currentX + 2][currentY - 1]->state = 3;
+			else if(cells[currentX + 2][currentY - 1]->state == 0)
+				cells[currentX + 2][currentY - 1]->state = 2;
+
+			currentX++;currentX++;
+		}	
+
+		//ADDS LEFT
+		else if(tempNum == 1 && (cells[currentX][currentY - 1]->state == 0 || cells[currentX][currentY - 1]->state == 2)){
+			cells[currentX][currentY - 1]->state = 1;
+			cells[currentX][currentY - 2]->state = 1;
+			cells[currentX + 1][currentY - 1]->state = 3;
+			cells[currentX - 1][currentY - 1]->state = 3;
+
+			if((currentY - 3) > 0 && cells[currentX][currentY - 3]->state == 2)
+				cells[currentX][currentY - 3]->state = 3;
+			else if((currentY - 3) > 0 && cells[currentX][currentY - 3]->state == 0)
+				cells[currentX][currentY - 3]->state == 2;
+
+			if(cells[currentX + 1][currentY - 2]->state == 2)
+				cells[currentX][currentY - 2]->state = 3;
+			else if(cells[currentX + 1][currentY - 2]->state == 0)
+				cells[currentX][currentY - 2]->state = 2;
+
+			if(cells[currentX - 1][currentY - 2]->state == 2)
+				cells[currentX - 1][currentY - 2]->state = 3;
+			else if(cells[currentX - 1][currentY - 2]->state == 0)
+				cells[currentX - 1][currentY - 2]->state = 2;
+
+			currentY--;currentY--;
+		}
+
+
+		//ADDS UP
+		else if(tempNum == 2 && (cells[currentX - 1][currentY]->state == 0 || cells[currentX - 1][currentY]->state == 2)){
+			cells[currentX - 1][currentY]->state = 1;
+			cells[currentX - 2][currentY]->state = 1;
+			cells[currentX - 1][currentY - 1]->state = 3;
+
+			if((currentX - 3) > 0 && cells[currentX - 3][currentY]->state == 2)
+				cells[currentX - 3][currentY]->state = 3;
+			else if((currentX - 3) > 0 && cells[currentX - 3][currentY]->state == 0)
+				cells[currentX - 3][currentY]->state = 2;
+
+			if(cells[currentX - 2][currentY - 1]->state == 2)
+				cells[currentX - 2][currentY - 1]->state = 3;
+			else if(cells[currentX - 2][currentY - 1]->state == 0)
+				cells[currentX - 2][currentY - 1]->state = 2;
+			
+			currentX--;currentX--;
+		}
+	}
+
+
+
 
 	//Middle Cells
 	else if((currentX > 0 && currentX < rows - 1) && (currentY > 0 && currentY < (rows - 1))){
@@ -396,7 +520,7 @@ void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLo
 		tempNum = makeRand(4);
 
 		//ADDS RIGHT
-		if(tempNum == 0 && cells[currentX][currentY + 1]->state < 3){
+		if(tempNum == 0 && (cells[currentX][currentY + 1]->state == 0 || cells[currentX][currentY + 1]->state == 2)){
 			cells[currentX][currentY + 1]->state = 1;
 			cells[currentX][currentY + 2]->state = 1;
 			cells[currentX + 1][currentY + 1]->state = 3;
@@ -422,7 +546,7 @@ void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLo
 		}
 
 		//ADDS DOWN
-		else if(tempNum == 1 && cells[currentX + 1][currentY]->state < 3){
+		else if(tempNum == 1 && (cells[currentX + 1][currentY]->state == 0 || cells[currentX + 1][currentY]->state == 2)){
 			cells[currentX + 1][currentY]->state = 1;
 			cells[currentX + 2][currentY]->state = 1;
 			cells[currentX + 1][currentY + 1]->state = 3;
@@ -447,7 +571,7 @@ void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLo
 		}
 
 		//ADDS LEFT
-		else if(tempNum == 2 && cells[currentX][currentY - 1]->state < 3){
+		else if(tempNum == 2 && (cells[currentX][currentY - 1]->state == 0 || cells[currentX][currentY - 1]->state == 2)){
 			cells[currentX][currentY - 1]->state = 1;
 			cells[currentX][currentY - 2]->state = 1;
 			cells[currentX + 1][currentY - 1]->state = 3;
@@ -472,7 +596,7 @@ void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLo
 		}
 
 		//ADDS UP
-		else if(tempNum == 3 && cells[currentX - 1][currentY]->state < 3){
+		else if(tempNum == 3 && (cells[currentX - 1][currentY]->state == 0 || cells[currentX - 1][currentY]->state == 2)){
 			cells[currentX - 1][currentY]->state = 1;
 			cells[currentX - 2][currentY]->state = 1;
 			cells[currentX - 1][currentY - 1]->state = 3;
@@ -498,33 +622,10 @@ void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLo
 
 
 
-/**		if(cells[currentX + 1][currentY]->state == 0 || cells[currentX + 1][currentY]->state == 2){
-		cells[currentX + 1][currentY]->state = 1;
-		cells[currentX + 2][currentY]->state = 1;
-	
-		if((currentX + 3) < rows && (cells[currentX + 3][currentY]->state == 0))
-			cells[currentX + 3][currentY]->state = 2;
-		else if((currentX + 3) < rows && (cells[currentX + 3][currentY]->state == 2))
-			cells[currentX + 3][currentY]->state = 3;
-		
-		if(cells[currentX + 2][currentY + 1]->state == 2)
-			cells[currentX + 2][currentY + 1]->state = 3;
-		else if(cells[currentX + 2][currentY + 1]->state == 0)
-			cells[currentX + 2][currentY + 1]->state = 2;
 
-		if(cells[currentX + 2][currentY - 1]->state == 2)
-			cells[currentX + 2][currentY - 1]->state = 3;
-		else if(cells[currentX + 2][currentY - 1]->state == 0)
-			cells[currentX + 2][currentY - 1]->state = 2;
+	} 
 
-		cells[currentX + 1][currentY + 1]->state = 3;
-		cells[currentX + 1][currentY - 1]->state = 3;
-		currentX++;
-		currentX++;
-
-	} **/
-
-	}
+//	}
 	
 //	tempNum = (rand()/(RAND_MAX + 1.0)) * 2;
 //	printf("\n%d\n", tempNum);
@@ -543,6 +644,7 @@ void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLo
 
 
 
+
 	printf("Counter = %d\n", counter);
 	if((currentX == (rows - 1)) && (currentY == (cols - 1))){
 		counter = 4;
@@ -552,7 +654,7 @@ void makeMaze(int rows, int cols, Cell * cells[cols][rows], int counter, int xLo
 		currentY = getNewCurrY(rows,cols,cells,counter, currentX, currentY);
 		currentY --;
 	}
-	if(counter < 20)
+	if(counter < 30)
 		makeMaze(rows,cols,cells,counter, currentX, currentY);
 //	printf("%d\n", counter);
 //	printf("END\n");
