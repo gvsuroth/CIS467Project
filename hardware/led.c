@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/io.h>
+//#include <sys/io.h>
 
 #define port 0x0378  /* printer port address */
 
@@ -20,7 +20,7 @@ int main() {
   while(1) {
     int out = disp[step] << step;
     outb(out, port);
-    step++;
+    step = ++step % 5;
     usleep(5000);
     printf("Out: %d\n", out);
   }
