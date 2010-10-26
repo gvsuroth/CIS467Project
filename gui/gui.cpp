@@ -23,7 +23,7 @@ Gui::Gui(QWidget *parent) :
 
 	// Setup view
 	view = new GraphicsView(scene);
-	view->setViewport(new QGLWidget(QGLFormat(QGL::SampleBuffers))); // Enable OpenGL support
+        view->setViewport(new QGLWidget(QGLFormat(QGL::SampleBuffers))); // Enable OpenGL support
 	connect(scene, SIGNAL(sceneRectChanged(QRectF)), view, SLOT(zoomReset())); // Auto-reset when scene size changes
 	connect(ui->action_Zoom_In, SIGNAL(triggered()), view, SLOT(zoomIn()));
 	connect(ui->action_Zoom_Out, SIGNAL(triggered()), view, SLOT(zoomOut()));
