@@ -7,11 +7,15 @@
 #include <QGraphicsGridLayout>
 #include <QGLWidget>
 #include <QSizePolicy>
+#include <QIntValidator>
+#include <QMessageBox>
+#include <QIcon>
 
 #include <QDebug>
 
 #include "models/maze.h"
 #include "generator/generator.h"
+#include "algorithms/solver.h"
 #include "gui/graphicsview.h"
 
 namespace Ui {
@@ -35,14 +39,15 @@ private:
 	QGraphicsGridLayout *mazeGrid;
 	Maze *maze;
 	Generator *gen;
+	Solver *solver;
 
 signals:
 	void generate(int height, int width);
 
 public slots:
 	void setDimensions(unsigned width, unsigned height);
-	void setCell(unsigned y, unsigned x, Maze::CellType type);
-	void showNewMazeDialog();
+	void setCell(unsigned y, unsigned x, Maze::CellType type, Maze::Facing facing = Maze::UP);
+	void setDimensionsDialog();
 	void setNewMazeDimensions();
 };
 

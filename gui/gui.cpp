@@ -16,7 +16,6 @@ Gui::Gui(QWidget *parent) :
 	scene = new QGraphicsScene;
 	mazeContainer = new QGraphicsWidget;
 	mazeGrid = new QGraphicsGridLayout;
-	//mazeGrid->setContentsMargins(0, 0, 0, 0);
 	mazeGrid->setSpacing(0); // Make the cell spacing nothing
 	mazeContainer->setLayout(mazeGrid);
 	scene->setBackgroundBrush(QBrush(QColor("chocolate"), Qt::SolidPattern)); // Set background color
@@ -24,22 +23,27 @@ Gui::Gui(QWidget *parent) :
 
 	// Setup view
 	view = new GraphicsView(scene);
-	//view->setViewport(new QGLWidget(QGLFormat(QGL::SampleBuffers))); // Enable OpenGL support
+	view->setViewport(new QGLWidget(QGLFormat(QGL::SampleBuffers))); // Enable OpenGL support
 	connect(scene, SIGNAL(sceneRectChanged(QRectF)), view, SLOT(zoomReset())); // Auto-reset when scene size changes
 	connect(ui->action_Zoom_In, SIGNAL(activated()), view, SLOT(zoomIn()));
 	connect(ui->action_Zoom_Out, SIGNAL(activated()), view, SLOT(zoomOut()));
 	connect(ui->action_Reset, SIGNAL(activated()), view, SLOT(zoomReset()));
-	connect(ui->action_New, SIGNAL(activated()), this, SLOT(showNewMazeDialog()));
+	connect(ui->action_Dimensions, SIGNAL(activated()), this, SLOT(setDimensionsDialog()));
 	setCentralWidget(view);
 
 	// Setup maze
 	maze = new Maze();
-	connect(maze, SIGNAL(cellChanged(uint,uint,Maze::CellType)), this, SLOT(setCell(uint,uint,Maze::CellType)));
+	connect(maze, SIGNAL(cellChanged(uint,uint,Maze::CellType,Maze::Facing)), this, SLOT(setCell(uint,uint,Maze::CellType,Maze::Facing)));
 	connect(maze, SIGNAL(dimensionsSet(uint,uint)), this, SLOT(setDimensions(uint,uint)));
 
 	// Setup generator
 	gen = new Generator(maze);
-	connect(ui->action_Prims, SIGNAL(activated()), gen, SLOT(prims()));
+	connect(ui->action_Prim_s_Algorithm, SIGNAL(activated()), gen, SLOT(prims()));
+
+	// Setup solver
+	solver = new Solver(maze);
+	connect(ui->action_Right_Hand_Rule, SIGNAL(activated()), solver, SLOT(rightHandRule()));
+
 	// Temp stuff (this will be done by menus later)
 	//gen = new Generator(maze);
 	//maze->setDimensions(20, 20);
@@ -66,19 +70,24 @@ void Gui::setDimensions(unsigned width, unsigned height)
 			mazeGrid->addItem(new Cell(), r, c, Qt::AlignCenter);
 }
 
-void Gui::setCell(unsigned row, unsigned column, Maze::CellType type)
+void Gui::setCell(unsigned row, unsigned column, Maze::CellType type, Maze::Facing facing)
 {
 	if(row < (unsigned)mazeGrid->rowCount() && column < (unsigned)mazeGrid->columnCount())
-		((Cell*)mazeGrid->itemAt(row, column))->setCellType(type);
+	{
+		Cell *cell = (Cell*)mazeGrid->itemAt(row, column);
+		cell->setCellType(type);
+		cell->setFacing(facing);
+	}
 }
 
-void Gui::showNewMazeDialog()
+void Gui::setDimensionsDialog()
 {
 	QDialog newMazeDialog(this);
 	newMazeUi->setupUi(&newMazeDialog);
+	QIntValidator intVal;
+	newMazeUi->rows->setValidator(&intVal);
+	newMazeUi->columns->setValidator(&intVal);
 	connect(newMazeUi->buttonBox, SIGNAL(accepted()), this, SLOT(setNewMazeDimensions()));
-	//qDebug() << "showNewMazeDialog";
-	//newMazeDialog->show();
 	newMazeDialog.exec();
 }
 
@@ -91,7 +100,7 @@ void Gui::setNewMazeDimensions()
 	if(rowsOk && columnsOk)
 		maze->setDimensions(rows, columns);
 	else
-		qDebug() << "You suck.";
+		QMessageBox(QMessageBox::Warning, "Maze Dimensions", "Incorrect maze dimensions").exec();
 }
 
 void Gui::changeEvent(QEvent *e)

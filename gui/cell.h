@@ -20,6 +20,7 @@ public:
 	~Cell();
 	void setCellType(Maze::CellType type);
 	Maze::CellType cellType() const;
+	void setFacing(Maze::Facing facing);
 
 	// Inherited from QGraphicsLayoutItem
 	QSizeF sizeHint(Qt::SizeHint which, const QSizeF &constraint) const;

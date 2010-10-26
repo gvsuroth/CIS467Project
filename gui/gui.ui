@@ -26,10 +26,10 @@
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>23</height>
+     <height>25</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuView">
+   <widget class="QMenu" name="menu_View">
     <property name="title">
      <string>&amp;View</string>
     </property>
@@ -37,21 +37,28 @@
     <addaction name="action_Zoom_Out"/>
     <addaction name="action_Reset"/>
    </widget>
-   <widget class="QMenu" name="menuMaze">
+   <widget class="QMenu" name="menu_Maze">
     <property name="title">
      <string>&amp;Maze</string>
     </property>
-    <widget class="QMenu" name="menu_Generate">
-     <property name="title">
-      <string>&amp;Generate</string>
-     </property>
-     <addaction name="action_Prims"/>
-    </widget>
-    <addaction name="action_New"/>
-    <addaction name="menu_Generate"/>
+    <addaction name="action_Dimensions"/>
    </widget>
-   <addaction name="menuMaze"/>
-   <addaction name="menuView"/>
+   <widget class="QMenu" name="menu_Generator">
+    <property name="title">
+     <string>&amp;Generate</string>
+    </property>
+    <addaction name="action_Prim_s_Algorithm"/>
+   </widget>
+   <widget class="QMenu" name="menu_Solve">
+    <property name="title">
+     <string>&amp;Solve</string>
+    </property>
+    <addaction name="action_Right_Hand_Rule"/>
+   </widget>
+   <addaction name="menu_Maze"/>
+   <addaction name="menu_Generator"/>
+   <addaction name="menu_Solve"/>
+   <addaction name="menu_View"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="action_Reset">
@@ -62,9 +69,9 @@
     <string>Ctrl+0</string>
    </property>
   </action>
-  <action name="action_New">
+  <action name="action_Dimensions">
    <property name="text">
-    <string>&amp;New...</string>
+    <string>&amp;Dimensions...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+N</string>
@@ -86,9 +93,14 @@
     <string>Ctrl+-</string>
    </property>
   </action>
-  <action name="action_Prims">
+  <action name="action_Prim_s_Algorithm">
    <property name="text">
-    <string>&amp;Prims</string>
+    <string>&amp;Prim's Algorithm</string>
+   </property>
+  </action>
+  <action name="action_Right_Hand_Rule">
+   <property name="text">
+    <string>&amp;Right-Hand Rule</string>
    </property>
   </action>
  </widget>

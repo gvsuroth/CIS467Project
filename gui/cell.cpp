@@ -48,6 +48,13 @@ Maze::CellType Cell::cellType() const
 	return _type;
 }
 
+void Cell::setFacing(Maze::Facing facing)
+{
+	setRotation(facing * 90);
+	/*if(img)
+		img->setRotation(facing * 90);*/
+}
+
 QRectF Cell::boundingRect() const
 {
 	return QRectF(QPointF(0, 0), geometry().size());
@@ -97,4 +104,5 @@ void Cell::setGeometry(const QRectF &rect)
 		qreal scaleY = rect.height() / img->boundingRect().height();
 		img->setScale(scaleX > scaleY ? scaleY : scaleX);
 	}*/
+	setTransformOriginPoint(rect.width() / 2, rect.height() / 2); // For rotation
 }

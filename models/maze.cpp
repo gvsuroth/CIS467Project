@@ -1,7 +1,7 @@
 #include "maze.h"
 
 Maze::Maze(QObject *parent)
-	: QObject(parent)
+	: QObject(parent), spriteLoc(0, 0)
 {
 }
 
@@ -39,7 +39,7 @@ unsigned Maze::height()
 	return _height;
 }
 
-bool Maze::validCoord(unsigned row, unsigned column) const
+inline bool Maze::validCoord(unsigned row, unsigned column) const
 {
 	return row < _height && column < _width;
 }
@@ -56,11 +56,22 @@ Maze::CellType Maze::getCell(unsigned row, unsigned column) const
 	return operator()(row, column);
 }
 
-void Maze::setCell(unsigned row, unsigned column, Maze::CellType type)
+void Maze::setCell(unsigned row, unsigned column, Maze::CellType type, Facing facing)
 {
 	if(type != data[row][column] && validCoord(row, column)) // the new CellType must be different from the current CellType
 	{
 		data[row][column] = type;
-		emit cellChanged(row, column, type);
+		emit cellChanged(row, column, type, facing);
+	}
+}
+
+void Maze::moveSprite(unsigned row, unsigned column, Facing facing)
+{
+	if(validCoord(row, column) && data[row][column] != WALL)
+	{
+		setCell((unsigned)spriteLoc.y(), (unsigned)spriteLoc.x(), PATH, facing);
+		setCell(row, column, SPRITE);
+		spriteLoc.setY(row);
+		spriteLoc.setX(column);
 	}
 }

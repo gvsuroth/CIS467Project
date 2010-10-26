@@ -19,7 +19,8 @@ HEADERS += gui/gui.h \
 	gui/cell.h \
 	generator/generator.h \
 	models/maze.h \
-	gui/graphicsview.h
+	gui/graphicsview.h \
+    algorithms/solver.h
 FORMS += gui/gui.ui \
 	gui/newmaze.ui
 SOURCES += gui/gui.cpp \
@@ -27,4 +28,5 @@ SOURCES += gui/gui.cpp \
 	gui/cell.cpp \
 	generator/generator.cpp \
 	models/maze.cpp \
-	gui/graphicsview.cpp
+	gui/graphicsview.cpp \
+    algorithms/solver.cpp
