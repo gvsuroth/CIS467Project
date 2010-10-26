@@ -48,6 +48,8 @@
      <string>&amp;Generate</string>
     </property>
     <addaction name="action_Prim_s_Algorithm"/>
+    <addaction name="action_Back_and_Forth"/>
+    <addaction name="action_Recursive_Algorithm"/>
    </widget>
    <widget class="QMenu" name="menu_Solve">
     <property name="title">
@@ -101,6 +103,16 @@
   <action name="action_Right_Hand_Rule">
    <property name="text">
     <string>&amp;Right-Hand Rule</string>
+   </property>
+  </action>
+  <action name="action_Back_and_Forth">
+   <property name="text">
+    <string>&amp;Back and Forth</string>
+   </property>
+  </action>
+  <action name="action_Recursive_Algorithm">
+   <property name="text">
+    <string>&amp;Recursive Algorithm</string>
    </property>
   </action>
  </widget>

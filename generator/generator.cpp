@@ -6,14 +6,11 @@ Generator::Generator(Maze *maze, QObject *parent) :
 	this->maze = maze;
 }
 
-void Generator::prims()
+void Generator::backAndForth()
 {
-	// Disclaimer: THIS IS NOT PRIM'S, IT'S JUST A TEST
 	// Back and forth
-	//qDebug() << "Prims";
 	bool dir = true;
 	unsigned width = maze->width(), height = maze->height();
-	//qDebug() << width << height;
 	for(unsigned c = 1; c < width; c+=2)
 	{
 		for(unsigned r = 0; r < height - 1; ++r)
@@ -24,106 +21,187 @@ void Generator::prims()
 	maze->setCell(height - 1, width - 1, Maze::PATH);
 }
 
-void Generator::lukes()
+void Generator::prims()
 {
-	maze->setCell(0, 0, Maze::WALL);
-	maze->setCell(0, 1, Maze::PATH);
-	maze->setCell(0, 2, Maze::WALL);
-	maze->setCell(0, 3, Maze::WALL);
-	maze->setCell(0, 4, Maze::WALL);
-	maze->setCell(0, 5, Maze::WALL);
-	maze->setCell(0, 6, Maze::WALL);
-	maze->setCell(0, 7, Maze::WALL);
-	maze->setCell(0, 8, Maze::WALL);
-	maze->setCell(0, 9, Maze::WALL);
-	maze->setCell(1, 0, Maze::WALL);
-	maze->setCell(1, 1, Maze::PATH);
-	maze->setCell(1, 2, Maze::WALL);
-	maze->setCell(1, 3, Maze::WALL);
-	maze->setCell(1, 4, Maze::PATH);
-	maze->setCell(1, 5, Maze::PATH);
-	maze->setCell(1, 6, Maze::WALL);
-	maze->setCell(1, 7, Maze::WALL);
-	maze->setCell(1, 8, Maze::PATH);
-	maze->setCell(1, 9, Maze::WALL);
-	maze->setCell(2, 0, Maze::WALL);
-	maze->setCell(2, 1, Maze::PATH);
-	maze->setCell(2, 2, Maze::WALL);
-	maze->setCell(2, 3, Maze::PATH);
-	maze->setCell(2, 4, Maze::PATH);
-	maze->setCell(2, 5, Maze::WALL);
-	maze->setCell(2, 6, Maze::WALL);
-	maze->setCell(2, 7, Maze::PATH);
-	maze->setCell(2, 8, Maze::PATH);
-	maze->setCell(2, 9, Maze::WALL);
-	maze->setCell(3, 0, Maze::WALL);
-	maze->setCell(3, 1, Maze::PATH);
-	maze->setCell(3, 2, Maze::PATH);
-	maze->setCell(3, 3, Maze::PATH);
-	maze->setCell(3, 4, Maze::PATH);
-	maze->setCell(3, 5, Maze::PATH);
-	maze->setCell(3, 6, Maze::PATH);
-	maze->setCell(3, 7, Maze::PATH);
-	maze->setCell(3, 8, Maze::PATH);
-	maze->setCell(3, 9, Maze::WALL);
-	maze->setCell(4, 0, Maze::WALL);
-	maze->setCell(4, 1, Maze::PATH);
-	maze->setCell(4, 2, Maze::WALL);
-	maze->setCell(4, 3, Maze::PATH);
-	maze->setCell(4, 4, Maze::PATH);
-	maze->setCell(4, 5, Maze::WALL);
-	maze->setCell(4, 6, Maze::WALL);
-	maze->setCell(4, 7, Maze::WALL);
-	maze->setCell(4, 8, Maze::PATH);
-	maze->setCell(4, 9, Maze::WALL);
-	maze->setCell(5, 0, Maze::WALL);
-	maze->setCell(5, 1, Maze::PATH);
-	maze->setCell(5, 2, Maze::WALL);
-	maze->setCell(5, 3, Maze::WALL);
-	maze->setCell(5, 4, Maze::PATH);
-	maze->setCell(5, 5, Maze::WALL);
-	maze->setCell(5, 6, Maze::PATH);
-	maze->setCell(5, 7, Maze::WALL);
-	maze->setCell(5, 8, Maze::WALL);
-	maze->setCell(5, 9, Maze::WALL);
-	maze->setCell(6, 0, Maze::WALL);
-	maze->setCell(6, 1, Maze::PATH);
-	maze->setCell(6, 2, Maze::WALL);
-	maze->setCell(6, 3, Maze::PATH);
-	maze->setCell(6, 4, Maze::PATH);
-	maze->setCell(6, 5, Maze::WALL);
-	maze->setCell(6, 6, Maze::PATH);
-	maze->setCell(6, 7, Maze::PATH);
-	maze->setCell(6, 8, Maze::PATH);
-	maze->setCell(6, 9, Maze::PATH);
-	maze->setCell(7, 0, Maze::WALL);
-	maze->setCell(7, 1, Maze::PATH);
-	maze->setCell(7, 2, Maze::WALL);
-	maze->setCell(7, 3, Maze::WALL);
-	maze->setCell(7, 4, Maze::PATH);
-	maze->setCell(7, 5, Maze::PATH);
-	maze->setCell(7, 6, Maze::PATH);
-	maze->setCell(7, 7, Maze::WALL);
-	maze->setCell(7, 8, Maze::PATH);
-	maze->setCell(7, 9, Maze::WALL);
-	maze->setCell(8, 0, Maze::WALL);
-	maze->setCell(8, 1, Maze::PATH);
-	maze->setCell(8, 2, Maze::PATH);
-	maze->setCell(8, 3, Maze::WALL);
-	maze->setCell(8, 4, Maze::PATH);
-	maze->setCell(8, 5, Maze::WALL);
-	maze->setCell(8, 6, Maze::WALL);
-	maze->setCell(8, 7, Maze::WALL);
-	maze->setCell(8, 8, Maze::PATH);
-	maze->setCell(8, 9, Maze::WALL);
-	maze->setCell(9, 0, Maze::WALL);
-	maze->setCell(9, 1, Maze::WALL);
-	maze->setCell(9, 2, Maze::WALL);
-	maze->setCell(9, 3, Maze::WALL);
-	maze->setCell(9, 4, Maze::WALL);
-	maze->setCell(9, 5, Maze::WALL);
-	maze->setCell(9, 6, Maze::WALL);
-	maze->setCell(9, 7, Maze::WALL);
-	maze->setCell(9, 8, Maze::PATH);
-	maze->setCell(9, 9, Maze::WALL);
+//	void init(int rows, int cols, Cell * cells[rows][cols]) {
+	int y = maze->height(), x = maze->width();
+	int rows = y, cols = x;
+		int a,b;
+		neighbors_left=0;
+		List * neighbors;
+		List * head = NULL;
+		srand(time(NULL));
+		//Cell cells[maze->height()][maze->width()];
+		cells = new Cell**[y];
+		for(a=0;a<x;a++) {
+			cells[a] = new Cell*[x];
+			for(b=0;b<y;b++) {
+				cells[a][b] = (Cell *)malloc(sizeof(Cell));
+			}
+		}
+		for(b=0;b<y;b++) {
+			for(a=0;a<x;a++) {
+				cells[a][b]->state=0;
+				if(a!=0)
+					cells[a][b]->west = cells[b][a-1];
+				else
+					if (a<x-1)
+						cells[a][b]->east = cells[b][a+1];
+					else
+						if (b!=0)
+							cells[a][b]->north = cells[b-1][a];
+						else
+							if (b<y-1)
+								cells[a][b]->south = cells[b+1][a];
+			}
+		}
+		int h,v;
+		h=rand()%x;
+		v=rand()%y;
+		cells[v][h]->state=1;
+		addNeighbors(rows,cols,v,h,cells,&head);
+		while(neighbors_left>=0) {
+			int r;
+			int count=0;
+			if (neighbors_left > 0) {
+				r=rand()%neighbors_left;
+			} else {
+				r=0;
+			}
+			List * tmp = head;
+			int i;
+			for(i=0;i!=r;i++);
+				if(tmp!=NULL && tmp->next != NULL)
+					tmp = tmp->next;
+				else
+					printf("ERROR");
+			cells[tmp->x][tmp->y]->state=1;
+
+			v=tmp->x;
+			h=tmp->y;
+			addNeighbors(rows,cols,v,h,cells,&head);
+			int escape=0;
+			while(!escape){
+				r=rand()%4;
+				printf("%d\n",r);
+				if(r==0 && v>0) {
+					cells[v-1][h]->southWall=1;
+					cells[v][h]->northWall=1;
+					escape++;
+				}
+				if(r==1 && v<y-1) {
+					cells[v+1][h]->northWall=1;
+					cells[v][h]->southWall=1;
+					escape++;
+				}
+				if(r==2 && h<x-1) {
+					cells[v][h+1]->westWall=1;
+					cells[v][h]->eastWall=1;
+					escape++;
+				}
+				if(r==3 && h>0) {
+					cells[v][h-1]->eastWall=1;
+					cells[v][h]->westWall=1;
+					escape++;
+				}
+			}
+			if(tmp->prev!=NULL) tmp->prev->next=tmp->next;
+			if(tmp->next!=NULL) tmp->next->prev=tmp->prev;
+			tmp=NULL;
+			neighbors_left--;
+		}
+		translate(rows, cols, cells);
+}
+
+void Generator::addNeighbors(int x, int y, int v, int h, Cell ***cells, List** head) {
+	List * neighbors;;
+	if(v>0) {
+		if(cells[v-1][h]!=NULL && cells[v-1][h]->state!=1) {
+			cells[v-1][h]->state=2;
+			neighbors = (List *)malloc(sizeof(List));
+			neighbors->x=v-1;
+			neighbors->y=h;
+			neighbors->next=*head;
+			neighbors->prev=NULL;
+			if(*head!=NULL) (*head)->prev=neighbors;
+			*head=neighbors;
+			neighbors_left++;
+		}
+	}
+	if(v<y-1) {
+		if (cells[v+1][h]!=NULL && cells[v+1][h]->state!=1) {
+			cells[v+1][h]->state=2;
+			neighbors = (List *)malloc(sizeof(List));
+			neighbors->x=v+1;
+			neighbors->y=h;
+			neighbors->next=*head;
+			neighbors->prev=NULL;
+			if(*head!=NULL) (*head)->prev=neighbors;
+			*head=neighbors;
+			neighbors_left++;
+		}
+	}
+	if(h>0) {
+		if (cells[v][h-1]!=NULL && cells[v][h-1]->state!=1) {
+			cells[v][h-1]->state=2;
+			neighbors = (List *)malloc(sizeof(List));
+			neighbors->x=v;
+			neighbors->y=h-1;
+			neighbors->next=*head;
+			neighbors->prev=NULL;
+			if(*head!=NULL) (*head)->prev=neighbors;
+			*head=neighbors;
+			neighbors_left++;
+		}
+	}
+	if(h<x-1) {
+		if (cells[v][h+1]!=NULL && cells[v][h+1]->state!=1) {
+			cells[v][h+1]->state=2;
+			neighbors = (List *)malloc(sizeof(List));
+			neighbors->x=v;
+			neighbors->y=h+1;
+			neighbors->next=*head;
+			neighbors->prev=NULL;
+			if(*head!=NULL) (*head)->prev=neighbors;
+			*head=neighbors;
+			neighbors_left++;
+		}
+	}
+}
+
+void Generator::translate(int rows, int cols, Cell ***cells) {
+	int x = cols, y = rows;
+	Cell * c = (Cell *)malloc(sizeof(Cell));
+	int i,j;
+	cells[y-1][x-1]->southWall=1;
+	cells[0][0]->northWall=1;
+	for(i=0;i<y;i++) {
+		for(j=0;j<x;j++) {
+			c = cells[i][j];
+			printf(" 0 %d",c->northWall);
+			c = NULL;
+		}
+		printf(" 0\n");
+		for(j=0;j<x;j++) {
+			c = cells[i][j];
+			if(j==0) {
+				printf(" %d %d %d",c->westWall,c->state,c->eastWall);
+			} else {
+				printf(" %d %d",c->state,c->eastWall);
+			}
+			c = NULL;
+		}
+		printf(" \n");
+	}
+	for(j=0;j<x;j++) {
+		c = cells[y-1][j];
+		printf(" 0 %d",c->southWall);
+		c = NULL;
+	}
+	printf(" 0\n");
+}
+
+void Generator::recursive()
+{
+
 }

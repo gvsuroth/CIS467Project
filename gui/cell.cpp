@@ -1,9 +1,12 @@
 #include "cell.h"
 
+// Initialize the Cell shared SVG renderes
+QSvgRenderer Cell::wallImage(QString(IMG_PATH"wall.svg"));
+QSvgRenderer Cell::spriteImage(QString(IMG_PATH"sprite.svg"));
+
 Cell::Cell(QGraphicsItem *parent, Maze::CellType type)
 	: QGraphicsLayoutItem(), QGraphicsItem(parent)
 {
-	//qDebug() << "Cell constructor";
 	img = 0;
 	setGraphicsItem(this);
 	setCellType(type);
@@ -15,29 +18,26 @@ Cell::~Cell()
 		delete img;
 }
 
-QSvgRenderer Cell::wallImage(QString(IMG_PATH"wall.svg"));
-QSvgRenderer Cell::spriteImage(QString(IMG_PATH"sprite.svg"));
-
 void Cell::setCellType(Maze::CellType type)
 {
 	_type = type;
-	//QString imgName;
 	switch(type)
 	{
 	case Maze::WALL:
-		img = new QGraphicsSvgItem(this);//imgName = "wall";
+		img = new QGraphicsSvgItem(this);
 		img->setSharedRenderer(&wallImage);
 		break;
 	case Maze::SPRITE:
-		img = new QGraphicsSvgItem(this);//imgName = "sprite";
+		img = new QGraphicsSvgItem(this);
 		img->setSharedRenderer(&spriteImage);
 		break;
 	case Maze::PATH:
+		delete img;
+		img = NULL;
 	default:
 		return;
 	}
-	//img = new QGraphicsSvgItem(IMG_PATH+imgName+".svg", this);
-	//img->scale(rect.width() / img->boundingRect().width(), rect.height() / img->boundingRect().height());
+	// Scale image
 	qreal scaleX = boundingRect().width() / img->boundingRect().width();
 	qreal scaleY = boundingRect().height() / img->boundingRect().height();
 	img->setScale(scaleX > scaleY ? scaleY : scaleX);
@@ -51,8 +51,6 @@ Maze::CellType Cell::cellType() const
 void Cell::setFacing(Maze::Facing facing)
 {
 	setRotation(facing * 90);
-	/*if(img)
-		img->setRotation(facing * 90);*/
 }
 
 QRectF Cell::boundingRect() const
@@ -66,14 +64,6 @@ void Cell::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 	Q_UNUSED(option);
 
 	painter->drawRect(boundingRect()); // Add a frame to the cell
-
-	/*if(img)
-	{
-		//img->scale(rect.width() / img->boundingRect().width(), rect.height() / img->boundingRect().height());
-		qreal scaleX = boundingRect().width() / img->boundingRect().width();
-		qreal scaleY = boundingRect().height() / img->boundingRect().height();
-		img->setScale(scaleX > scaleY ? scaleY : scaleX);
-	}*/
 }
 
 QSizeF Cell::sizeHint(Qt::SizeHint which, const QSizeF &constraint) const
@@ -97,12 +87,5 @@ void Cell::setGeometry(const QRectF &rect)
 	prepareGeometryChange();
 	QGraphicsLayoutItem::setGeometry(rect);
 	setPos(rect.topLeft());
-	/*if(img)
-	{
-		//img->scale(rect.width() / img->boundingRect().width(), rect.height() / img->boundingRect().height());
-		qreal scaleX = rect.width() / img->boundingRect().width();
-		qreal scaleY = rect.height() / img->boundingRect().height();
-		img->setScale(scaleX > scaleY ? scaleY : scaleX);
-	}*/
 	setTransformOriginPoint(rect.width() / 2, rect.height() / 2); // For rotation
 }

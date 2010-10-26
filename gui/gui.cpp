@@ -25,10 +25,10 @@ Gui::Gui(QWidget *parent) :
 	view = new GraphicsView(scene);
 	view->setViewport(new QGLWidget(QGLFormat(QGL::SampleBuffers))); // Enable OpenGL support
 	connect(scene, SIGNAL(sceneRectChanged(QRectF)), view, SLOT(zoomReset())); // Auto-reset when scene size changes
-	connect(ui->action_Zoom_In, SIGNAL(activated()), view, SLOT(zoomIn()));
-	connect(ui->action_Zoom_Out, SIGNAL(activated()), view, SLOT(zoomOut()));
-	connect(ui->action_Reset, SIGNAL(activated()), view, SLOT(zoomReset()));
-	connect(ui->action_Dimensions, SIGNAL(activated()), this, SLOT(setDimensionsDialog()));
+	connect(ui->action_Zoom_In, SIGNAL(triggered()), view, SLOT(zoomIn()));
+	connect(ui->action_Zoom_Out, SIGNAL(triggered()), view, SLOT(zoomOut()));
+	connect(ui->action_Reset, SIGNAL(triggered()), view, SLOT(zoomReset()));
+	connect(ui->action_Dimensions, SIGNAL(triggered()), this, SLOT(setDimensionsDialog()));
 	setCentralWidget(view);
 
 	// Setup maze
@@ -38,17 +38,12 @@ Gui::Gui(QWidget *parent) :
 
 	// Setup generator
 	gen = new Generator(maze);
-	connect(ui->action_Prim_s_Algorithm, SIGNAL(activated()), gen, SLOT(prims()));
+	connect(ui->action_Back_and_Forth, SIGNAL(triggered()), gen, SLOT(backAndForth()));
+	connect(ui->action_Prim_s_Algorithm, SIGNAL(triggered()), gen, SLOT(prims()));
 
 	// Setup solver
 	solver = new Solver(maze);
-	connect(ui->action_Right_Hand_Rule, SIGNAL(activated()), solver, SLOT(rightHandRule()));
-
-	// Temp stuff (this will be done by menus later)
-	//gen = new Generator(maze);
-	//maze->setDimensions(20, 20);
-	//gen->prims();
-	//gen->lukes();
+	connect(ui->action_Right_Hand_Rule, SIGNAL(triggered()), solver, SLOT(rightHandRule()));
 }
 
 Gui::~Gui()
@@ -74,6 +69,7 @@ void Gui::setCell(unsigned row, unsigned column, Maze::CellType type, Maze::Faci
 {
 	if(row < (unsigned)mazeGrid->rowCount() && column < (unsigned)mazeGrid->columnCount())
 	{
+		qDebug() << "setCell(" << row << ',' << column << ',' << type << ',' << facing << ')';
 		Cell *cell = (Cell*)mazeGrid->itemAt(row, column);
 		cell->setCellType(type);
 		cell->setFacing(facing);
