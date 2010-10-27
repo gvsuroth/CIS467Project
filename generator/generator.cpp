@@ -41,7 +41,7 @@ void Generator::prims()
 		}
 		for(b=0;b<y;b++) {
 			for(a=0;a<x;a++) {
-				cells[a][b]->state=0;
+				cells[a][b]->state=Maze::WALL;
 				if(a!=0)
 					cells[a][b]->west = cells[b][a-1];
 				else
@@ -58,7 +58,7 @@ void Generator::prims()
 		int h,v;
 		h=rand()%x;
 		v=rand()%y;
-		cells[v][h]->state=1;
+		cells[v][h]->state=Maze::PATH;
 		addNeighbors(rows,cols,v,h,cells,&head);
 		while(neighbors_left>=0) {
 			int r;
@@ -75,7 +75,7 @@ void Generator::prims()
 					tmp = tmp->next;
 				else
 					printf("ERROR");
-			cells[tmp->x][tmp->y]->state=1;
+			cells[tmp->x][tmp->y]->state=Maze::PATH;
 
 			v=tmp->x;
 			h=tmp->y;
@@ -85,23 +85,24 @@ void Generator::prims()
 				r=rand()%4;
 				printf("%d\n",r);
 				if(r==0 && v>0) {
-					cells[v-1][h]->southWall=1;
-					cells[v][h]->northWall=1;
+					cells[v-1][h]->southWall=Maze::PATH;
+					cells[v][h]->northWall=Maze::PATH;
 					escape++;
 				}
 				if(r==1 && v<y-1) {
-					cells[v+1][h]->northWall=1;
-					cells[v][h]->southWall=1;
+					cells[v+1][h]->northWall=Maze::PATH;
+					cells[v][h]->southWall=Maze::PATH;
 					escape++;
 				}
 				if(r==2 && h<x-1) {
-					cells[v][h+1]->westWall=1;
-					cells[v][h]->eastWall=1;
+				if(r==2 && h<x-1) {
+					cells[v][h+1]->westWall=Maze::PATH;
+					cells[v][h]->eastWall=Maze::PATH;
 					escape++;
 				}
 				if(r==3 && h>0) {
-					cells[v][h-1]->eastWall=1;
-					cells[v][h]->westWall=1;
+					cells[v][h-1]->eastWall=Maze::PATH;
+					cells[v][h]->westWall=Maze::PATH;
 					escape++;
 				}
 			}
@@ -116,8 +117,8 @@ void Generator::prims()
 void Generator::addNeighbors(int x, int y, int v, int h, Cell ***cells, List** head) {
 	List * neighbors;;
 	if(v>0) {
-		if(cells[v-1][h]!=NULL && cells[v-1][h]->state!=1) {
-			cells[v-1][h]->state=2;
+		if(cells[v-1][h]!=NULL && cells[v-1][h]->state!=Maze::PATH) {
+			cells[v-1][h]->state=Maze::FRONTIER;
 			neighbors = (List *)malloc(sizeof(List));
 			neighbors->x=v-1;
 			neighbors->y=h;
@@ -129,8 +130,8 @@ void Generator::addNeighbors(int x, int y, int v, int h, Cell ***cells, List** h
 		}
 	}
 	if(v<y-1) {
-		if (cells[v+1][h]!=NULL && cells[v+1][h]->state!=1) {
-			cells[v+1][h]->state=2;
+		if (cells[v+1][h]!=NULL && cells[v+1][h]->state!=Maze::PATH) {
+			cells[v+1][h]->state=Maze::FRONTIER;
 			neighbors = (List *)malloc(sizeof(List));
 			neighbors->x=v+1;
 			neighbors->y=h;
@@ -142,8 +143,8 @@ void Generator::addNeighbors(int x, int y, int v, int h, Cell ***cells, List** h
 		}
 	}
 	if(h>0) {
-		if (cells[v][h-1]!=NULL && cells[v][h-1]->state!=1) {
-			cells[v][h-1]->state=2;
+		if (cells[v][h-1]!=NULL && cells[v][h-1]->state!=Maze::PATH) {
+			cells[v][h-1]->state=Maze::FRONTIER;
 			neighbors = (List *)malloc(sizeof(List));
 			neighbors->x=v;
 			neighbors->y=h-1;
@@ -155,8 +156,8 @@ void Generator::addNeighbors(int x, int y, int v, int h, Cell ***cells, List** h
 		}
 	}
 	if(h<x-1) {
-		if (cells[v][h+1]!=NULL && cells[v][h+1]->state!=1) {
-			cells[v][h+1]->state=2;
+		if (cells[v][h+1]!=NULL && cells[v][h+1]->state!=Maze::PATH) {
+			cells[v][h+1]->state=Maze::FONTIER;
 			neighbors = (List *)malloc(sizeof(List));
 			neighbors->x=v;
 			neighbors->y=h+1;
@@ -173,12 +174,12 @@ void Generator::translate(int rows, int cols, Cell ***cells) {
 	int x = cols, y = rows;
 	Cell * c = (Cell *)malloc(sizeof(Cell));
 	int i,j;
-	cells[y-1][x-1]->southWall=1;
-	cells[0][0]->northWall=1;
+	cells[y-1][x-1]->southWall=Maze::PATH;
+	cells[0][0]->northWall=Maze::PATH;
 	for(i=0;i<y;i++) {
 		for(j=0;j<x;j++) {
 			c = cells[i][j];
-			printf(" 0 %d",c->northWall);
+			printf(" %u %d",Maze::WALL, c->northWall);
 			c = NULL;
 		}
 		printf(" 0\n");
