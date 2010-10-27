@@ -8,11 +8,13 @@ TARGET =
 DEPENDPATH += . \
 	gui \
 	generator \
-	models
+	models \
+	algorithms
 INCLUDEPATH += . \
 	gui \
 	generator \
-	models
+	models \
+	algorithms
 
 # Input
 HEADERS += gui/gui.h \
@@ -20,7 +22,7 @@ HEADERS += gui/gui.h \
 	generator/generator.h \
 	models/maze.h \
 	gui/graphicsview.h \
-    algorithms/solver.h
+	algorithms/solver.h
 FORMS += gui/gui.ui \
 	gui/newmaze.ui
 SOURCES += gui/gui.cpp \
@@ -29,4 +31,7 @@ SOURCES += gui/gui.cpp \
 	generator/generator.cpp \
 	models/maze.cpp \
 	gui/graphicsview.cpp \
-    algorithms/solver.cpp
+	algorithms/solver.cpp
+
+RESOURCES += \
+	CIS467Project.qrc

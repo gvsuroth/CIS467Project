@@ -1,6 +1,6 @@
 #include "cell.h"
 
-// Initialize the Cell shared SVG renderes
+// Initialize the Cell shared SVG renderers
 QSvgRenderer Cell::wallImage(QString(IMG_PATH"wall.svg"));
 QSvgRenderer Cell::spriteImage(QString(IMG_PATH"sprite.svg"));
 

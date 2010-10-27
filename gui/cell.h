@@ -11,7 +11,7 @@
 
 #include "models/maze.h"
 
-#define IMG_PATH "gui/img/"
+#define IMG_PATH ":/gui/img/"
 
 class Cell : public QGraphicsLayoutItem, public QGraphicsItem
 {

@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>gui/img/sprite.svg</file>
+        <file>gui/img/wall.svg</file>
+    </qresource>
+</RCC>
