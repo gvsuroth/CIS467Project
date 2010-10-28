@@ -1,2 +1,6 @@
 moc*
 *.o
+Makefile
+CIS467Project.app/
+CIS467Project.xcodeproj/
+Info.plist
