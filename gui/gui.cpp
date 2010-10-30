@@ -32,8 +32,8 @@ Gui::Gui(QWidget *parent) :
 	setCentralWidget(view);
 
 	// Setup maze
-	maze = new Maze();
-	connect(maze, SIGNAL(cellChanged(uint,uint,Maze::CellType,Maze::Facing)), this, SLOT(setCell(uint,uint,Maze::CellType,Maze::Facing)));
+        maze = new Maze(this);
+        connect(maze, SIGNAL(cellChanged(uint,uint,Maze::CellType,Maze::Facing)), this, SLOT(setCell(uint,uint,Maze::CellType,Maze::Facing)));
 	connect(maze, SIGNAL(dimensionsSet(uint,uint)), this, SLOT(setDimensions(uint,uint)));
 
 	// Setup generator
@@ -43,7 +43,7 @@ Gui::Gui(QWidget *parent) :
 
 	// Setup solver
 	solver = new Solver(maze);
-	connect(ui->action_Right_Hand_Rule, SIGNAL(triggered()), solver, SLOT(rightHandRule()));
+        connect(ui->action_Right_Hand_Rule, SIGNAL(triggered()), solver, SLOT(rightHandRule()));
 }
 
 Gui::~Gui()

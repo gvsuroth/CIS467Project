@@ -23,7 +23,7 @@ void Generator::backAndForth()
 
 void Generator::prims()
 {
-//	void init(int rows, int cols, Cell * cells[rows][cols]) {
+/*//	void init(int rows, int cols, Cell * cells[rows][cols]) {
 	int y = maze->height(), x = maze->width();
 	int rows = y, cols = x;
 		int a,b;
@@ -111,11 +111,11 @@ void Generator::prims()
 			tmp=NULL;
 			neighbors_left--;
 		}
-		translate(rows, cols, cells);
+                translate(rows, cols, cells);*/
 }
 
 void Generator::addNeighbors(int x, int y, int v, int h, Cell ***cells, List** head) {
-	List * neighbors;;
+        /*List * neighbors;;
 	if(v>0) {
 		if(cells[v-1][h]!=NULL && cells[v-1][h]->state!=Maze::PATH) {
 			cells[v-1][h]->state=Maze::FRONTIER;
@@ -167,11 +167,11 @@ void Generator::addNeighbors(int x, int y, int v, int h, Cell ***cells, List** h
 			*head=neighbors;
 			neighbors_left++;
 		}
-	}
+        }*/
 }
 
 void Generator::translate(int rows, int cols, Cell ***cells) {
-	int x = cols, y = rows;
+        /*int x = cols, y = rows;
 	Cell * c = (Cell *)malloc(sizeof(Cell));
 	int i,j;
 	cells[y-1][x-1]->southWall=Maze::PATH;
@@ -199,7 +199,7 @@ void Generator::translate(int rows, int cols, Cell ***cells) {
 		printf(" 0 %d",c->southWall);
 		c = NULL;
 	}
-	printf(" 0\n");
+        printf(" 0\n");*/
 }
 
 void Generator::recursive()

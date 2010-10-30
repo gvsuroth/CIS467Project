@@ -25,7 +25,7 @@ public:
 		LEFT
 	};
 
-	explicit Maze(QObject *parent = 0);
+        explicit Maze(QObject *parent = 0);
 	~Maze();
 	void setDimensions(unsigned width, unsigned height);
 	unsigned width();
@@ -38,7 +38,8 @@ private:
 	unsigned _height;
 	unsigned _width;
 	CellType **data;
-	QPoint spriteLoc;
+        QPoint spriteLoc;
+        //Gui *gui;
 	bool validCoord(unsigned row, unsigned column) const;
 signals:
 	void dimensionsSet(unsigned width, unsigned height);

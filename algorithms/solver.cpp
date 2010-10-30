@@ -25,5 +25,6 @@ void Solver::rightHandRule()
 		curLoc = nextLoc;
 		facing = nextFacing;
 		maze->moveSprite(curLoc.y(), curLoc.x(), facing);
+                usleep(500);
 	}
 }

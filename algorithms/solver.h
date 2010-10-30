@@ -14,7 +14,7 @@ public:
 signals:
 
 public slots:
-	void rightHandRule();
+        void rightHandRule();
 private:
 	Maze *maze;
 };
