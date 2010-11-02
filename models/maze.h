@@ -5,6 +5,7 @@
 #include <QPoint>
 
 #include <QDebug>
+class Gui;
 
 class Maze : public QObject
 {
@@ -25,7 +26,7 @@ public:
 		LEFT
 	};
 
-        explicit Maze(QObject *parent = 0);
+        explicit Maze(Gui *gui, QObject *parent = 0);
 	~Maze();
 	void setDimensions(unsigned width, unsigned height);
 	unsigned width();
@@ -39,7 +40,7 @@ private:
 	unsigned _width;
 	CellType **data;
         QPoint spriteLoc;
-        //Gui *gui;
+        Gui *gui;
 	bool validCoord(unsigned row, unsigned column) const;
 signals:
 	void dimensionsSet(unsigned width, unsigned height);
