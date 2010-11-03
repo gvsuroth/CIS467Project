@@ -63,11 +63,11 @@ void Cell::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 	Q_UNUSED(widget);
 	Q_UNUSED(option);
 
-        painter->drawRect(boundingRect()); // Add a frame to the cell
-        if (_type == Maze::WALL)
-                painter->fillRect(boundingRect(), Qt::black);
-        if (_type == Maze::SPRITE)
-                painter->fillRect(boundingRect(), Qt::red);
+	painter->drawRect(boundingRect()); // Add a frame to the cell
+	if (_type == Maze::WALL)
+		painter->fillRect(boundingRect(), Qt::black);
+	if (_type == Maze::SPRITE)
+		painter->fillRect(boundingRect(), Qt::red);
 }
 
 QSizeF Cell::sizeHint(Qt::SizeHint which, const QSizeF &constraint) const

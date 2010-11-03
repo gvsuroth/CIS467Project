@@ -1,10 +1,8 @@
 #include "maze.h"
-#include "gui/gui.h"
 
-Maze::Maze(Gui *gui, QObject *parent)
+Maze::Maze(QObject *parent)
 	: QObject(parent), spriteLoc(0, 0)
 {
-        this->gui = gui;
 }
 
 Maze::~Maze()
@@ -60,11 +58,10 @@ Maze::CellType Maze::getCell(unsigned row, unsigned column) const
 
 void Maze::setCell(unsigned row, unsigned column, Maze::CellType type, Facing facing)
 {
-	if(type != data[row][column] && validCoord(row, column)) // the new CellType must be different from the current CellType
+	if(validCoord(row, column) && type != data[row][column]) // the new CellType must be different from the current CellType
 	{
 		data[row][column] = type;
-                emit cellChanged(row, column, type, facing);
-                //this->gui->setCell(row, column, type, facing);
+		emit cellChanged(row, column, type, facing);
 	}
 }
 
