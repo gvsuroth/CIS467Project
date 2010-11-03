@@ -50,10 +50,7 @@ Gui::~Gui()
 {
 	delete ui;
 	delete newMazeUi;
-	delete scene;
 	delete view;
-	delete mazeContainer;
-	delete mazeGrid;
 	delete maze;
 	delete gen;
 }
