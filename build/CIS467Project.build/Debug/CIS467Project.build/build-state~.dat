@@ -1,2203 +1,0 @@
-TCIS467Project
-v7
-r0
-t310427411.392546
-cCheck dependencies
-cProcessInfoPlistFile /Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app/Contents/Info.plist Info.plist
-cPhaseScriptExecution "Qt Qmake" /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Script-D7BA7D76DAB5DD13389D6332.sh
-cPhaseScriptExecution "Qt Preprocessors" /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Script-A0A52A2ADF7A1E2A99738674.sh
-cCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/gui.o /Users/josephroth/Projects/CIS467Project/gui/gui.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-cCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/main.o /Users/josephroth/Projects/CIS467Project/gui/main.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-cCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/cell.o /Users/josephroth/Projects/CIS467Project/gui/cell.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-cCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/generator.o /Users/josephroth/Projects/CIS467Project/generator/generator.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-cCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/maze.o /Users/josephroth/Projects/CIS467Project/models/maze.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-cCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/graphicsview.o /Users/josephroth/Projects/CIS467Project/gui/graphicsview.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-cCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/solver.o /Users/josephroth/Projects/CIS467Project/algorithms/solver.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-cCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_gui.o /Users/josephroth/Projects/CIS467Project/moc_gui.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-cCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_generator.o /Users/josephroth/Projects/CIS467Project/moc_generator.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-cCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_maze.o /Users/josephroth/Projects/CIS467Project/moc_maze.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-cCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_graphicsview.o /Users/josephroth/Projects/CIS467Project/moc_graphicsview.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-cCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_solver.o /Users/josephroth/Projects/CIS467Project/moc_solver.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-cLd /Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app/Contents/MacOS/CIS467Project normal i386
-cTouch /Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app
-cPBXCp CIS467Project.app build/Debug/CIS467Project.app
-
-N/Library/Frameworks/Qt3Support.framework/Headers/q3cstring.h
-c000000004C8A594A0000000000002795
-t1284135242
-s10133
-i<QtCore/qbytearray.h>
-
-N/Library/Frameworks/Qt3Support.framework/Headers/q3valuelist.h
-c000000004C8A594B0000000000002081
-t1284135243
-s8321
-i<QtCore/qalgorithms.h>
-i<QtCore/qdatastream.h>
-i<QtCore/qlinkedlist.h>
-i<QtCore/qlist.h>
-i<iterator>
-i<list>
-
-N/Library/Frameworks/QtCore.framework/Headers/QPoint
-c000000004C8A59470000000000000014
-t1284135239
-s20
-i"qpoint.h"
-
-N/Library/Frameworks/QtCore.framework/Headers/QPointF
-c000000004C8A59470000000000000014
-t1284135239
-s20
-i"qpoint.h"
-
-N/Library/Frameworks/QtCore.framework/Headers/QVariant
-c000000004C8A59470000000000000016
-t1284135239
-s22
-i"qvariant.h"
-
-N/Library/Frameworks/QtCore.framework/Headers/qabstractitemmodel.h
-c000000004C8A59470000000000004075
-t1284135239
-s16501
-i<QtCore/qvariant.h>
-i<QtCore/qobject.h>
-i<QtCore/qhash.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qalgorithms.h
-c000000004C8A59470000000000004026
-t1284135239
-s16422
-i<QtCore/qglobal.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic.h
-c000000004C8A59470000000000001AB4
-t1284135239
-s6836
-i<QtCore/qglobal.h>
-i<QtCore/qbasicatomic.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_alpha.h
-c000000004C8A594700000000000065B1
-t1284135239
-s26033
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_arch.h
-c000000004C8A59470000000000000DC1
-t1284135239
-s3521
-i"QtCore/qglobal.h"
-i"QtCore/qatomic_vxworks.h"
-i"QtCore/qatomic_alpha.h"
-i"QtCore/qatomic_arm.h"
-i"QtCore/qatomic_armv6.h"
-i"QtCore/qatomic_avr32.h"
-i"QtCore/qatomic_bfin.h"
-i"QtCore/qatomic_generic.h"
-i"QtCore/qatomic_i386.h"
-i"QtCore/qatomic_ia64.h"
-i"QtCore/qatomic_macosx.h"
-i"QtCore/qatomic_mips.h"
-i"QtCore/qatomic_parisc.h"
-i"QtCore/qatomic_powerpc.h"
-i"QtCore/qatomic_s390.h"
-i"QtCore/qatomic_sparc.h"
-i"QtCore/qatomic_windows.h"
-i"QtCore/qatomic_windowsce.h"
-i"QtCore/qatomic_x86_64.h"
-i"QtCore/qatomic_symbian.h"
-i"QtCore/qatomic_sh.h"
-i"QtCore/qatomic_sh4a.h"
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_arm.h
-c000000004C8A59470000000000002EFE
-t1284135239
-s12030
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_armv6.h
-c000000004C8A59470000000000003ABC
-t1284135239
-s15036
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_avr32.h
-c000000004C8A59470000000000001D39
-t1284135239
-s7481
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_bfin.h
-c000000004C8A59470000000000002747
-t1284135239
-s10055
-i<asm/fixed_code.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_bootstrap.h
-c000000004C8A59470000000000000C1D
-t1284135239
-s3101
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_generic.h
-c000000004C8A594700000000000021FC
-t1284135239
-s8700
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_i386.h
-c000000004C8A59470000000000002AC2
-t1284135239
-s10946
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_ia64.h
-c000000004C8A594700000000000064F4
-t1284135239
-s25844
-i<ia64intrin.h>
-i<ia64/sys/inline.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_macosx.h
-c000000004C8A594700000000000008E8
-t1284135239
-s2280
-i<QtCore/qatomic_x86_64.h>
-i<QtCore/qatomic_i386.h>
-i<QtCore/qatomic_powerpc.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_mips.h
-c000000004C8A59470000000000006E38
-t1284135239
-s28216
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_parisc.h
-c000000004C8A594700000000000020CD
-t1284135239
-s8397
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_powerpc.h
-c000000004C8A5947000000000000597D
-t1284135239
-s22909
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_s390.h
-c000000004C8A59470000000000003772
-t1284135239
-s14194
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_sh.h
-c000000004C8A59470000000000002406
-t1284135239
-s9222
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_sh4a.h
-c000000004C8A5947000000000000460D
-t1284135239
-s17933
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_sparc.h
-c000000004C8A5947000000000000424F
-t1284135239
-s16975
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_symbian.h
-c000000004C8A59470000000000002BE7
-t1284135239
-s11239
-i<QtCore/qglobal.h>
-i<e32std.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_vxworks.h
-c000000004C8A5947000000000000213A
-t1284135239
-s8506
-i<QtCore/qatomic_powerpc.h>
-i<vxWorksCommon.h>
-i<taskLib.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_windows.h
-c000000004C8A59470000000000003FA9
-t1284135239
-s16297
-i"QtCore/qatomic_i386.h"
-i"QtCore/qatomic_x86_64.h"
-i<winbase.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_windowsce.h
-c000000004C8A59470000000000000873
-t1284135239
-s2163
-i<QtCore/qglobal.h>
-i"QtCore/qatomic_windows.h"
-
-N/Library/Frameworks/QtCore.framework/Headers/qatomic_x86_64.h
-c000000004C8A59470000000000002AE7
-t1284135239
-s10983
-
-N/Library/Frameworks/QtCore.framework/Headers/qbasicatomic.h
-c000000004C8A59470000000000001922
-t1284135239
-s6434
-i<QtCore/qglobal.h>
-i<QtCore/qatomic_bootstrap.h>
-i<QtCore/qatomic_arch.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qbuffer.h
-c000000004C8A59470000000000000D13
-t1284135239
-s3347
-i<QtCore/qiodevice.h>
-i<QtCore/qbytearray.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qbytearray.h
-c000000004C8A59470000000000005C3C
-t1284135239
-s23612
-i<QtCore/qatomic.h>
-i<QtCore/qnamespace.h>
-i<string.h>
-i<stdarg.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qchar.h
-c000000004C8A59470000000000003308
-t1284135239
-s13064
-i<QtCore/qglobal.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qconfig.h
-c000000004C8A594700000000000014A5
-t1284135239
-s5285
-
-N/Library/Frameworks/QtCore.framework/Headers/qcontiguouscache.h
-c000000004C8A5947000000000000351B
-t1284135239
-s13595
-i<QtCore/qatomic.h>
-i<limits.h>
-i<new>
-
-N/Library/Frameworks/QtCore.framework/Headers/qcoreapplication.h
-c000000004C8A59470000000000002790
-t1284135239
-s10128
-i<QtCore/qobject.h>
-i<QtCore/qcoreevent.h>
-i<QtCore/qeventloop.h>
-i<QtCore/qstringlist.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qcoreevent.h
-c000000004C8A59470000000000003F82
-t1284135239
-s16258
-i<QtCore/qnamespace.h>
-i<QtCore/qbytearray.h>
-i<QtCore/qobjectdefs.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qdatastream.h
-c000000004C8A59470000000000002CA9
-t1284135239
-s11433
-i<QtCore/qscopedpointer.h>
-i<QtCore/qiodevice.h>
-i<QtCore/qglobal.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qeventloop.h
-c000000004C8A59470000000000000C6D
-t1284135239
-s3181
-i<QtCore/qobject.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qfeatures.h
-c000000004C8A59470000000000005467
-t1284135239
-s21607
-
-N/Library/Frameworks/QtCore.framework/Headers/qglobal.h
-c000000004C8A59470000000000014F7B
-t1284135239
-s85883
-i<stddef.h>
-i<QtCore/qconfig.h>
-i<AvailabilityMacros.h>
-i<e32def.h>
-i<QtCore/qfeatures.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qhash.h
-c000000004C8A5947000000000000784A
-t1284135239
-s30794
-i<QtCore/qatomic.h>
-i<QtCore/qchar.h>
-i<QtCore/qiterator.h>
-i<QtCore/qlist.h>
-i<QtCore/qpair.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qiodevice.h
-c000000004C8A594700000000000020AE
-t1284135239
-s8366
-i<QtCore/qobject.h>
-i<QtCore/qobjectdefs.h>
-i<QtCore/qscopedpointer.h>
-i<QtCore/qstring.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qiterator.h
-c000000004C8A594700000000000022FA
-t1284135239
-s8954
-i<QtCore/qglobal.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qline.h
-c000000004C8A594700000000000026B4
-t1284135239
-s9908
-i<QtCore/qpoint.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qlinkedlist.h
-c000000004C8A59470000000000003C92
-t1284135239
-s15506
-i<QtCore/qiterator.h>
-i<QtCore/qatomic.h>
-i<iterator>
-i<list>
-
-N/Library/Frameworks/QtCore.framework/Headers/qlist.h
-c000000004C8A594700000000000072A5
-t1284135239
-s29349
-i<QtCore/qiterator.h>
-i<QtCore/qatomic.h>
-i<QtCore/qalgorithms.h>
-i<iterator>
-i<list>
-i<new>
-i<limits.h>
-i<string.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qlocale.h
-c000000004C8A594700000000000050D3
-t1284135239
-s20691
-i<QtCore/qstring.h>
-i<QtCore/qobjectdefs.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qmap.h
-c000000004C8A5947000000000000833D
-t1284135239
-s33597
-i<QtCore/qatomic.h>
-i<QtCore/qiterator.h>
-i<QtCore/qlist.h>
-i<map>
-i<new>
-
-N/Library/Frameworks/QtCore.framework/Headers/qmargins.h
-c000000004C8A594700000000000010AD
-t1284135239
-s4269
-i<QtCore/qnamespace.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qmetatype.h
-c000000004C8A594700000000000034DB
-t1284135239
-s13531
-i<QtCore/qglobal.h>
-i<QtCore/qatomic.h>
-i<QtCore/qdatastream.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qmimedata.h
-c000000004C8A59470000000000000CE3
-t1284135239
-s3299
-i<QtCore/qvariant.h>
-i<QtCore/qobject.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qnamespace.h
-c000000004C8A5947000000000000D79F
-t1284135239
-s55199
-i<QtCore/qglobal.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qobject.h
-c000000004C8A59470000000000003FC3
-t1284135239
-s16323
-i<QtCore/qobjectdefs.h>
-i<QtCore/qstring.h>
-i<QtCore/qbytearray.h>
-i<QtCore/qlist.h>
-i<QtCore/qcoreevent.h>
-i<QtCore/qscopedpointer.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qobjectdefs.h
-c000000004C8A59470000000000004478
-t1284135239
-s17528
-i<QtCore/qnamespace.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qpair.h
-c000000004C8A59470000000000000F2C
-t1284135239
-s3884
-i<QtCore/qdatastream.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qpoint.h
-c000000004C8A594700000000000024BF
-t1284135239
-s9407
-i<QtCore/qnamespace.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qpointer.h
-c000000004C8A59470000000000001475
-t1284135239
-s5237
-i<QtCore/qobject.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qrect.h
-c000000004C8A594700000000000056D2
-t1284135239
-s22226
-i<QtCore/qsize.h>
-i<QtCore/qpoint.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qregexp.h
-c000000004C8A59470000000000001589
-t1284135239
-s5513
-i<QtCore/qstring.h>
-i<new>
-
-N/Library/Frameworks/QtCore.framework/Headers/qscopedpointer.h
-c000000004C8A5947000000000000155A
-t1284135239
-s5466
-i<QtCore/qglobal.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qset.h
-c000000004C8A594700000000000035BF
-t1284135239
-s13759
-i<QtCore/qhash.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qshareddata.h
-c000000004C8A59470000000000001DCB
-t1284135239
-s7627
-i<QtCore/qglobal.h>
-i<QtCore/qatomic.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qsharedpointer.h
-c000000004C8A5947000000000000170F
-t1284135239
-s5903
-i<QtCore/qglobal.h>
-i<QtCore/qatomic.h>
-i<QtCore/qshareddata.h>
-i<QtCore/qsharedpointer_impl.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qsharedpointer_impl.h
-c000000004C8A594700000000000068FD
-t1284135239
-s26877
-i<new>
-i<QtCore/qatomic.h>
-i<QtCore/qobject.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qsize.h
-c000000004C8A5947000000000000286F
-t1284135239
-s10351
-i<QtCore/qnamespace.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qstring.h
-c000000004C8A5947000000000000E808
-t1284135239
-s59400
-i<QtCore/qchar.h>
-i<QtCore/qbytearray.h>
-i<QtCore/qatomic.h>
-i<QtCore/qnamespace.h>
-i<Qt3Support/q3cstring.h>
-i<string>
-i<string>
-i<stdarg.h>
-i<QtCore/qstringbuilder.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qstringbuilder.h
-c000000004C8A5947000000000000243D
-t1284135239
-s9277
-i<QtCore/qstring.h>
-i<QtCore/qmap.h>
-i<string.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qstringlist.h
-c000000004C8A5947000000000000263B
-t1284135239
-s9787
-i<QtCore/qalgorithms.h>
-i<QtCore/qdatastream.h>
-i<QtCore/qlist.h>
-i<QtCore/qregexp.h>
-i<QtCore/qstring.h>
-i<QtCore/qstringmatcher.h>
-i<Qt3Support/q3valuelist.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qstringmatcher.h
-c000000004C8A59470000000000000D10
-t1284135239
-s3344
-i<QtCore/qstring.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qt_windows.h
-c000000004C8A594700000000000010C5
-t1284135239
-s4293
-i<windows.h>
-i<ceconfig.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qtextcodec.h
-c000000004C8A59470000000000001C21
-t1284135239
-s7201
-i<QtCore/qstring.h>
-i<QtCore/qlist.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qtextstream.h
-c000000004C8A594700000000000033B9
-t1284135239
-s13241
-i<QtCore/qiodevice.h>
-i<QtCore/qstring.h>
-i<QtCore/qchar.h>
-i<QtCore/qlocale.h>
-i<QtCore/qscopedpointer.h>
-i<QtCore/qtextcodec.h>
-i<stdio.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qvariant.h
-c000000004C8A594700000000000048A0
-t1284135239
-s18592
-i<QtCore/qatomic.h>
-i<QtCore/qbytearray.h>
-i<QtCore/qlist.h>
-i<QtCore/qmetatype.h>
-i<QtCore/qmap.h>
-i<QtCore/qhash.h>
-i<QtCore/qstring.h>
-
-N/Library/Frameworks/QtCore.framework/Headers/qvector.h
-c000000004C8A5947000000000000664A
-t1284135239
-s26186
-i<QtCore/qiterator.h>
-i<QtCore/qatomic.h>
-i<QtCore/qalgorithms.h>
-i<QtCore/qlist.h>
-i<iterator>
-i<vector>
-i<stdlib.h>
-i<string.h>
-i<QtCore/QPointF>
-i<QtCore/QPoint>
-
-N/Library/Frameworks/QtCore.framework/Headers/qxmlstream.h
-c000000004C8A594700000000000047F1
-t1284135239
-s18417
-i<QtCore/qiodevice.h>
-i<QtCore/qstring.h>
-i<QtCore/qvector.h>
-i<QtCore/qscopedpointer.h>
-
-N/Library/Frameworks/QtCore.framework/QtCore
-c000000004C8A5A7D00000000005EEB20
-t1284135549
-s6220576
-
-N/Library/Frameworks/QtCore.framework/Versions/4/Headers/QDebug
-c000000004C8A59470000000000000014
-t1284135239
-s20
-i"qdebug.h"
-
-N/Library/Frameworks/QtCore.framework/Versions/4/Headers/QObject
-c000000004C8A59470000000000000015
-t1284135239
-s21
-i"qobject.h"
-
-N/Library/Frameworks/QtCore.framework/Versions/4/Headers/QPoint
-c000000004C8A59470000000000000014
-t1284135239
-s20
-i"qpoint.h"
-
-N/Library/Frameworks/QtCore.framework/Versions/4/Headers/qdebug.h
-c000000004C8A594700000000000029DB
-t1284135239
-s10715
-i<QtCore/qalgorithms.h>
-i<QtCore/qhash.h>
-i<QtCore/qlist.h>
-i<QtCore/qmap.h>
-i<QtCore/qpair.h>
-i<QtCore/qtextstream.h>
-i<QtCore/qstring.h>
-i<QtCore/qvector.h>
-i<QtCore/qset.h>
-i<QtCore/qcontiguouscache.h>
-
-N/Library/Frameworks/QtCore.framework/Versions/4/Headers/qobject.h
-c000000004C8A59470000000000003FC3
-t1284135239
-s16323
-i<QtCore/qobjectdefs.h>
-i<QtCore/qstring.h>
-i<QtCore/qbytearray.h>
-i<QtCore/qlist.h>
-i<QtCore/qcoreevent.h>
-i<QtCore/qscopedpointer.h>
-
-N/Library/Frameworks/QtCore.framework/Versions/4/Headers/qpoint.h
-c000000004C8A594700000000000024BF
-t1284135239
-s9407
-i<QtCore/qnamespace.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/QAction
-c000000004C8A59470000000000000015
-t1284135239
-s21
-i"qaction.h"
-
-N/Library/Frameworks/QtGui.framework/Headers/QApplication
-c000000004C8A5947000000000000001A
-t1284135239
-s26
-i"qapplication.h"
-
-N/Library/Frameworks/QtGui.framework/Headers/QButtonGroup
-c000000004C8A5947000000000000001A
-t1284135239
-s26
-i"qbuttongroup.h"
-
-N/Library/Frameworks/QtGui.framework/Headers/QDialog
-c000000004C8A59470000000000000015
-t1284135239
-s21
-i"qdialog.h"
-
-N/Library/Frameworks/QtGui.framework/Headers/QDialogButtonBox
-c000000004C8A5947000000000000001E
-t1284135239
-s30
-i"qdialogbuttonbox.h"
-
-N/Library/Frameworks/QtGui.framework/Headers/QGridLayout
-c000000004C8A59480000000000000019
-t1284135240
-s25
-i"qgridlayout.h"
-
-N/Library/Frameworks/QtGui.framework/Headers/QHeaderView
-c000000004C8A59480000000000000019
-t1284135240
-s25
-i"qheaderview.h"
-
-N/Library/Frameworks/QtGui.framework/Headers/QLabel
-c000000004C8A59480000000000000014
-t1284135240
-s20
-i"qlabel.h"
-
-N/Library/Frameworks/QtGui.framework/Headers/QLineEdit
-c000000004C8A59480000000000000017
-t1284135240
-s23
-i"qlineedit.h"
-
-N/Library/Frameworks/QtGui.framework/Headers/QMainWindow
-c000000004C8A59480000000000000019
-t1284135240
-s25
-i"qmainwindow.h"
-
-N/Library/Frameworks/QtGui.framework/Headers/QMenu
-c000000004C8A59480000000000000013
-t1284135240
-s19
-i"qmenu.h"
-
-N/Library/Frameworks/QtGui.framework/Headers/QMenuBar
-c000000004C8A59480000000000000016
-t1284135240
-s22
-i"qmenubar.h"
-
-N/Library/Frameworks/QtGui.framework/Headers/QStatusBar
-c000000004C8A59490000000000000018
-t1284135241
-s24
-i"qstatusbar.h"
-
-N/Library/Frameworks/QtGui.framework/Headers/QWidget
-c000000004C8A59490000000000000015
-t1284135241
-s21
-i"qwidget.h"
-
-N/Library/Frameworks/QtGui.framework/Headers/qabstractitemdelegate.h
-c000000004C8A594700000000000011C9
-t1284135239
-s4553
-i<QtCore/qobject.h>
-i<QtGui/qstyleoption.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qabstractitemview.h
-c000000004C8A594700000000000034EF
-t1284135239
-s13551
-i<QtGui/qabstractscrollarea.h>
-i<QtCore/qabstractitemmodel.h>
-i<QtGui/qitemselectionmodel.h>
-i<QtGui/qabstractitemdelegate.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qabstractscrollarea.h
-c000000004C8A594700000000000012F9
-t1284135239
-s4857
-i<QtGui/qframe.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qabstractslider.h
-c000000004C8A59470000000000001758
-t1284135239
-s5976
-i<QtGui/qwidget.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qabstractspinbox.h
-c000000004C8A594700000000000017D0
-t1284135239
-s6096
-i<QtGui/qwidget.h>
-i<QtGui/qvalidator.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qaction.h
-c000000004C8A5947000000000000235D
-t1284135239
-s9053
-i<QtGui/qkeysequence.h>
-i<QtCore/qstring.h>
-i<QtGui/qwidget.h>
-i<QtCore/qvariant.h>
-i<QtGui/qicon.h>
-i<QtGui/qactiongroup.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qactiongroup.h
-c000000004C8A59470000000000000E6F
-t1284135239
-s3695
-i<QtGui/qaction.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qapplication.h
-c000000004C8A59470000000000003984
-t1284135239
-s14724
-i<QtCore/qcoreapplication.h>
-i<QtGui/qwindowdefs.h>
-i<QtCore/qpoint.h>
-i<QtCore/qsize.h>
-i<QtGui/qcursor.h>
-i<QtGui/qdesktopwidget.h>
-i<QtGui/qwidget.h>
-i<QtGui/qpalette.h>
-i<QtGui/qrgb.h>
-i<QtGui/qtransportauth_qws.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qboxlayout.h
-c000000004C8A594700000000000015ED
-t1284135239
-s5613
-i<QtGui/qlayout.h>
-i<QtGui/qwidget.h>
-i<limits.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qbrush.h
-c000000004C8A59470000000000002513
-t1284135239
-s9491
-i<QtCore/qpair.h>
-i<QtCore/qpoint.h>
-i<QtCore/qvector.h>
-i<QtCore/qscopedpointer.h>
-i<QtGui/qcolor.h>
-i<QtGui/qmatrix.h>
-i<QtGui/qtransform.h>
-i<QtGui/qimage.h>
-i<QtGui/qpixmap.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qbuttongroup.h
-c000000004C8A59470000000000000DBD
-t1284135239
-s3517
-i<QtCore/qobject.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qcolor.h
-c000000004C8A594700000000000022B2
-t1284135239
-s8882
-i<QtGui/qrgb.h>
-i<QtCore/qnamespace.h>
-i<QtCore/qstringlist.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qcursor.h
-c000000004C8A5947000000000000142A
-t1284135239
-s5162
-i<QtCore/qpoint.h>
-i<QtGui/qwindowdefs.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qdesktopwidget.h
-c000000004C8A59470000000000000E11
-t1284135239
-s3601
-i<QtGui/qwidget.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qdialog.h
-c000000004C8A59470000000000000FE3
-t1284135239
-s4067
-i<QtGui/qwidget.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qdialogbuttonbox.h
-c000000004C8A5947000000000000158C
-t1284135239
-s5516
-i<QtGui/qwidget.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qdrag.h
-c000000004C8A59480000000000000C9E
-t1284135240
-s3230
-i<QtCore/qobject.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qdrawutil.h
-c000000004C8A59480000000000001E53
-t1284135240
-s7763
-i<QtCore/qnamespace.h>
-i<QtCore/qstring.h>
-i<QtCore/qmargins.h>
-i<QtGui/qpixmap.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qevent.h
-c000000004C8A59480000000000006C65
-t1284135240
-s27749
-i<QtGui/qwindowdefs.h>
-i<QtCore/qobject.h>
-i<QtGui/qregion.h>
-i<QtCore/qnamespace.h>
-i<QtCore/qstring.h>
-i<QtGui/qkeysequence.h>
-i<QtCore/qcoreevent.h>
-i<QtGui/qmime.h>
-i<QtGui/qdrag.h>
-i<QtCore/qvariant.h>
-i<QtCore/qmap.h>
-i<QtCore/qset.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qfont.h
-c000000004C8A59480000000000002781
-t1284135240
-s10113
-i<QtGui/qwindowdefs.h>
-i<QtCore/qstring.h>
-i<QtCore/qsharedpointer.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qfontinfo.h
-c000000004C8A59480000000000000B24
-t1284135240
-s2852
-i<QtGui/qfont.h>
-i<QtCore/qsharedpointer.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qfontmetrics.h
-c000000004C8A59480000000000001A84
-t1284135240
-s6788
-i<QtGui/qfont.h>
-i<QtCore/qsharedpointer.h>
-i<QtCore/qrect.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qframe.h
-c000000004C8A59480000000000001221
-t1284135240
-s4641
-i<QtGui/qwidget.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qgraphicsitem.h
-c000000004C8A5948000000000000A221
-t1284135240
-s41505
-i<QtCore/qglobal.h>
-i<QtCore/qobject.h>
-i<QtCore/qvariant.h>
-i<QtCore/qrect.h>
-i<QtCore/qscopedpointer.h>
-i<QtGui/qpainterpath.h>
-i<QtGui/qpixmap.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qgraphicslayout.h
-c000000004C8A59480000000000000CCE
-t1284135240
-s3278
-i<QtGui/qgraphicslayoutitem.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qgraphicslayoutitem.h
-c000000004C8A594800000000000016DD
-t1284135240
-s5853
-i<QtCore/qscopedpointer.h>
-i<QtGui/qsizepolicy.h>
-i<QtGui/qevent.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qgraphicsscene.h
-c000000004C8A59480000000000003686
-t1284135240
-s13958
-i<QtCore/qobject.h>
-i<QtCore/qpoint.h>
-i<QtCore/qrect.h>
-i<QtGui/qbrush.h>
-i<QtGui/qfont.h>
-i<QtGui/qtransform.h>
-i<QtGui/qmatrix.h>
-i<QtGui/qpen.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qgridlayout.h
-c000000004C8A59480000000000001C8B
-t1284135240
-s7307
-i<QtGui/qlayout.h>
-i<QtGui/qwidget.h>
-i<limits.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qheaderview.h
-c000000004C8A59480000000000002347
-t1284135240
-s9031
-i<QtGui/qabstractitemview.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qicon.h
-c000000004C8A5948000000000000166B
-t1284135240
-s5739
-i<QtCore/qglobal.h>
-i<QtCore/qsize.h>
-i<QtCore/qlist.h>
-i<QtGui/qpixmap.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qimage.h
-c000000004C8A5948000000000000373E
-t1284135240
-s14142
-i<QtGui/qtransform.h>
-i<QtGui/qpaintdevice.h>
-i<QtGui/qrgb.h>
-i<QtCore/qbytearray.h>
-i<QtCore/qrect.h>
-i<QtCore/qstring.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qitemselectionmodel.h
-c000000004C8A59480000000000002286
-t1284135240
-s8838
-i<QtCore/qset.h>
-i<QtCore/qvector.h>
-i<QtCore/qlist.h>
-i<QtCore/qabstractitemmodel.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qkeysequence.h
-c000000004C8A59480000000000001A82
-t1284135240
-s6786
-i<QtCore/qnamespace.h>
-i<QtCore/qstring.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qlabel.h
-c000000004C8A594800000000000017D0
-t1284135240
-s6096
-i<QtGui/qframe.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qlayout.h
-c000000004C8A59480000000000001E5B
-t1284135240
-s7771
-i<QtCore/qobject.h>
-i<QtGui/qlayoutitem.h>
-i<QtGui/qsizepolicy.h>
-i<QtCore/qrect.h>
-i<QtCore/qmargins.h>
-i<limits.h>
-i<QtGui/qboxlayout.h>
-i<QtGui/qgridlayout.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qlayoutitem.h
-c000000004C8A59480000000000001550
-t1284135240
-s5456
-i<QtGui/qsizepolicy.h>
-i<QtCore/qrect.h>
-i<limits.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qlineedit.h
-c000000004C8A59480000000000002799
-t1284135240
-s10137
-i<QtGui/qframe.h>
-i<QtCore/qstring.h>
-i<QtCore/qmargins.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qmacdefines_mac.h
-c000000004C8A594800000000000019C8
-t1284135240
-s6600
-i<QtCore/qglobal.h>
-i<Cocoa/Cocoa.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qmainwindow.h
-c000000004C8A59480000000000001C5A
-t1284135240
-s7258
-i<QtGui/qwidget.h>
-i<QtGui/qtabwidget.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qmatrix.h
-c000000004C8A59480000000000001AF0
-t1284135240
-s6896
-i<QtGui/qpolygon.h>
-i<QtGui/qregion.h>
-i<QtGui/qwindowdefs.h>
-i<QtCore/qline.h>
-i<QtCore/qpoint.h>
-i<QtCore/qrect.h>
-i<QtGui/qwmatrix.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qmenu.h
-c000000004C8A59480000000000003C6A
-t1284135240
-s15466
-i<QtGui/qwidget.h>
-i<QtCore/qstring.h>
-i<QtGui/qicon.h>
-i<QtGui/qaction.h>
-i<QtGui/qpixmap.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qmenubar.h
-c000000004C8A594800000000000036CB
-t1284135240
-s14027
-i<QtGui/qmenu.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qmime.h
-c000000004C8A594800000000000018D9
-t1284135240
-s6361
-i<QtCore/qmimedata.h>
-i<QtCore/qvariant.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qpaintdevice.h
-c000000004C8A5948000000000000178A
-t1284135240
-s6026
-i<QtGui/qwindowdefs.h>
-i<QtCore/qrect.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qpaintengine.h
-c000000004C8A59480000000000002D63
-t1284135240
-s11619
-i<QtCore/qnamespace.h>
-i<QtCore/qobjectdefs.h>
-i<QtCore/qscopedpointer.h>
-i<QtGui/qpainter.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qpainter.h
-c000000004C8A59480000000000008521
-t1284135240
-s34081
-i<QtCore/qnamespace.h>
-i<QtCore/qrect.h>
-i<QtCore/qpoint.h>
-i<QtCore/qscopedpointer.h>
-i<QtGui/qpixmap.h>
-i<QtGui/qimage.h>
-i<QtGui/qtextoption.h>
-i<QtGui/qdrawutil.h>
-i<QtGui/qpolygon.h>
-i<QtGui/qpen.h>
-i<QtGui/qbrush.h>
-i<QtGui/qmatrix.h>
-i<QtGui/qtransform.h>
-i<QtGui/qfontinfo.h>
-i<QtGui/qfontmetrics.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qpainterpath.h
-c000000004C8A5948000000000000373E
-t1284135240
-s14142
-i<QtGui/qmatrix.h>
-i<QtCore/qglobal.h>
-i<QtCore/qrect.h>
-i<QtCore/qline.h>
-i<QtCore/qvector.h>
-i<QtCore/qscopedpointer.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qpalette.h
-c000000004C8A5948000000000000328F
-t1284135240
-s12943
-i<QtGui/qwindowdefs.h>
-i<QtGui/qcolor.h>
-i<QtGui/qbrush.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qpen.h
-c000000004C8A59480000000000001020
-t1284135240
-s4128
-i<QtGui/qcolor.h>
-i<QtGui/qbrush.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qpixmap.h
-c000000004C8A59480000000000002F8C
-t1284135240
-s12172
-i<QtGui/qpaintdevice.h>
-i<QtGui/qcolor.h>
-i<QtCore/qnamespace.h>
-i<QtCore/qstring.h>
-i<QtCore/qsharedpointer.h>
-i<QtGui/qimage.h>
-i<QtGui/qtransform.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qpolygon.h
-c000000004C8A59480000000000001930
-t1284135240
-s6448
-i<QtCore/qvector.h>
-i<QtCore/qpoint.h>
-i<QtCore/qrect.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qregion.h
-c000000004C8A5949000000000000207F
-t1284135241
-s8319
-i<QtCore/qatomic.h>
-i<QtCore/qrect.h>
-i<QtGui/qwindowdefs.h>
-i<QtCore/qdatastream.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qrgb.h
-c000000004C8A59490000000000000D24
-t1284135241
-s3364
-i<QtCore/qglobal.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qrubberband.h
-c000000004C8A59490000000000000D09
-t1284135241
-s3337
-i<QtGui/qwidget.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qscrollarea.h
-c000000004C8A59490000000000000CF0
-t1284135241
-s3312
-i<QtGui/qabstractscrollarea.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qsizepolicy.h
-c000000004C8A59490000000000002168
-t1284135241
-s8552
-i<QtCore/qobject.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qslider.h
-c000000004C8A59490000000000001166
-t1284135241
-s4454
-i<QtGui/qabstractslider.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qstatusbar.h
-c000000004C8A59490000000000000ECC
-t1284135241
-s3788
-i<QtGui/qwidget.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qstyle.h
-c000000004C8A59490000000000006CF2
-t1284135241
-s27890
-i<QtCore/qobject.h>
-i<QtCore/qrect.h>
-i<QtCore/qsize.h>
-i<QtGui/qicon.h>
-i<QtGui/qpixmap.h>
-i<QtGui/qpalette.h>
-i<QtGui/qsizepolicy.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qstyleoption.h
-c000000004C8A5949000000000000703B
-t1284135241
-s28731
-i<QtCore/qvariant.h>
-i<QtGui/qabstractspinbox.h>
-i<QtGui/qicon.h>
-i<QtGui/qmatrix.h>
-i<QtGui/qslider.h>
-i<QtGui/qstyle.h>
-i<QtGui/qtabbar.h>
-i<QtGui/qtabwidget.h>
-i<QtGui/qrubberband.h>
-i<QtGui/qframe.h>
-i<QtCore/qabstractitemmodel.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qtabbar.h
-c000000004C8A59490000000000001BE1
-t1284135241
-s7137
-i<QtGui/qwidget.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qtabwidget.h
-c000000004C8A59490000000000002254
-t1284135241
-s8788
-i<QtGui/qwidget.h>
-i<QtGui/qicon.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qtextoption.h
-c000000004C8A59490000000000001398
-t1284135241
-s5016
-i<QtCore/qnamespace.h>
-i<QtCore/qchar.h>
-i<QtCore/qmetatype.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qtransform.h
-c000000004C8A59490000000000002CA9
-t1284135241
-s11433
-i<QtGui/qmatrix.h>
-i<QtGui/qpainterpath.h>
-i<QtGui/qpolygon.h>
-i<QtGui/qregion.h>
-i<QtGui/qwindowdefs.h>
-i<QtCore/qline.h>
-i<QtCore/qpoint.h>
-i<QtCore/qrect.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qtransportauth_qws.h
-c000000004C8A59490000000000001DF8
-t1284135241
-s7672
-i<QtCore/qglobal.h>
-i<QtCore/qobject.h>
-i<QtCore/qhash.h>
-i<QtCore/qstring.h>
-i<QtCore/qbuffer.h>
-i<QtCore/qpointer.h>
-i<sys/types.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qvalidator.h
-c000000004C8A594900000000000017F5
-t1284135241
-s6133
-i<QtCore/qobject.h>
-i<QtCore/qstring.h>
-i<QtCore/qregexp.h>
-i<QtCore/qlocale.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qwidget.h
-c000000004C8A594900000000000095E9
-t1284135241
-s38377
-i<QtGui/qwindowdefs.h>
-i<QtCore/qobject.h>
-i<QtCore/qmargins.h>
-i<QtGui/qpaintdevice.h>
-i<QtGui/qpalette.h>
-i<QtGui/qfont.h>
-i<QtGui/qfontmetrics.h>
-i<QtGui/qfontinfo.h>
-i<QtGui/qsizepolicy.h>
-i<QtGui/qregion.h>
-i<QtGui/qbrush.h>
-i<QtGui/qcursor.h>
-i<QtGui/qkeysequence.h>
-i<QtGui/qevent.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qwindowdefs.h
-c000000004C8A59490000000000000EF5
-t1284135241
-s3829
-i<QtCore/qobjectdefs.h>
-i<QtCore/qnamespace.h>
-i<QtGui/qmacdefines_mac.h>
-i<QtGui/qwindowdefs_win.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qwindowdefs_win.h
-c000000004C8A59490000000000000D23
-t1284135241
-s3363
-i<QtCore/qglobal.h>
-
-N/Library/Frameworks/QtGui.framework/Headers/qwmatrix.h
-c000000004C8A59490000000000000880
-t1284135241
-s2176
-i<QtGui/qmatrix.h>
-
-N/Library/Frameworks/QtGui.framework/QtGui
-c000000004C8A5A8000000000017EEDB0
-t1284135552
-s25095600
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/QGraphicsGridLayout
-c000000004C8A59480000000000000021
-t1284135240
-s33
-i"qgraphicsgridlayout.h"
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/QGraphicsItem
-c000000004C8A5948000000000000001B
-t1284135240
-s27
-i"qgraphicsitem.h"
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/QGraphicsLayoutItem
-c000000004C8A59480000000000000021
-t1284135240
-s33
-i"qgraphicslayoutitem.h"
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/QGraphicsScene
-c000000004C8A5948000000000000001C
-t1284135240
-s28
-i"qgraphicsscene.h"
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/QGraphicsView
-c000000004C8A5948000000000000001B
-t1284135240
-s27
-i"qgraphicsview.h"
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/QGraphicsWidget
-c000000004C8A5948000000000000001D
-t1284135240
-s29
-i"qgraphicswidget.h"
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/QIcon
-c000000004C8A59480000000000000013
-t1284135240
-s19
-i"qicon.h"
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/QIntValidator
-c000000004C8A59480000000000000018
-t1284135240
-s24
-i"qvalidator.h"
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/QMainWindow
-c000000004C8A59480000000000000019
-t1284135240
-s25
-i"qmainwindow.h"
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/QMessageBox
-c000000004C8A59480000000000000019
-t1284135240
-s25
-i"qmessagebox.h"
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/QPainter
-c000000004C8A59480000000000000016
-t1284135240
-s22
-i"qpainter.h"
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/QSizePolicy
-c000000004C8A59490000000000000019
-t1284135241
-s25
-i"qsizepolicy.h"
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/QWheelEvent
-c000000004C8A59490000000000000014
-t1284135241
-s20
-i"qevent.h"
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/qevent.h
-c000000004C8A59480000000000006C65
-t1284135240
-s27749
-i<QtGui/qwindowdefs.h>
-i<QtCore/qobject.h>
-i<QtGui/qregion.h>
-i<QtCore/qnamespace.h>
-i<QtCore/qstring.h>
-i<QtGui/qkeysequence.h>
-i<QtCore/qcoreevent.h>
-i<QtGui/qmime.h>
-i<QtGui/qdrag.h>
-i<QtCore/qvariant.h>
-i<QtCore/qmap.h>
-i<QtCore/qset.h>
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicsgridlayout.h
-c000000004C8A594800000000000014A3
-t1284135240
-s5283
-i<QtGui/qgraphicsitem.h>
-i<QtGui/qgraphicslayout.h>
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicsitem.h
-c000000004C8A5948000000000000A221
-t1284135240
-s41505
-i<QtCore/qglobal.h>
-i<QtCore/qobject.h>
-i<QtCore/qvariant.h>
-i<QtCore/qrect.h>
-i<QtCore/qscopedpointer.h>
-i<QtGui/qpainterpath.h>
-i<QtGui/qpixmap.h>
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicslayoutitem.h
-c000000004C8A594800000000000016DD
-t1284135240
-s5853
-i<QtCore/qscopedpointer.h>
-i<QtGui/qsizepolicy.h>
-i<QtGui/qevent.h>
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicsscene.h
-c000000004C8A59480000000000003686
-t1284135240
-s13958
-i<QtCore/qobject.h>
-i<QtCore/qpoint.h>
-i<QtCore/qrect.h>
-i<QtGui/qbrush.h>
-i<QtGui/qfont.h>
-i<QtGui/qtransform.h>
-i<QtGui/qmatrix.h>
-i<QtGui/qpen.h>
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicsview.h
-c000000004C8A59480000000000003230
-t1284135240
-s12848
-i<QtCore/qmetatype.h>
-i<QtGui/qpainter.h>
-i<QtGui/qscrollarea.h>
-i<QtGui/qgraphicsscene.h>
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicswidget.h
-c000000004C8A59480000000000002619
-t1284135240
-s9753
-i<QtGui/qfont.h>
-i<QtGui/qgraphicslayoutitem.h>
-i<QtGui/qgraphicsitem.h>
-i<QtGui/qpalette.h>
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/qicon.h
-c000000004C8A5948000000000000166B
-t1284135240
-s5739
-i<QtCore/qglobal.h>
-i<QtCore/qsize.h>
-i<QtCore/qlist.h>
-i<QtGui/qpixmap.h>
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/qmainwindow.h
-c000000004C8A59480000000000001C5A
-t1284135240
-s7258
-i<QtGui/qwidget.h>
-i<QtGui/qtabwidget.h>
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/qmessagebox.h
-c000000004C8A594800000000000039C4
-t1284135240
-s14788
-i<QtGui/qdialog.h>
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/qpainter.h
-c000000004C8A59480000000000008521
-t1284135240
-s34081
-i<QtCore/qnamespace.h>
-i<QtCore/qrect.h>
-i<QtCore/qpoint.h>
-i<QtCore/qscopedpointer.h>
-i<QtGui/qpixmap.h>
-i<QtGui/qimage.h>
-i<QtGui/qtextoption.h>
-i<QtGui/qdrawutil.h>
-i<QtGui/qpolygon.h>
-i<QtGui/qpen.h>
-i<QtGui/qbrush.h>
-i<QtGui/qmatrix.h>
-i<QtGui/qtransform.h>
-i<QtGui/qfontinfo.h>
-i<QtGui/qfontmetrics.h>
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/qsizepolicy.h
-c000000004C8A59490000000000002168
-t1284135241
-s8552
-i<QtCore/qobject.h>
-
-N/Library/Frameworks/QtGui.framework/Versions/4/Headers/qvalidator.h
-c000000004C8A594900000000000017F5
-t1284135241
-s6133
-i<QtCore/qobject.h>
-i<QtCore/qstring.h>
-i<QtCore/qregexp.h>
-i<QtCore/qlocale.h>
-
-N/Library/Frameworks/QtOpenGL.framework/Headers/qglcolormap.h
-c000000004C8A594A0000000000000CDA
-t1284135242
-s3290
-i<QtGui/qcolor.h>
-i<QtCore/qvector.h>
-
-N/Library/Frameworks/QtOpenGL.framework/QtOpenGL
-c000000004C8A5A8100000000001F8190
-t1284135553
-s2064784
-
-N/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers/QGLWidget
-c000000004C8A594A0000000000000011
-t1284135242
-s17
-i"qgl.h"
-
-N/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers/qgl.h
-c000000004C8A594A000000000000512C
-t1284135242
-s20780
-i<QtGui/qwidget.h>
-i<QtGui/qpaintengine.h>
-i<QtOpenGL/qglcolormap.h>
-i<QtCore/qmap.h>
-i<QtCore/qscopedpointer.h>
-i<QtCore/qt_windows.h>
-i<OpenGL/gl.h>
-i<OpenGL/glu.h>
-i<GLES/gl.h>
-i<GLES2/gl2.h>
-i<GL/gl.h>
-i<GL/glu.h>
-
-N/Library/Frameworks/QtSvg.framework/QtSvg
-c000000004C8A5A8200000000000D1984
-t1284135554
-s858500
-
-N/Library/Frameworks/QtSvg.framework/Versions/4/Headers/QGraphicsSvgItem
-c000000004C8A594B000000000000001E
-t1284135243
-s30
-i"qgraphicssvgitem.h"
-
-N/Library/Frameworks/QtSvg.framework/Versions/4/Headers/QSvgRenderer
-c000000004C8A594B000000000000001A
-t1284135243
-s26
-i"qsvgrenderer.h"
-
-N/Library/Frameworks/QtSvg.framework/Versions/4/Headers/qgraphicssvgitem.h
-c000000004C8A594B0000000000000D48
-t1284135243
-s3400
-i<QtGui/qgraphicsitem.h>
-
-N/Library/Frameworks/QtSvg.framework/Versions/4/Headers/qsvgrenderer.h
-c000000004C8A594B0000000000000F2B
-t1284135243
-s3883
-i<QtGui/qmatrix.h>
-i<QtCore/qobject.h>
-i<QtCore/qsize.h>
-i<QtCore/qrect.h>
-i<QtCore/qxmlstream.h>
-
-N/System/Library/Frameworks/AGL.framework/AGL
-c000000004BD2589F0000000000043820
-t1272076447
-s276512
-
-N/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
-c0000000040C4AA6800000000000001E5
-t1086630504
-s485
-
-N/System/Library/Frameworks/OpenGL.framework/Headers/gl.h
-c000000004BE91B5D0000000000025B59
-t1273568093
-s154457
-
-N/System/Library/Frameworks/OpenGL.framework/Headers/glu.h
-c000000004BE91B5D0000000000003F84
-t1273568093
-s16260
-
-N/System/Library/Frameworks/OpenGL.framework/OpenGL
-c000000004C584E830000000000043310
-t1280855683
-s275216
-
-N/Users/josephroth/Projects/CIS467Project/CIS467Project.app
-t1288734611
-s102
-
-N/Users/josephroth/Projects/CIS467Project/algorithms/solver.cpp
-c000000004CD05E610000000000000321
-t1288724065
-s801
-i"solver.h"
-
-N/Users/josephroth/Projects/CIS467Project/algorithms/solver.h
-c000000004CCC4406000000000000011A
-t1288455174
-s282
-i<QObject>
-i"models/maze.h"
-
-N/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/CIS467Project.LinkFileList
-c000000004CD0878C00000000000005D0
-t1288734604
-s1488
-
-N/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/cell.o
-t1288734607
-s433312
-
-N/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/generator.o
-t1288734606
-s132232
-
-N/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/graphicsview.o
-t1288734609
-s483720
-
-N/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/gui.o
-t1288734608
-s740884
-
-N/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/main.o
-t1288734607
-s591636
-
-N/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/maze.o
-t1288734608
-s595064
-
-N/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_generator.o
-t1288734609
-s134352
-
-N/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_graphicsview.o
-t1288734610
-s485648
-
-N/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_gui.o
-t1288734610
-s582840
-
-N/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_maze.o
-t1288734610
-s132956
-
-N/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_solver.o
-t1288734610
-s133320
-
-N/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/solver.o
-t1288734608
-s132544
-
-N/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Script-A0A52A2ADF7A1E2A99738674.sh
-c000000004CD0878C000000000000006A
-t1288734604
-s106
-
-N/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Script-D7BA7D76DAB5DD13389D6332.sh
-c000000004CD0878C0000000000000069
-t1288734604
-s105
-
-N/Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app
-t1288734611
-s102
-
-N/Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app/Contents/Info.plist
-t1288734604
-s582
-
-N/Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app/Contents/MacOS/CIS467Project
-t1288734611
-s111688
-
-N/Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app/Contents/PkgInfo
-t1288734604
-s8
-
-N/Users/josephroth/Projects/CIS467Project/generator/generator.cpp
-c000000004CCC3F9B00000000000012DE
-t1288454043
-s4830
-i"generator.h"
-
-N/Users/josephroth/Projects/CIS467Project/generator/generator.h
-c000000004CC9AB7000000000000003A4
-t1288285040
-s932
-i<QObject>
-i<stdlib.h>
-i<stdio.h>
-i<time.h>
-i"models/maze.h"
-
-N/Users/josephroth/Projects/CIS467Project/gui/cell.cpp
-c000000004CCC431E00000000000008C2
-t1288454942
-s2242
-i"cell.h"
-
-N/Users/josephroth/Projects/CIS467Project/gui/cell.h
-c000000004CCC42F6000000000000042A
-t1288454902
-s1066
-i<QGraphicsItem>
-i<QGraphicsLayoutItem>
-i<QGraphicsSvgItem>
-i<QSvgRenderer>
-i<QPainter>
-i<QDebug>
-i"models/maze.h"
-
-N/Users/josephroth/Projects/CIS467Project/gui/graphicsview.cpp
-c000000004CC9AB7000000000000002FE
-t1288285040
-s766
-i"graphicsview.h"
-
-N/Users/josephroth/Projects/CIS467Project/gui/graphicsview.h
-c000000004CC9AB7000000000000001F3
-t1288285040
-s499
-i<QGraphicsView>
-i<QWheelEvent>
-i<QDebug>
-
-N/Users/josephroth/Projects/CIS467Project/gui/gui.cpp
-c000000004CD064C40000000000000D37
-t1288725700
-s3383
-i"gui.h"
-i"ui_gui.h"
-i"ui_newmaze.h"
-i"cell.h"
-
-N/Users/josephroth/Projects/CIS467Project/gui/gui.h
-c000000004CC9AB7000000000000003E7
-t1288285040
-s999
-i<QMainWindow>
-i<QGraphicsWidget>
-i<QGraphicsScene>
-i<QGraphicsGridLayout>
-i<QGLWidget>
-i<QSizePolicy>
-i<QIntValidator>
-i<QMessageBox>
-i<QIcon>
-i<QDebug>
-i"models/maze.h"
-i"generator/generator.h"
-i"algorithms/solver.h"
-i"gui/graphicsview.h"
-
-N/Users/josephroth/Projects/CIS467Project/gui/main.cpp
-c000000004CC9AB7000000000000000A4
-t1288285040
-s164
-i<QtGui/QApplication>
-i"gui.h"
-
-N/Users/josephroth/Projects/CIS467Project/moc_generator.cpp
-c000000004CD05BBF00000000000009AE
-t1288723391
-s2478
-i"generator/generator.h"
-
-N/Users/josephroth/Projects/CIS467Project/moc_graphicsview.cpp
-c000000004CCC3FA300000000000009E0
-t1288454051
-s2528
-i"gui/graphicsview.h"
-
-N/Users/josephroth/Projects/CIS467Project/moc_gui.cpp
-c000000004CD05BBE0000000000000C16
-t1288723390
-s3094
-i"gui/gui.h"
-
-N/Users/josephroth/Projects/CIS467Project/moc_maze.cpp
-c000000004CD05BC00000000000000D10
-t1288723392
-s3344
-i"models/maze.h"
-
-N/Users/josephroth/Projects/CIS467Project/moc_solver.cpp
-c000000004CD05BC000000000000008DF
-t1288723392
-s2271
-i"algorithms/solver.h"
-
-N/Users/josephroth/Projects/CIS467Project/models/maze.cpp
-c000000004CD05B9D00000000000006E0
-t1288723357
-s1760
-i"maze.h"
-i"gui/gui.h"
-
-N/Users/josephroth/Projects/CIS467Project/models/maze.h
-c000000004CD05BB500000000000003F6
-t1288723381
-s1014
-i<QObject>
-i<QPoint>
-i<QDebug>
-
-N/Users/josephroth/Projects/CIS467Project/ui_gui.h
-c000000004CC9AB70000000000000192A
-t1288285040
-s6442
-i<QtCore/QVariant>
-i<QtGui/QAction>
-i<QtGui/QApplication>
-i<QtGui/QButtonGroup>
-i<QtGui/QHeaderView>
-i<QtGui/QMainWindow>
-i<QtGui/QMenu>
-i<QtGui/QMenuBar>
-i<QtGui/QStatusBar>
-i<QtGui/QWidget>
-
-N/Users/josephroth/Projects/CIS467Project/ui_newmaze.h
-c000000004CC9AB700000000000000CA4
-t1288285040
-s3236
-i<QtCore/QVariant>
-i<QtGui/QAction>
-i<QtGui/QApplication>
-i<QtGui/QButtonGroup>
-i<QtGui/QDialog>
-i<QtGui/QDialogButtonBox>
-i<QtGui/QGridLayout>
-i<QtGui/QHeaderView>
-i<QtGui/QLabel>
-i<QtGui/QLineEdit>
-
-N/usr/include/AvailabilityMacros.h
-c000000004A8D4DF70000000000006724
-t1250774519
-s26404
-
-N/usr/include/limits.h
-c000000004AC59C81000000000000145A
-t1254464641
-s5210
-
-N/usr/include/stdarg.h
-c000000004AC59C8100000000000000EA
-t1254464641
-s234
-
-N/usr/include/stddef.h
-c000000004AC59C810000000000001404
-t1254464641
-s5124
-
-N/usr/include/stdio.h
-c000000004AC59C820000000000004174
-t1254464642
-s16756
-
-N/usr/include/stdlib.h
-c000000004AC59C820000000000002DF5
-t1254464642
-s11765
-
-N/usr/include/string.h
-c000000004AC59C820000000000001731
-t1254464642
-s5937
-
-N/usr/include/sys/types.h
-c000000004C4DE4B40000000000002905
-t1280173236
-s10501
-
-N/usr/include/time.h
-c000000004AC59C82000000000000178E
-t1254464642
-s6030
-
-NInfo.plist
-c000000004CD087750000000000000262
-t1288734581
-s610
-
-CCheck dependencies
-r0
-lSLF07#2@18"Check dependencies310427404#310427404#0(0"0(0#1#0"32651513917735028#0"0#
-
-CCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/cell.o /Users/josephroth/Projects/CIS467Project/gui/cell.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-s310427405.076313
-e310427407.422035
-r1
-xCompileC
-xbuild/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/cell.o
-x/Users/josephroth/Projects/CIS467Project/gui/cell.cpp
-xnormal
-xi386
-xc++
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@61"Compile /Users/josephroth/Projects/CIS467Project/gui/cell.cpp310427405#310427407#0(0"0(0#0#53"/Users/josephroth/Projects/CIS467Project/gui/cell.cpp8604457056#1633"    cd /Users/josephroth/Projects/CIS467Project    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -mdynamic-no-pic -fvisibility=hidden -fvisibility-inlines-hidden -mmacosx-version-min=10.4 -gdwarf-2 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/CIS467Project.hmap -F/Users/josephroth/Projects/CIS467Project/build/Debug -I/Users/josephroth/Projects/CIS467Project/build/Debug/include -I/Library/Frameworks/QtCore.framework/Versions/4/Headers -I/usr/include/QtCore -I/Library/Frameworks/QtGui.framework/Versions/4/Headers -I/usr/include/QtGui -I/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers -I/usr/include/QtOpenGL -I/Library/Frameworks/QtSvg.framework/Versions/4/Headers -I/usr/include/QtSvg -I/usr/include -I. -Igui -Igenerator -Imodels -I/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers -I/System/Library/Frameworks/AGL.framework/Headers -I. -I. -I/usr/local/include -I/System/Library/Frameworks/CarbonCore.framework/Headers -I/usr/local/Qt4.7/mkspecs/macx-xcode -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources/i386 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources -pipe -g -Wall -W -DQT_SVG_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED -c /Users/josephroth/Projects/CIS467Project/gui/cell.cpp -o /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/cell.o0#
-
-CCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/generator.o /Users/josephroth/Projects/CIS467Project/generator/generator.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-s310427405.077482
-e310427406.657583
-r1
-xCompileC
-xbuild/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/generator.o
-x/Users/josephroth/Projects/CIS467Project/generator/generator.cpp
-xnormal
-xi386
-xc++
-xcom.apple.compilers.gcc.4_2
-o/Users/josephroth/Projects/CIS467Project/generator/generator.cpp:117: warning: unused parameter 'x'
-o/Users/josephroth/Projects/CIS467Project/generator/generator.cpp:117: warning: unused parameter 'y'
-o/Users/josephroth/Projects/CIS467Project/generator/generator.cpp:117: warning: unused parameter 'v'
-o/Users/josephroth/Projects/CIS467Project/generator/generator.cpp:117: warning: unused parameter 'h'
-o/Users/josephroth/Projects/CIS467Project/generator/generator.cpp:117: warning: unused parameter 'cells'
-o/Users/josephroth/Projects/CIS467Project/generator/generator.cpp:117: warning: unused parameter 'head'
-o/Users/josephroth/Projects/CIS467Project/generator/generator.cpp:173: warning: unused parameter 'rows'
-o/Users/josephroth/Projects/CIS467Project/generator/generator.cpp:173: warning: unused parameter 'cols'
-o/Users/josephroth/Projects/CIS467Project/generator/generator.cpp:173: warning: unused parameter 'cells'
-lSLF07#2@72"Compile /Users/josephroth/Projects/CIS467Project/generator/generator.cpp310427405#310427406#0(917"/Users/josephroth/Projects/CIS467Project/generator/generator.cpp:117: warning: unused parameter 'x'/Users/josephroth/Projects/CIS467Project/generator/generator.cpp:117: warning: unused parameter 'y'/Users/josephroth/Projects/CIS467Project/generator/generator.cpp:117: warning: unused parameter 'v'/Users/josephroth/Projects/CIS467Project/generator/generator.cpp:117: warning: unused parameter 'h'/Users/josephroth/Projects/CIS467Project/generator/generator.cpp:117: warning: unused parameter 'cells'/Users/josephroth/Projects/CIS467Project/generator/generator.cpp:117: warning: unused parameter 'head'/Users/josephroth/Projects/CIS467Project/generator/generator.cpp:173: warning: unused parameter 'rows'/Users/josephroth/Projects/CIS467Project/generator/generator.cpp:173: warning: unused parameter 'cols'/Users/josephroth/Projects/CIS467Project/generator/generator.cpp:173: warning: unused parameter 'cells'9(22@20"Unused parameter 'x'310427406#0#100#0(6@64"/Users/josephroth/Projects/CIS467Project/generator/generator.cpp310146843#117#0#117#0#20"unused parameter '*'0(22@20"Unused parameter 'y'310427406#100#100#0(6@64"/Users/josephroth/Projects/CIS467Project/generator/generator.cpp310146843#117#0#117#0#20"unused parameter '*'0(22@20"Unused parameter 'v'310427406#200#100#0(6@64"/Users/josephroth/Projects/CIS467Project/generator/generator.cpp310146843#117#0#117#0#20"unused parameter '*'0(22@20"Unused parameter 'h'310427406#300#100#0(6@64"/Users/josephroth/Projects/CIS467Project/generator/generator.cpp310146843#117#0#117#0#20"unused parameter '*'0(22@24"Unused parameter 'cells'310427406#400#104#0(6@64"/Users/josephroth/Projects/CIS467Project/generator/generator.cpp310146843#117#0#117#0#20"unused parameter '*'0(22@23"Unused parameter 'head'310427406#504#103#0(6@64"/Users/josephroth/Projects/CIS467Project/generator/generator.cpp310146843#117#0#117#0#20"unused parameter '*'0(22@23"Unused parameter 'rows'310427406#607#103#0(6@64"/Users/josephroth/Projects/CIS467Project/generator/generator.cpp310146843#173#0#173#0#20"unused parameter '*'0(22@23"Unused parameter 'cols'310427406#710#103#0(6@64"/Users/josephroth/Projects/CIS467Project/generator/generator.cpp310146843#173#0#173#0#20"unused parameter '*'0(22@24"Unused parameter 'cells'310427406#813#104#0(6@64"/Users/josephroth/Projects/CIS467Project/generator/generator.cpp310146843#173#0#173#0#20"unused parameter '*'0(0#0#64"/Users/josephroth/Projects/CIS467Project/generator/generator.cpp8604198144#1649"    cd /Users/josephroth/Projects/CIS467Project    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -mdynamic-no-pic -fvisibility=hidden -fvisibility-inlines-hidden -mmacosx-version-min=10.4 -gdwarf-2 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/CIS467Project.hmap -F/Users/josephroth/Projects/CIS467Project/build/Debug -I/Users/josephroth/Projects/CIS467Project/build/Debug/include -I/Library/Frameworks/QtCore.framework/Versions/4/Headers -I/usr/include/QtCore -I/Library/Frameworks/QtGui.framework/Versions/4/Headers -I/usr/include/QtGui -I/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers -I/usr/include/QtOpenGL -I/Library/Frameworks/QtSvg.framework/Versions/4/Headers -I/usr/include/QtSvg -I/usr/include -I. -Igui -Igenerator -Imodels -I/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers -I/System/Library/Frameworks/AGL.framework/Headers -I. -I. -I/usr/local/include -I/System/Library/Frameworks/CarbonCore.framework/Headers -I/usr/local/Qt4.7/mkspecs/macx-xcode -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources/i386 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources -pipe -g -Wall -W -DQT_SVG_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED -c /Users/josephroth/Projects/CIS467Project/generator/generator.cpp -o /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/generator.o0#
-
-CCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/graphicsview.o /Users/josephroth/Projects/CIS467Project/gui/graphicsview.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-s310427407.422189
-e310427409.367542
-r1
-xCompileC
-xbuild/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/graphicsview.o
-x/Users/josephroth/Projects/CIS467Project/gui/graphicsview.cpp
-xnormal
-xi386
-xc++
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@69"Compile /Users/josephroth/Projects/CIS467Project/gui/graphicsview.cpp310427407#310427409#0(0"0(0#0#61"/Users/josephroth/Projects/CIS467Project/gui/graphicsview.cpp8599991328#1649"    cd /Users/josephroth/Projects/CIS467Project    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -mdynamic-no-pic -fvisibility=hidden -fvisibility-inlines-hidden -mmacosx-version-min=10.4 -gdwarf-2 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/CIS467Project.hmap -F/Users/josephroth/Projects/CIS467Project/build/Debug -I/Users/josephroth/Projects/CIS467Project/build/Debug/include -I/Library/Frameworks/QtCore.framework/Versions/4/Headers -I/usr/include/QtCore -I/Library/Frameworks/QtGui.framework/Versions/4/Headers -I/usr/include/QtGui -I/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers -I/usr/include/QtOpenGL -I/Library/Frameworks/QtSvg.framework/Versions/4/Headers -I/usr/include/QtSvg -I/usr/include -I. -Igui -Igenerator -Imodels -I/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers -I/System/Library/Frameworks/AGL.framework/Headers -I. -I. -I/usr/local/include -I/System/Library/Frameworks/CarbonCore.framework/Headers -I/usr/local/Qt4.7/mkspecs/macx-xcode -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources/i386 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources -pipe -g -Wall -W -DQT_SVG_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED -c /Users/josephroth/Projects/CIS467Project/gui/graphicsview.cpp -o /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/graphicsview.o0#
-
-CCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/gui.o /Users/josephroth/Projects/CIS467Project/gui/gui.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-s310427405.074272
-e310427408.427603
-r1
-xCompileC
-xbuild/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/gui.o
-x/Users/josephroth/Projects/CIS467Project/gui/gui.cpp
-xnormal
-xi386
-xc++
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@60"Compile /Users/josephroth/Projects/CIS467Project/gui/gui.cpp310427405#310427408#0(0"0(0#0#52"/Users/josephroth/Projects/CIS467Project/gui/gui.cpp8604850880#1631"    cd /Users/josephroth/Projects/CIS467Project    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -mdynamic-no-pic -fvisibility=hidden -fvisibility-inlines-hidden -mmacosx-version-min=10.4 -gdwarf-2 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/CIS467Project.hmap -F/Users/josephroth/Projects/CIS467Project/build/Debug -I/Users/josephroth/Projects/CIS467Project/build/Debug/include -I/Library/Frameworks/QtCore.framework/Versions/4/Headers -I/usr/include/QtCore -I/Library/Frameworks/QtGui.framework/Versions/4/Headers -I/usr/include/QtGui -I/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers -I/usr/include/QtOpenGL -I/Library/Frameworks/QtSvg.framework/Versions/4/Headers -I/usr/include/QtSvg -I/usr/include -I. -Igui -Igenerator -Imodels -I/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers -I/System/Library/Frameworks/AGL.framework/Headers -I. -I. -I/usr/local/include -I/System/Library/Frameworks/CarbonCore.framework/Headers -I/usr/local/Qt4.7/mkspecs/macx-xcode -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources/i386 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources -pipe -g -Wall -W -DQT_SVG_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED -c /Users/josephroth/Projects/CIS467Project/gui/gui.cpp -o /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/gui.o0#
-
-CCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/main.o /Users/josephroth/Projects/CIS467Project/gui/main.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-s310427405.075260
-e310427407.738614
-r1
-xCompileC
-xbuild/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/main.o
-x/Users/josephroth/Projects/CIS467Project/gui/main.cpp
-xnormal
-xi386
-xc++
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@61"Compile /Users/josephroth/Projects/CIS467Project/gui/main.cpp310427405#310427407#0(0"0(0#0#53"/Users/josephroth/Projects/CIS467Project/gui/main.cpp8604794496#1633"    cd /Users/josephroth/Projects/CIS467Project    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -mdynamic-no-pic -fvisibility=hidden -fvisibility-inlines-hidden -mmacosx-version-min=10.4 -gdwarf-2 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/CIS467Project.hmap -F/Users/josephroth/Projects/CIS467Project/build/Debug -I/Users/josephroth/Projects/CIS467Project/build/Debug/include -I/Library/Frameworks/QtCore.framework/Versions/4/Headers -I/usr/include/QtCore -I/Library/Frameworks/QtGui.framework/Versions/4/Headers -I/usr/include/QtGui -I/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers -I/usr/include/QtOpenGL -I/Library/Frameworks/QtSvg.framework/Versions/4/Headers -I/usr/include/QtSvg -I/usr/include -I. -Igui -Igenerator -Imodels -I/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers -I/System/Library/Frameworks/AGL.framework/Headers -I. -I. -I/usr/local/include -I/System/Library/Frameworks/CarbonCore.framework/Headers -I/usr/local/Qt4.7/mkspecs/macx-xcode -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources/i386 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources -pipe -g -Wall -W -DQT_SVG_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED -c /Users/josephroth/Projects/CIS467Project/gui/main.cpp -o /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/main.o0#
-
-CCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/maze.o /Users/josephroth/Projects/CIS467Project/models/maze.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-s310427406.657846
-e310427408.939449
-r1
-xCompileC
-xbuild/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/maze.o
-x/Users/josephroth/Projects/CIS467Project/models/maze.cpp
-xnormal
-xi386
-xc++
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@64"Compile /Users/josephroth/Projects/CIS467Project/models/maze.cpp310427406#310427408#0(0"0(0#0#56"/Users/josephroth/Projects/CIS467Project/models/maze.cpp8029405159545332736#1636"    cd /Users/josephroth/Projects/CIS467Project    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -mdynamic-no-pic -fvisibility=hidden -fvisibility-inlines-hidden -mmacosx-version-min=10.4 -gdwarf-2 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/CIS467Project.hmap -F/Users/josephroth/Projects/CIS467Project/build/Debug -I/Users/josephroth/Projects/CIS467Project/build/Debug/include -I/Library/Frameworks/QtCore.framework/Versions/4/Headers -I/usr/include/QtCore -I/Library/Frameworks/QtGui.framework/Versions/4/Headers -I/usr/include/QtGui -I/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers -I/usr/include/QtOpenGL -I/Library/Frameworks/QtSvg.framework/Versions/4/Headers -I/usr/include/QtSvg -I/usr/include -I. -Igui -Igenerator -Imodels -I/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers -I/System/Library/Frameworks/AGL.framework/Headers -I. -I. -I/usr/local/include -I/System/Library/Frameworks/CarbonCore.framework/Headers -I/usr/local/Qt4.7/mkspecs/macx-xcode -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources/i386 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources -pipe -g -Wall -W -DQT_SVG_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED -c /Users/josephroth/Projects/CIS467Project/models/maze.cpp -o /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/maze.o0#
-
-CCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_generator.o /Users/josephroth/Projects/CIS467Project/moc_generator.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-s310427408.846837
-e310427409.932449
-r1
-xCompileC
-xbuild/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_generator.o
-x/Users/josephroth/Projects/CIS467Project/moc_generator.cpp
-xnormal
-xi386
-xc++
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@66"Compile /Users/josephroth/Projects/CIS467Project/moc_generator.cpp310427408#310427409#0(0"0(0#0#58"/Users/josephroth/Projects/CIS467Project/moc_generator.cpp8601401312#1647"    cd /Users/josephroth/Projects/CIS467Project    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -mdynamic-no-pic -fvisibility=hidden -fvisibility-inlines-hidden -mmacosx-version-min=10.4 -gdwarf-2 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/CIS467Project.hmap -F/Users/josephroth/Projects/CIS467Project/build/Debug -I/Users/josephroth/Projects/CIS467Project/build/Debug/include -I/Library/Frameworks/QtCore.framework/Versions/4/Headers -I/usr/include/QtCore -I/Library/Frameworks/QtGui.framework/Versions/4/Headers -I/usr/include/QtGui -I/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers -I/usr/include/QtOpenGL -I/Library/Frameworks/QtSvg.framework/Versions/4/Headers -I/usr/include/QtSvg -I/usr/include -I. -Igui -Igenerator -Imodels -I/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers -I/System/Library/Frameworks/AGL.framework/Headers -I. -I. -I/usr/local/include -I/System/Library/Frameworks/CarbonCore.framework/Headers -I/usr/local/Qt4.7/mkspecs/macx-xcode -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources/i386 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources -pipe -g -Wall -W -DQT_SVG_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED -c /Users/josephroth/Projects/CIS467Project/moc_generator.cpp -o /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_generator.o0#
-
-CCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_graphicsview.o /Users/josephroth/Projects/CIS467Project/moc_graphicsview.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-s310427409.367691
-e310427410.943395
-r1
-xCompileC
-xbuild/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_graphicsview.o
-x/Users/josephroth/Projects/CIS467Project/moc_graphicsview.cpp
-xnormal
-xi386
-xc++
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@69"Compile /Users/josephroth/Projects/CIS467Project/moc_graphicsview.cpp310427409#310427410#0(0"0(0#0#61"/Users/josephroth/Projects/CIS467Project/moc_graphicsview.cpp8604115456#1653"    cd /Users/josephroth/Projects/CIS467Project    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -mdynamic-no-pic -fvisibility=hidden -fvisibility-inlines-hidden -mmacosx-version-min=10.4 -gdwarf-2 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/CIS467Project.hmap -F/Users/josephroth/Projects/CIS467Project/build/Debug -I/Users/josephroth/Projects/CIS467Project/build/Debug/include -I/Library/Frameworks/QtCore.framework/Versions/4/Headers -I/usr/include/QtCore -I/Library/Frameworks/QtGui.framework/Versions/4/Headers -I/usr/include/QtGui -I/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers -I/usr/include/QtOpenGL -I/Library/Frameworks/QtSvg.framework/Versions/4/Headers -I/usr/include/QtSvg -I/usr/include -I. -Igui -Igenerator -Imodels -I/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers -I/System/Library/Frameworks/AGL.framework/Headers -I. -I. -I/usr/local/include -I/System/Library/Frameworks/CarbonCore.framework/Headers -I/usr/local/Qt4.7/mkspecs/macx-xcode -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources/i386 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources -pipe -g -Wall -W -DQT_SVG_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED -c /Users/josephroth/Projects/CIS467Project/moc_graphicsview.cpp -o /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_graphicsview.o0#
-
-CCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_gui.o /Users/josephroth/Projects/CIS467Project/moc_gui.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-s310427408.427851
-e310427410.508582
-r1
-xCompileC
-xbuild/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_gui.o
-x/Users/josephroth/Projects/CIS467Project/moc_gui.cpp
-xnormal
-xi386
-xc++
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@60"Compile /Users/josephroth/Projects/CIS467Project/moc_gui.cpp310427408#310427410#0(0"0(0#0#52"/Users/josephroth/Projects/CIS467Project/moc_gui.cpp8604208000#1635"    cd /Users/josephroth/Projects/CIS467Project    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -mdynamic-no-pic -fvisibility=hidden -fvisibility-inlines-hidden -mmacosx-version-min=10.4 -gdwarf-2 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/CIS467Project.hmap -F/Users/josephroth/Projects/CIS467Project/build/Debug -I/Users/josephroth/Projects/CIS467Project/build/Debug/include -I/Library/Frameworks/QtCore.framework/Versions/4/Headers -I/usr/include/QtCore -I/Library/Frameworks/QtGui.framework/Versions/4/Headers -I/usr/include/QtGui -I/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers -I/usr/include/QtOpenGL -I/Library/Frameworks/QtSvg.framework/Versions/4/Headers -I/usr/include/QtSvg -I/usr/include -I. -Igui -Igenerator -Imodels -I/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers -I/System/Library/Frameworks/AGL.framework/Headers -I. -I. -I/usr/local/include -I/System/Library/Frameworks/CarbonCore.framework/Headers -I/usr/local/Qt4.7/mkspecs/macx-xcode -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources/i386 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources -pipe -g -Wall -W -DQT_SVG_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED -c /Users/josephroth/Projects/CIS467Project/moc_gui.cpp -o /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_gui.o0#
-
-CCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_maze.o /Users/josephroth/Projects/CIS467Project/moc_maze.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-s310427408.939597
-e310427410.033691
-r1
-xCompileC
-xbuild/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_maze.o
-x/Users/josephroth/Projects/CIS467Project/moc_maze.cpp
-xnormal
-xi386
-xc++
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@61"Compile /Users/josephroth/Projects/CIS467Project/moc_maze.cpp310427408#310427410#0(0"0(0#0#53"/Users/josephroth/Projects/CIS467Project/moc_maze.cpp8600717664#1637"    cd /Users/josephroth/Projects/CIS467Project    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -mdynamic-no-pic -fvisibility=hidden -fvisibility-inlines-hidden -mmacosx-version-min=10.4 -gdwarf-2 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/CIS467Project.hmap -F/Users/josephroth/Projects/CIS467Project/build/Debug -I/Users/josephroth/Projects/CIS467Project/build/Debug/include -I/Library/Frameworks/QtCore.framework/Versions/4/Headers -I/usr/include/QtCore -I/Library/Frameworks/QtGui.framework/Versions/4/Headers -I/usr/include/QtGui -I/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers -I/usr/include/QtOpenGL -I/Library/Frameworks/QtSvg.framework/Versions/4/Headers -I/usr/include/QtSvg -I/usr/include -I. -Igui -Igenerator -Imodels -I/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers -I/System/Library/Frameworks/AGL.framework/Headers -I. -I. -I/usr/local/include -I/System/Library/Frameworks/CarbonCore.framework/Headers -I/usr/local/Qt4.7/mkspecs/macx-xcode -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources/i386 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources -pipe -g -Wall -W -DQT_SVG_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED -c /Users/josephroth/Projects/CIS467Project/moc_maze.cpp -o /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_maze.o0#
-
-CCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_solver.o /Users/josephroth/Projects/CIS467Project/moc_solver.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-s310427409.932692
-e310427410.846501
-r1
-xCompileC
-xbuild/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_solver.o
-x/Users/josephroth/Projects/CIS467Project/moc_solver.cpp
-xnormal
-xi386
-xc++
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@63"Compile /Users/josephroth/Projects/CIS467Project/moc_solver.cpp310427409#310427410#0(0"0(0#0#55"/Users/josephroth/Projects/CIS467Project/moc_solver.cpp8604372928#1641"    cd /Users/josephroth/Projects/CIS467Project    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -mdynamic-no-pic -fvisibility=hidden -fvisibility-inlines-hidden -mmacosx-version-min=10.4 -gdwarf-2 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/CIS467Project.hmap -F/Users/josephroth/Projects/CIS467Project/build/Debug -I/Users/josephroth/Projects/CIS467Project/build/Debug/include -I/Library/Frameworks/QtCore.framework/Versions/4/Headers -I/usr/include/QtCore -I/Library/Frameworks/QtGui.framework/Versions/4/Headers -I/usr/include/QtGui -I/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers -I/usr/include/QtOpenGL -I/Library/Frameworks/QtSvg.framework/Versions/4/Headers -I/usr/include/QtSvg -I/usr/include -I. -Igui -Igenerator -Imodels -I/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers -I/System/Library/Frameworks/AGL.framework/Headers -I. -I. -I/usr/local/include -I/System/Library/Frameworks/CarbonCore.framework/Headers -I/usr/local/Qt4.7/mkspecs/macx-xcode -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources/i386 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources -pipe -g -Wall -W -DQT_SVG_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED -c /Users/josephroth/Projects/CIS467Project/moc_solver.cpp -o /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/moc_solver.o0#
-
-CCompileC build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/solver.o /Users/josephroth/Projects/CIS467Project/algorithms/solver.cpp normal i386 c++ com.apple.compilers.gcc.4_2
-s310427407.738849
-e310427408.846699
-r1
-xCompileC
-xbuild/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/solver.o
-x/Users/josephroth/Projects/CIS467Project/algorithms/solver.cpp
-xnormal
-xi386
-xc++
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@70"Compile /Users/josephroth/Projects/CIS467Project/algorithms/solver.cpp310427407#310427408#0(0"0(0#0#62"/Users/josephroth/Projects/CIS467Project/algorithms/solver.cpp8593606240#1644"    cd /Users/josephroth/Projects/CIS467Project    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -mdynamic-no-pic -fvisibility=hidden -fvisibility-inlines-hidden -mmacosx-version-min=10.4 -gdwarf-2 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/CIS467Project.hmap -F/Users/josephroth/Projects/CIS467Project/build/Debug -I/Users/josephroth/Projects/CIS467Project/build/Debug/include -I/Library/Frameworks/QtCore.framework/Versions/4/Headers -I/usr/include/QtCore -I/Library/Frameworks/QtGui.framework/Versions/4/Headers -I/usr/include/QtGui -I/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers -I/usr/include/QtOpenGL -I/Library/Frameworks/QtSvg.framework/Versions/4/Headers -I/usr/include/QtSvg -I/usr/include -I. -Igui -Igenerator -Imodels -I/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers -I/System/Library/Frameworks/AGL.framework/Headers -I. -I. -I/usr/local/include -I/System/Library/Frameworks/CarbonCore.framework/Headers -I/usr/local/Qt4.7/mkspecs/macx-xcode -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources/i386 -I/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources -pipe -g -Wall -W -DQT_SVG_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED -c /Users/josephroth/Projects/CIS467Project/algorithms/solver.cpp -o /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/solver.o0#
-
-CLd /Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app/Contents/MacOS/CIS467Project normal i386
-s310427410.943500
-e310427411.336651
-r1
-xLd
-x/Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app/Contents/MacOS/CIS467Project
-xnormal
-xi386
-old: warning: directory '/tmp/qt-stuff-6474/source/qt-everywhere-opensource-src-4.7.0/lib' following -L not found
-old: warning: directory '/tmp/qt-stuff-6474/source/qt-everywhere-opensource-src-4.7.0/lib' following -L not found
-old: warning: directory '/tmp/qt-stuff-6474/source/qt-everywhere-opensource-src-4.7.0/lib' following -F not found
-lSLF07#2@104"Link /Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app/Contents/MacOS/CIS467Project310427410#310427411#0(339"ld: warning: directory '/tmp/qt-stuff-6474/source/qt-everywhere-opensource-src-4.7.0/lib' following -L not foundld: warning: directory '/tmp/qt-stuff-6474/source/qt-everywhere-opensource-src-4.7.0/lib' following -L not foundld: warning: directory '/tmp/qt-stuff-6474/source/qt-everywhere-opensource-src-4.7.0/lib' following -F not found3(22@99"Directory '/tmp/qt-stuff-6474/source/qt-everywhere-opensource-src-4.7.0/lib' following -L not found310427411#0#113#0(6@0"310427411#0#0#0#0#0"0(22@99"Directory '/tmp/qt-stuff-6474/source/qt-everywhere-opensource-src-4.7.0/lib' following -L not found310427411#113#113#0(6@0"310427411#0#0#0#0#0"0(22@99"Directory '/tmp/qt-stuff-6474/source/qt-everywhere-opensource-src-4.7.0/lib' following -F not found310427411#226#113#0(6@0"310427411#0#0#0#0#0"0(0#0#0"8602767264#950"    cd /Users/josephroth/Projects/CIS467Project    setenv MACOSX_DEPLOYMENT_TARGET 10.4    /Developer/usr/bin/g++-4.2 -arch i386 -L/Users/josephroth/Projects/CIS467Project/build/Debug -L/Library/Frameworks -L/tmp/qt-stuff-6474/source/qt-everywhere-opensource-src-4.7.0/lib -L/System/Library/Frameworks -F/Users/josephroth/Projects/CIS467Project/build/Debug -filelist /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/CIS467Project.LinkFileList -mmacosx-version-min=10.4 -headerpad_max_install_names -L/Library/Frameworks -F/Library/Frameworks -L/tmp/qt-stuff-6474/source/qt-everywhere-opensource-src-4.7.0/lib -F/tmp/qt-stuff-6474/source/qt-everywhere-opensource-src-4.7.0/lib -framework QtSvg -framework QtOpenGL -framework QtGui -framework QtCore -framework OpenGL -framework AGL -o /Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app/Contents/MacOS/CIS467Project0#
-
-CPBXCp CIS467Project.app build/Debug/CIS467Project.app
-s310427411.368246
-e310427411.392462
-r1
-xPBXCp
-xCIS467Project.app
-xbuild/Debug/CIS467Project.app
-lSLF07#2@34"Copy build/Debug/CIS467Project.app310427411#310427411#0(0"0(0#0#70"/Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app8604208256#308"    cd /Users/josephroth/Projects/CIS467Project    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app /Users/josephroth/Projects/CIS467Project0#
-
-CPhaseScriptExecution "Qt Preprocessors" /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Script-A0A52A2ADF7A1E2A99738674.sh
-s310427405.057159
-e310427405.074180
-r1
-xPhaseScriptExecution
-xQt Preprocessors
-x/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Script-A0A52A2ADF7A1E2A99738674.sh
-omake: Nothing to be done for `preprocess'.
-lSLF07#2@42"Run custom shell script 'Qt Preprocessors'310427405#310427405#0(43"make: Nothing to be done for `preprocess'.1(13@43"make: Nothing to be done for `preprocess'.310427405#0#43#0(1@0"0(0#0#0"8603697472#17360"    cd /Users/josephroth/Projects/CIS467Project    setenv ACTION build    setenv ALTERNATE_GROUP staff    setenv ALTERNATE_MODE u+w,go-w,a+rX    setenv ALTERNATE_OWNER josephroth    setenv ALWAYS_SEARCH_USER_PATHS YES    setenv APPLE_INTERNAL_DEVELOPER_DIR /AppleInternal/Developer    setenv APPLE_INTERNAL_DIR /AppleInternal    setenv APPLE_INTERNAL_DOCUMENTATION_DIR /AppleInternal/Documentation    setenv APPLE_INTERNAL_LIBRARY_DIR /AppleInternal/Library    setenv APPLE_INTERNAL_TOOLS /AppleInternal/Developer/Tools    setenv APPLY_RULES_IN_COPY_FILES NO    setenv ARCHS i386    setenv ARCHS_STANDARD_32_64_BIT "x86_64 i386 ppc"    setenv ARCHS_STANDARD_32_BIT "i386 ppc"    setenv ARCHS_STANDARD_64_BIT x86_64    setenv BUILD_COMPONENTS "headers build"    setenv BUILD_DIR /Users/josephroth/Projects/CIS467Project/build    setenv BUILD_ROOT /Users/josephroth/Projects/CIS467Project    setenv BUILD_STYLE Debug    setenv BUILD_VARIANTS normal    setenv BUILT_PRODUCTS_DIR /Users/josephroth/Projects/CIS467Project/build/Debug    setenv CACHE_ROOT /var/folders/x+/x+iErgK1HrOsxbLr5V5Bpk+++TI/-Caches-/com.apple.Xcode.501    setenv CCHROOT /var/folders/x+/x+iErgK1HrOsxbLr5V5Bpk+++TI/-Caches-/com.apple.Xcode.501    setenv CHMOD /bin/chmod    setenv CHOWN /usr/sbin/chown    setenv CLASS_FILE_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/JavaClasses    setenv CLEAN_PRECOMPS YES    setenv CLONE_HEADERS NO    setenv CODESIGNING_FOLDER_PATH /Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app    setenv CODE_SIGNING_ALLOWED YES    setenv COMMAND_MODE legacy    setenv COMPOSITE_SDK_DIRS /var/folders/x+/x+iErgK1HrOsxbLr5V5Bpk+++TI/-Caches-/com.apple.Xcode.501/CompositeSDKs    setenv CONFIGURATION Debug    setenv CONFIGURATION_BUILD_DIR /Users/josephroth/Projects/CIS467Project/build/Debug    setenv CONFIGURATION_TEMP_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug    setenv CONTENTS_FOLDER_PATH CIS467Project.app/Contents    setenv COPYING_PRESERVES_HFS_DATA NO    setenv COPY_PHASE_STRIP NO    setenv COPY_RESOURCES_FROM_STATIC_FRAMEWORKS YES    setenv CP /bin/cp    setenv CURRENT_ARCH i386    setenv CURRENT_VARIANT normal    setenv DEAD_CODE_STRIPPING NO    setenv DEBUGGING_SYMBOLS YES    setenv DEBUG_INFORMATION_FORMAT dwarf    setenv DEPLOYMENT_LOCATION NO    setenv DEPLOYMENT_POSTPROCESSING NO    setenv DERIVED_FILES_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources    setenv DERIVED_FILE_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources    setenv DERIVED_SOURCES_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources    setenv DEVELOPER_APPLICATIONS_DIR /Developer/Applications    setenv DEVELOPER_BIN_DIR /Developer/usr/bin    setenv DEVELOPER_DIR /Developer    setenv DEVELOPER_FRAMEWORKS_DIR /Developer/Library/Frameworks    setenv DEVELOPER_FRAMEWORKS_DIR_QUOTED "\"/Developer/Library/Frameworks\""    setenv DEVELOPER_LIBRARY_DIR /Developer/Library    setenv DEVELOPER_SDK_DIR /Developer/SDKs    setenv DEVELOPER_TOOLS_DIR /Developer/Tools    setenv DEVELOPER_USR_DIR /Developer/usr    setenv DEVELOPMENT_LANGUAGE English    setenv DOCUMENTATION_FOLDER_PATH CIS467Project.app/Contents/Resources/English.lproj/Documentation    setenv DO_HEADER_SCANNING_IN_JAM NO    setenv DSTROOT /tmp/CIS467Project.dst    setenv DWARF_DSYM_FILE_NAME CIS467Project.app.dSYM    setenv DWARF_DSYM_FOLDER_PATH /Users/josephroth/Projects/CIS467Project/build/Debug    setenv DYLIB_COMPATIBILITY_VERSION 1.0    setenv DYLIB_CURRENT_VERSION 1.0.0    setenv ENABLE_HEADER_DEPENDENCIES YES    setenv ENABLE_OPENMP_SUPPORT NO    setenv EXCLUDED_INSTALLSRC_SUBDIRECTORY_PATTERNS ".svn CVS"    setenv EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES "*.nib *.lproj *.framework *.gch (*) CVS .svn *.xcodeproj *.xcode *.pbproj *.pbxproj"    setenv EXECUTABLES_FOLDER_PATH CIS467Project.app/Contents/Executables    setenv EXECUTABLE_FOLDER_PATH CIS467Project.app/Contents/MacOS    setenv EXECUTABLE_NAME CIS467Project    setenv EXECUTABLE_PATH CIS467Project.app/Contents/MacOS/CIS467Project    setenv FILE_LIST /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects/LinkFileList    setenv FIXED_FILES_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/FixedFiles    setenv FRAMEWORKS_FOLDER_PATH CIS467Project.app/Contents/Frameworks    setenv FRAMEWORK_FLAG_PREFIX -framework    setenv FRAMEWORK_SEARCH_PATHS "\"/Users/josephroth/Projects/CIS467Project/build/Debug\" "    setenv FRAMEWORK_VERSION A    setenv FULL_PRODUCT_NAME CIS467Project.app    setenv GCC3_VERSION 3.3    setenv GCC_DYNAMIC_NO_PIC YES    setenv GCC_GENERATE_DEBUGGING_SYMBOLS YES    setenv GCC_INLINES_ARE_PRIVATE_EXTERN YES    setenv GCC_OPTIMIZATION_LEVEL 0    setenv GCC_PFE_FILE_C_DIALECTS "c objective-c c++ objective-c++"    setenv GCC_SYMBOLS_PRIVATE_EXTERN YES    setenv GCC_TREAT_WARNINGS_AS_ERRORS NO    setenv GCC_VERSION 4.2    setenv GENERATE_MASTER_OBJECT_FILE NO    setenv GENERATE_PKGINFO_FILE YES    setenv GENERATE_PROFILING_CODE NO    setenv GID 20    setenv GROUP staff    setenv HEADERMAP_INCLUDES_FLAT_ENTRIES_FOR_TARGET_BEING_BUILT YES    setenv HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_ALL_PRODUCT_TYPES YES    setenv HEADERMAP_INCLUDES_NONPUBLIC_NONPRIVATE_HEADERS YES    setenv HEADERMAP_INCLUDES_PROJECT_HEADERS YES    setenv HEADER_SEARCH_PATHS "\"/Users/josephroth/Projects/CIS467Project/build/Debug/include\" /Library/Frameworks/QtCore.framework/Versions/4/Headers /usr/include/QtCore /Library/Frameworks/QtGui.framework/Versions/4/Headers /usr/include/QtGui /Library/Frameworks/QtOpenGL.framework/Versions/4/Headers /usr/include/QtOpenGL /Library/Frameworks/QtSvg.framework/Versions/4/Headers /usr/include/QtSvg /usr/include . gui generator models /System/Library/Frameworks/OpenGL.framework/Versions/A/Headers /System/Library/Frameworks/AGL.framework/Headers . . /usr/local/include /System/Library/Frameworks/CarbonCore.framework/Headers /usr/local/Qt4.7/mkspecs/macx-xcode"    setenv ICONV /usr/bin/iconv    setenv INFOPLIST_EXPAND_BUILD_SETTINGS YES    setenv INFOPLIST_FILE Info.plist    setenv INFOPLIST_OUTPUT_FORMAT same-as-input    setenv INFOPLIST_PATH CIS467Project.app/Contents/Info.plist    setenv INFOPLIST_PREPROCESS NO    setenv INFOSTRINGS_PATH CIS467Project.app/Contents/Resources/English.lproj/InfoPlist.strings    setenv INSTALL_DIR /tmp/CIS467Project.dst/Users/josephroth/Applications    setenv INSTALL_GROUP staff    setenv INSTALL_MODE_FLAG u+w,go-w,a+rX    setenv INSTALL_OWNER josephroth    setenv INSTALL_PATH /Users/josephroth/Applications    setenv INSTALL_ROOT /tmp/CIS467Project.dst    setenv JAVAC_DEFAULT_FLAGS "-J-Xms64m -J-XX:NewSize=4M -J-Dfile.encoding=UTF8"    setenv JAVA_APP_STUB /System/Library/Frameworks/JavaVM.framework/Resources/MacOS/JavaApplicationStub    setenv JAVA_ARCHIVE_CLASSES YES    setenv JAVA_ARCHIVE_TYPE JAR    setenv JAVA_COMPILER /usr/bin/javac    setenv JAVA_FOLDER_PATH CIS467Project.app/Contents/Resources/Java    setenv JAVA_FRAMEWORK_RESOURCES_DIRS Resources    setenv JAVA_JAR_FLAGS cv    setenv JAVA_SOURCE_SUBDIR .    setenv JAVA_USE_DEPENDENCIES YES    setenv JAVA_ZIP_FLAGS -urg    setenv JIKES_DEFAULT_FLAGS "+E +OLDCSO"    setenv KEEP_PRIVATE_EXTERNS NO    setenv LD_GENERATE_MAP_FILE NO    setenv LD_MAP_FILE_PATH /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/CIS467Project-LinkMap-normal-i386.txt    setenv LD_OPENMP_FLAGS -fopenmp    setenv LEX /Developer/usr/bin/lex    setenv LIBRARY_FLAG_NOSPACE YES    setenv LIBRARY_FLAG_PREFIX -l    setenv LIBRARY_SEARCH_PATHS "\"/Users/josephroth/Projects/CIS467Project/build/Debug\" /Library/Frameworks /tmp/qt-stuff-6474/source/qt-everywhere-opensource-src-4.7.0/lib /System/Library/Frameworks/"    setenv LINKER_DISPLAYS_MANGLED_NAMES NO    setenv LINK_FILE_LIST_normal_i386 /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/CIS467Project.LinkFileList    setenv LINK_WITH_STANDARD_LIBRARIES YES    setenv LOCALIZED_RESOURCES_FOLDER_PATH CIS467Project.app/Contents/Resources/English.lproj    setenv LOCAL_ADMIN_APPS_DIR /Applications/Utilities    setenv LOCAL_APPS_DIR /Applications    setenv LOCAL_DEVELOPER_DIR /Library/Developer    setenv LOCAL_LIBRARY_DIR /Library    setenv MACH_O_TYPE mh_execute    setenv MACOSX_DEPLOYMENT_TARGET 10.4    setenv MAC_OS_X_VERSION_ACTUAL 1064    setenv MAC_OS_X_VERSION_MAJOR 1060    setenv MAC_OS_X_VERSION_MINOR 0604    setenv NATIVE_ARCH i386    setenv NATIVE_ARCH_32_BIT i386    setenv NATIVE_ARCH_64_BIT x86_64    setenv NATIVE_ARCH_ACTUAL x86_64    setenv NO_COMMON YES    setenv OBJECT_FILE_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects    setenv OBJECT_FILE_DIR_normal /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal    setenv OBJROOT /Users/josephroth/Projects/CIS467Project/build    setenv ONLY_ACTIVE_ARCH NO    setenv OPTIMIZATION_LEVEL 0    setenv OS MACOS    setenv OSAC /usr/bin/osacompile    setenv OTHER_CFLAGS "-pipe -g -Wall -W -DQT_SVG_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED"    setenv OTHER_CPLUSPLUSFLAGS "-pipe -g -Wall -W -DQT_SVG_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED"    setenv OTHER_LDFLAGS "-headerpad_max_install_names -L/Library/Frameworks -F/Library/Frameworks -L/tmp/qt-stuff-6474/source/qt-everywhere-opensource-src-4.7.0/lib -F/tmp/qt-stuff-6474/source/qt-everywhere-opensource-src-4.7.0/lib"    setenv PACKAGE_TYPE com.apple.package-type.wrapper.application    setenv PASCAL_STRINGS YES    setenv PATH_PREFIXES_EXCLUDED_FROM_HEADER_DEPENDENCIES "/usr/include /usr/local/include /System/Library/Frameworks /System/Library/PrivateFrameworks /Developer/Headers /Developer/SDKs /Developer/Platforms"    setenv PBDEVELOPMENTPLIST_PATH CIS467Project.app/Contents/pbdevelopment.plist    setenv PFE_FILE_C_DIALECTS c++    setenv PKGINFO_FILE_PATH /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/PkgInfo    setenv PKGINFO_PATH CIS467Project.app/Contents/PkgInfo    setenv PLATFORM_DEVELOPER_APPLICATIONS_DIR /Developer/Applications    setenv PLATFORM_DEVELOPER_BIN_DIR /Developer/usr/bin    setenv PLATFORM_DEVELOPER_LIBRARY_DIR /Developer/Library    setenv PLATFORM_DEVELOPER_SDK_DIR /Developer/SDKs    setenv PLATFORM_DEVELOPER_TOOLS_DIR /Developer/Tools    setenv PLATFORM_DEVELOPER_USR_DIR /Developer/usr    setenv PLATFORM_NAME macosx    setenv PLIST_FILE_OUTPUT_FORMAT same-as-input    setenv PLUGINS_FOLDER_PATH CIS467Project.app/Contents/PlugIns    setenv PREBINDING NO    setenv PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR YES    setenv PRECOMP_DESTINATION_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/PrefixHeaders    setenv PRESERVE_DEAD_CODE_INITS_AND_TERMS NO    setenv PRIVATE_HEADERS_FOLDER_PATH CIS467Project.app/Contents/PrivateHeaders    setenv PRODUCT_NAME CIS467Project    setenv PRODUCT_SETTINGS_PATH /Users/josephroth/Projects/CIS467Project/Info.plist    setenv PRODUCT_TYPE com.apple.product-type.application    setenv PROFILING_CODE NO    setenv PROJECT CIS467Project    setenv PROJECT_DERIVED_FILE_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/DerivedSources    setenv PROJECT_DIR /Users/josephroth/Projects/CIS467Project    setenv PROJECT_FILE_PATH /Users/josephroth/Projects/CIS467Project/CIS467Project.xcodeproj    setenv PROJECT_NAME CIS467Project    setenv PROJECT_TEMP_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build    setenv PUBLIC_HEADERS_FOLDER_PATH CIS467Project.app/Contents/Headers    setenv RECURSIVE_SEARCH_PATHS_FOLLOW_SYMLINKS YES    setenv REMOVE_CVS_FROM_RESOURCES YES    setenv REMOVE_SVN_FROM_RESOURCES YES    setenv REZ_COLLECTOR_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/ResourceManagerResources    setenv REZ_OBJECTS_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/ResourceManagerResources/Objects    setenv REZ_SEARCH_PATHS "\"/Users/josephroth/Projects/CIS467Project/build/Debug\" "    setenv RUN_CLANG_STATIC_ANALYZER NO    setenv SCAN_ALL_SOURCE_FILES_FOR_INCLUDES NO    setenv SCRIPTS_FOLDER_PATH CIS467Project.app/Contents/Resources/Scripts    setenv SCRIPT_INPUT_FILE_COUNT 0    setenv SCRIPT_OUTPUT_FILE_COUNT 0    setenv SDKROOT     setenv SED /usr/bin/sed    setenv SEPARATE_STRIP NO    setenv SEPARATE_SYMBOL_EDIT NO    setenv SET_DIR_MODE_OWNER_GROUP YES    setenv SET_FILE_MODE_OWNER_GROUP NO    setenv SHARED_DERIVED_FILE_DIR /Users/josephroth/Projects/CIS467Project/build/Debug/DerivedSources    setenv SHARED_FRAMEWORKS_FOLDER_PATH CIS467Project.app/Contents/SharedFrameworks    setenv SHARED_PRECOMPS_DIR /var/folders/x+/x+iErgK1HrOsxbLr5V5Bpk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders    setenv SHARED_SUPPORT_FOLDER_PATH CIS467Project.app/Contents/SharedSupport    setenv SKIP_INSTALL YES    setenv SOURCE_ROOT /Users/josephroth/Projects/CIS467Project    setenv SRCROOT /Users/josephroth/Projects/CIS467Project    setenv STANDARD_C_PLUS_PLUS_LIBRARY_TYPE dynamic    setenv STRINGS_FILE_OUTPUT_ENCODING UTF-16    setenv STRIP_INSTALLED_PRODUCT YES    setenv STRIP_STYLE all    setenv SYMBOL_REPOSITORY_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/SymbolRepositories    setenv SYMROOT /Users/josephroth/Projects/CIS467Project/build    setenv SYSTEM_ADMIN_APPS_DIR /Applications/Utilities    setenv SYSTEM_APPS_DIR /Applications    setenv SYSTEM_CORE_SERVICES_DIR /System/Library/CoreServices    setenv SYSTEM_DEMOS_DIR /Applications/Extras    setenv SYSTEM_DEVELOPER_APPS_DIR /Developer/Applications    setenv SYSTEM_DEVELOPER_BIN_DIR /Developer/usr/bin    setenv SYSTEM_DEVELOPER_DEMOS_DIR "/Developer/Applications/Utilities/Built Examples"    setenv SYSTEM_DEVELOPER_DIR /Developer    setenv SYSTEM_DEVELOPER_DOC_DIR "/Developer/ADC Reference Library"    setenv SYSTEM_DEVELOPER_GRAPHICS_TOOLS_DIR "/Developer/Applications/Graphics Tools"    setenv SYSTEM_DEVELOPER_JAVA_TOOLS_DIR "/Developer/Applications/Java Tools"    setenv SYSTEM_DEVELOPER_PERFORMANCE_TOOLS_DIR "/Developer/Applications/Performance Tools"    setenv SYSTEM_DEVELOPER_RELEASENOTES_DIR "/Developer/ADC Reference Library/releasenotes"    setenv SYSTEM_DEVELOPER_TOOLS /Developer/Tools    setenv SYSTEM_DEVELOPER_TOOLS_DOC_DIR "/Developer/ADC Reference Library/documentation/DeveloperTools"    setenv SYSTEM_DEVELOPER_TOOLS_RELEASENOTES_DIR "/Developer/ADC Reference Library/releasenotes/DeveloperTools"    setenv SYSTEM_DEVELOPER_USR_DIR /Developer/usr    setenv SYSTEM_DEVELOPER_UTILITIES_DIR /Developer/Applications/Utilities    setenv SYSTEM_DOCUMENTATION_DIR /Library/Documentation    setenv SYSTEM_LIBRARY_DIR /System/Library    setenv TARGETNAME CIS467Project    setenv TARGET_BUILD_DIR /Users/josephroth/Projects/CIS467Project/build/Debug    setenv TARGET_NAME CIS467Project    setenv TARGET_TEMP_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build    setenv TEMP_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build    setenv TEMP_FILES_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build    setenv TEMP_FILE_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build    setenv TEMP_ROOT /Users/josephroth/Projects/CIS467Project/build    setenv UID 501    setenv UNLOCALIZED_RESOURCES_FOLDER_PATH CIS467Project.app/Contents/Resources    setenv UNSTRIPPED_PRODUCT NO    setenv USER josephroth    setenv USER_APPS_DIR /Users/josephroth/Applications    setenv USER_LIBRARY_DIR /Users/josephroth/Library    setenv USE_DYNAMIC_NO_PIC YES    setenv USE_HEADERMAP YES    setenv USE_HEADER_SYMLINKS NO    setenv VALIDATE_PRODUCT NO    setenv VALID_ARCHS "i386 ppc ppc64 ppc7400 ppc970 x86_64"    setenv VERBOSE_PBXCP NO    setenv VERSIONPLIST_PATH CIS467Project.app/Contents/version.plist    setenv VERSION_INFO_BUILDER josephroth    setenv VERSION_INFO_FILE CIS467Project_vers.c    setenv VERSION_INFO_STRING "\"@(#)PROGRAM:CIS467Project  PROJECT:CIS467Project-\""    setenv WRAPPER_EXTENSION app    setenv WRAPPER_NAME CIS467Project.app    setenv WRAPPER_SUFFIX .app    setenv XCODE_APP_SUPPORT_DIR /Developer/Library/Xcode    setenv XCODE_VERSION_ACTUAL 0324    setenv XCODE_VERSION_MAJOR 0300    setenv XCODE_VERSION_MINOR 0320    setenv YACC /Developer/usr/bin/yacc    setenv YACCFLAGS -d    /bin/sh -c /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Script-A0A52A2ADF7A1E2A99738674.sh0#
-
-CPhaseScriptExecution "Qt Qmake" /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Script-D7BA7D76DAB5DD13389D6332.sh
-s310427404.989981
-e310427405.056647
-r1
-xPhaseScriptExecution
-xQt Qmake
-x/Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Script-D7BA7D76DAB5DD13389D6332.sh
-omake: `CIS467Project.xcodeproj/project.pbxproj' is up to date.
-lSLF07#2@34"Run custom shell script 'Qt Qmake'310427404#310427405#0(63"make: `CIS467Project.xcodeproj/project.pbxproj' is up to date.1(13@63"make: `CIS467Project.xcodeproj/project.pbxproj' is up to date.310427405#0#63#0(1@0"0(0#0#0"8603451712#17360"    cd /Users/josephroth/Projects/CIS467Project    setenv ACTION build    setenv ALTERNATE_GROUP staff    setenv ALTERNATE_MODE u+w,go-w,a+rX    setenv ALTERNATE_OWNER josephroth    setenv ALWAYS_SEARCH_USER_PATHS YES    setenv APPLE_INTERNAL_DEVELOPER_DIR /AppleInternal/Developer    setenv APPLE_INTERNAL_DIR /AppleInternal    setenv APPLE_INTERNAL_DOCUMENTATION_DIR /AppleInternal/Documentation    setenv APPLE_INTERNAL_LIBRARY_DIR /AppleInternal/Library    setenv APPLE_INTERNAL_TOOLS /AppleInternal/Developer/Tools    setenv APPLY_RULES_IN_COPY_FILES NO    setenv ARCHS i386    setenv ARCHS_STANDARD_32_64_BIT "x86_64 i386 ppc"    setenv ARCHS_STANDARD_32_BIT "i386 ppc"    setenv ARCHS_STANDARD_64_BIT x86_64    setenv BUILD_COMPONENTS "headers build"    setenv BUILD_DIR /Users/josephroth/Projects/CIS467Project/build    setenv BUILD_ROOT /Users/josephroth/Projects/CIS467Project    setenv BUILD_STYLE Debug    setenv BUILD_VARIANTS normal    setenv BUILT_PRODUCTS_DIR /Users/josephroth/Projects/CIS467Project/build/Debug    setenv CACHE_ROOT /var/folders/x+/x+iErgK1HrOsxbLr5V5Bpk+++TI/-Caches-/com.apple.Xcode.501    setenv CCHROOT /var/folders/x+/x+iErgK1HrOsxbLr5V5Bpk+++TI/-Caches-/com.apple.Xcode.501    setenv CHMOD /bin/chmod    setenv CHOWN /usr/sbin/chown    setenv CLASS_FILE_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/JavaClasses    setenv CLEAN_PRECOMPS YES    setenv CLONE_HEADERS NO    setenv CODESIGNING_FOLDER_PATH /Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app    setenv CODE_SIGNING_ALLOWED YES    setenv COMMAND_MODE legacy    setenv COMPOSITE_SDK_DIRS /var/folders/x+/x+iErgK1HrOsxbLr5V5Bpk+++TI/-Caches-/com.apple.Xcode.501/CompositeSDKs    setenv CONFIGURATION Debug    setenv CONFIGURATION_BUILD_DIR /Users/josephroth/Projects/CIS467Project/build/Debug    setenv CONFIGURATION_TEMP_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug    setenv CONTENTS_FOLDER_PATH CIS467Project.app/Contents    setenv COPYING_PRESERVES_HFS_DATA NO    setenv COPY_PHASE_STRIP NO    setenv COPY_RESOURCES_FROM_STATIC_FRAMEWORKS YES    setenv CP /bin/cp    setenv CURRENT_ARCH i386    setenv CURRENT_VARIANT normal    setenv DEAD_CODE_STRIPPING NO    setenv DEBUGGING_SYMBOLS YES    setenv DEBUG_INFORMATION_FORMAT dwarf    setenv DEPLOYMENT_LOCATION NO    setenv DEPLOYMENT_POSTPROCESSING NO    setenv DERIVED_FILES_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources    setenv DERIVED_FILE_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources    setenv DERIVED_SOURCES_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/DerivedSources    setenv DEVELOPER_APPLICATIONS_DIR /Developer/Applications    setenv DEVELOPER_BIN_DIR /Developer/usr/bin    setenv DEVELOPER_DIR /Developer    setenv DEVELOPER_FRAMEWORKS_DIR /Developer/Library/Frameworks    setenv DEVELOPER_FRAMEWORKS_DIR_QUOTED "\"/Developer/Library/Frameworks\""    setenv DEVELOPER_LIBRARY_DIR /Developer/Library    setenv DEVELOPER_SDK_DIR /Developer/SDKs    setenv DEVELOPER_TOOLS_DIR /Developer/Tools    setenv DEVELOPER_USR_DIR /Developer/usr    setenv DEVELOPMENT_LANGUAGE English    setenv DOCUMENTATION_FOLDER_PATH CIS467Project.app/Contents/Resources/English.lproj/Documentation    setenv DO_HEADER_SCANNING_IN_JAM NO    setenv DSTROOT /tmp/CIS467Project.dst    setenv DWARF_DSYM_FILE_NAME CIS467Project.app.dSYM    setenv DWARF_DSYM_FOLDER_PATH /Users/josephroth/Projects/CIS467Project/build/Debug    setenv DYLIB_COMPATIBILITY_VERSION 1.0    setenv DYLIB_CURRENT_VERSION 1.0.0    setenv ENABLE_HEADER_DEPENDENCIES YES    setenv ENABLE_OPENMP_SUPPORT NO    setenv EXCLUDED_INSTALLSRC_SUBDIRECTORY_PATTERNS ".svn CVS"    setenv EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES "*.nib *.lproj *.framework *.gch (*) CVS .svn *.xcodeproj *.xcode *.pbproj *.pbxproj"    setenv EXECUTABLES_FOLDER_PATH CIS467Project.app/Contents/Executables    setenv EXECUTABLE_FOLDER_PATH CIS467Project.app/Contents/MacOS    setenv EXECUTABLE_NAME CIS467Project    setenv EXECUTABLE_PATH CIS467Project.app/Contents/MacOS/CIS467Project    setenv FILE_LIST /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects/LinkFileList    setenv FIXED_FILES_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/FixedFiles    setenv FRAMEWORKS_FOLDER_PATH CIS467Project.app/Contents/Frameworks    setenv FRAMEWORK_FLAG_PREFIX -framework    setenv FRAMEWORK_SEARCH_PATHS "\"/Users/josephroth/Projects/CIS467Project/build/Debug\" "    setenv FRAMEWORK_VERSION A    setenv FULL_PRODUCT_NAME CIS467Project.app    setenv GCC3_VERSION 3.3    setenv GCC_DYNAMIC_NO_PIC YES    setenv GCC_GENERATE_DEBUGGING_SYMBOLS YES    setenv GCC_INLINES_ARE_PRIVATE_EXTERN YES    setenv GCC_OPTIMIZATION_LEVEL 0    setenv GCC_PFE_FILE_C_DIALECTS "c objective-c c++ objective-c++"    setenv GCC_SYMBOLS_PRIVATE_EXTERN YES    setenv GCC_TREAT_WARNINGS_AS_ERRORS NO    setenv GCC_VERSION 4.2    setenv GENERATE_MASTER_OBJECT_FILE NO    setenv GENERATE_PKGINFO_FILE YES    setenv GENERATE_PROFILING_CODE NO    setenv GID 20    setenv GROUP staff    setenv HEADERMAP_INCLUDES_FLAT_ENTRIES_FOR_TARGET_BEING_BUILT YES    setenv HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_ALL_PRODUCT_TYPES YES    setenv HEADERMAP_INCLUDES_NONPUBLIC_NONPRIVATE_HEADERS YES    setenv HEADERMAP_INCLUDES_PROJECT_HEADERS YES    setenv HEADER_SEARCH_PATHS "\"/Users/josephroth/Projects/CIS467Project/build/Debug/include\" /Library/Frameworks/QtCore.framework/Versions/4/Headers /usr/include/QtCore /Library/Frameworks/QtGui.framework/Versions/4/Headers /usr/include/QtGui /Library/Frameworks/QtOpenGL.framework/Versions/4/Headers /usr/include/QtOpenGL /Library/Frameworks/QtSvg.framework/Versions/4/Headers /usr/include/QtSvg /usr/include . gui generator models /System/Library/Frameworks/OpenGL.framework/Versions/A/Headers /System/Library/Frameworks/AGL.framework/Headers . . /usr/local/include /System/Library/Frameworks/CarbonCore.framework/Headers /usr/local/Qt4.7/mkspecs/macx-xcode"    setenv ICONV /usr/bin/iconv    setenv INFOPLIST_EXPAND_BUILD_SETTINGS YES    setenv INFOPLIST_FILE Info.plist    setenv INFOPLIST_OUTPUT_FORMAT same-as-input    setenv INFOPLIST_PATH CIS467Project.app/Contents/Info.plist    setenv INFOPLIST_PREPROCESS NO    setenv INFOSTRINGS_PATH CIS467Project.app/Contents/Resources/English.lproj/InfoPlist.strings    setenv INSTALL_DIR /tmp/CIS467Project.dst/Users/josephroth/Applications    setenv INSTALL_GROUP staff    setenv INSTALL_MODE_FLAG u+w,go-w,a+rX    setenv INSTALL_OWNER josephroth    setenv INSTALL_PATH /Users/josephroth/Applications    setenv INSTALL_ROOT /tmp/CIS467Project.dst    setenv JAVAC_DEFAULT_FLAGS "-J-Xms64m -J-XX:NewSize=4M -J-Dfile.encoding=UTF8"    setenv JAVA_APP_STUB /System/Library/Frameworks/JavaVM.framework/Resources/MacOS/JavaApplicationStub    setenv JAVA_ARCHIVE_CLASSES YES    setenv JAVA_ARCHIVE_TYPE JAR    setenv JAVA_COMPILER /usr/bin/javac    setenv JAVA_FOLDER_PATH CIS467Project.app/Contents/Resources/Java    setenv JAVA_FRAMEWORK_RESOURCES_DIRS Resources    setenv JAVA_JAR_FLAGS cv    setenv JAVA_SOURCE_SUBDIR .    setenv JAVA_USE_DEPENDENCIES YES    setenv JAVA_ZIP_FLAGS -urg    setenv JIKES_DEFAULT_FLAGS "+E +OLDCSO"    setenv KEEP_PRIVATE_EXTERNS NO    setenv LD_GENERATE_MAP_FILE NO    setenv LD_MAP_FILE_PATH /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/CIS467Project-LinkMap-normal-i386.txt    setenv LD_OPENMP_FLAGS -fopenmp    setenv LEX /Developer/usr/bin/lex    setenv LIBRARY_FLAG_NOSPACE YES    setenv LIBRARY_FLAG_PREFIX -l    setenv LIBRARY_SEARCH_PATHS "\"/Users/josephroth/Projects/CIS467Project/build/Debug\" /Library/Frameworks /tmp/qt-stuff-6474/source/qt-everywhere-opensource-src-4.7.0/lib /System/Library/Frameworks/"    setenv LINKER_DISPLAYS_MANGLED_NAMES NO    setenv LINK_FILE_LIST_normal_i386 /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal/i386/CIS467Project.LinkFileList    setenv LINK_WITH_STANDARD_LIBRARIES YES    setenv LOCALIZED_RESOURCES_FOLDER_PATH CIS467Project.app/Contents/Resources/English.lproj    setenv LOCAL_ADMIN_APPS_DIR /Applications/Utilities    setenv LOCAL_APPS_DIR /Applications    setenv LOCAL_DEVELOPER_DIR /Library/Developer    setenv LOCAL_LIBRARY_DIR /Library    setenv MACH_O_TYPE mh_execute    setenv MACOSX_DEPLOYMENT_TARGET 10.4    setenv MAC_OS_X_VERSION_ACTUAL 1064    setenv MAC_OS_X_VERSION_MAJOR 1060    setenv MAC_OS_X_VERSION_MINOR 0604    setenv NATIVE_ARCH i386    setenv NATIVE_ARCH_32_BIT i386    setenv NATIVE_ARCH_64_BIT x86_64    setenv NATIVE_ARCH_ACTUAL x86_64    setenv NO_COMMON YES    setenv OBJECT_FILE_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects    setenv OBJECT_FILE_DIR_normal /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Objects-normal    setenv OBJROOT /Users/josephroth/Projects/CIS467Project/build    setenv ONLY_ACTIVE_ARCH NO    setenv OPTIMIZATION_LEVEL 0    setenv OS MACOS    setenv OSAC /usr/bin/osacompile    setenv OTHER_CFLAGS "-pipe -g -Wall -W -DQT_SVG_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED"    setenv OTHER_CPLUSPLUSFLAGS "-pipe -g -Wall -W -DQT_SVG_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED"    setenv OTHER_LDFLAGS "-headerpad_max_install_names -L/Library/Frameworks -F/Library/Frameworks -L/tmp/qt-stuff-6474/source/qt-everywhere-opensource-src-4.7.0/lib -F/tmp/qt-stuff-6474/source/qt-everywhere-opensource-src-4.7.0/lib"    setenv PACKAGE_TYPE com.apple.package-type.wrapper.application    setenv PASCAL_STRINGS YES    setenv PATH_PREFIXES_EXCLUDED_FROM_HEADER_DEPENDENCIES "/usr/include /usr/local/include /System/Library/Frameworks /System/Library/PrivateFrameworks /Developer/Headers /Developer/SDKs /Developer/Platforms"    setenv PBDEVELOPMENTPLIST_PATH CIS467Project.app/Contents/pbdevelopment.plist    setenv PFE_FILE_C_DIALECTS c++    setenv PKGINFO_FILE_PATH /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/PkgInfo    setenv PKGINFO_PATH CIS467Project.app/Contents/PkgInfo    setenv PLATFORM_DEVELOPER_APPLICATIONS_DIR /Developer/Applications    setenv PLATFORM_DEVELOPER_BIN_DIR /Developer/usr/bin    setenv PLATFORM_DEVELOPER_LIBRARY_DIR /Developer/Library    setenv PLATFORM_DEVELOPER_SDK_DIR /Developer/SDKs    setenv PLATFORM_DEVELOPER_TOOLS_DIR /Developer/Tools    setenv PLATFORM_DEVELOPER_USR_DIR /Developer/usr    setenv PLATFORM_NAME macosx    setenv PLIST_FILE_OUTPUT_FORMAT same-as-input    setenv PLUGINS_FOLDER_PATH CIS467Project.app/Contents/PlugIns    setenv PREBINDING NO    setenv PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR YES    setenv PRECOMP_DESTINATION_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/PrefixHeaders    setenv PRESERVE_DEAD_CODE_INITS_AND_TERMS NO    setenv PRIVATE_HEADERS_FOLDER_PATH CIS467Project.app/Contents/PrivateHeaders    setenv PRODUCT_NAME CIS467Project    setenv PRODUCT_SETTINGS_PATH /Users/josephroth/Projects/CIS467Project/Info.plist    setenv PRODUCT_TYPE com.apple.product-type.application    setenv PROFILING_CODE NO    setenv PROJECT CIS467Project    setenv PROJECT_DERIVED_FILE_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/DerivedSources    setenv PROJECT_DIR /Users/josephroth/Projects/CIS467Project    setenv PROJECT_FILE_PATH /Users/josephroth/Projects/CIS467Project/CIS467Project.xcodeproj    setenv PROJECT_NAME CIS467Project    setenv PROJECT_TEMP_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build    setenv PUBLIC_HEADERS_FOLDER_PATH CIS467Project.app/Contents/Headers    setenv RECURSIVE_SEARCH_PATHS_FOLLOW_SYMLINKS YES    setenv REMOVE_CVS_FROM_RESOURCES YES    setenv REMOVE_SVN_FROM_RESOURCES YES    setenv REZ_COLLECTOR_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/ResourceManagerResources    setenv REZ_OBJECTS_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/ResourceManagerResources/Objects    setenv REZ_SEARCH_PATHS "\"/Users/josephroth/Projects/CIS467Project/build/Debug\" "    setenv RUN_CLANG_STATIC_ANALYZER NO    setenv SCAN_ALL_SOURCE_FILES_FOR_INCLUDES NO    setenv SCRIPTS_FOLDER_PATH CIS467Project.app/Contents/Resources/Scripts    setenv SCRIPT_INPUT_FILE_COUNT 0    setenv SCRIPT_OUTPUT_FILE_COUNT 0    setenv SDKROOT     setenv SED /usr/bin/sed    setenv SEPARATE_STRIP NO    setenv SEPARATE_SYMBOL_EDIT NO    setenv SET_DIR_MODE_OWNER_GROUP YES    setenv SET_FILE_MODE_OWNER_GROUP NO    setenv SHARED_DERIVED_FILE_DIR /Users/josephroth/Projects/CIS467Project/build/Debug/DerivedSources    setenv SHARED_FRAMEWORKS_FOLDER_PATH CIS467Project.app/Contents/SharedFrameworks    setenv SHARED_PRECOMPS_DIR /var/folders/x+/x+iErgK1HrOsxbLr5V5Bpk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders    setenv SHARED_SUPPORT_FOLDER_PATH CIS467Project.app/Contents/SharedSupport    setenv SKIP_INSTALL YES    setenv SOURCE_ROOT /Users/josephroth/Projects/CIS467Project    setenv SRCROOT /Users/josephroth/Projects/CIS467Project    setenv STANDARD_C_PLUS_PLUS_LIBRARY_TYPE dynamic    setenv STRINGS_FILE_OUTPUT_ENCODING UTF-16    setenv STRIP_INSTALLED_PRODUCT YES    setenv STRIP_STYLE all    setenv SYMBOL_REPOSITORY_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/SymbolRepositories    setenv SYMROOT /Users/josephroth/Projects/CIS467Project/build    setenv SYSTEM_ADMIN_APPS_DIR /Applications/Utilities    setenv SYSTEM_APPS_DIR /Applications    setenv SYSTEM_CORE_SERVICES_DIR /System/Library/CoreServices    setenv SYSTEM_DEMOS_DIR /Applications/Extras    setenv SYSTEM_DEVELOPER_APPS_DIR /Developer/Applications    setenv SYSTEM_DEVELOPER_BIN_DIR /Developer/usr/bin    setenv SYSTEM_DEVELOPER_DEMOS_DIR "/Developer/Applications/Utilities/Built Examples"    setenv SYSTEM_DEVELOPER_DIR /Developer    setenv SYSTEM_DEVELOPER_DOC_DIR "/Developer/ADC Reference Library"    setenv SYSTEM_DEVELOPER_GRAPHICS_TOOLS_DIR "/Developer/Applications/Graphics Tools"    setenv SYSTEM_DEVELOPER_JAVA_TOOLS_DIR "/Developer/Applications/Java Tools"    setenv SYSTEM_DEVELOPER_PERFORMANCE_TOOLS_DIR "/Developer/Applications/Performance Tools"    setenv SYSTEM_DEVELOPER_RELEASENOTES_DIR "/Developer/ADC Reference Library/releasenotes"    setenv SYSTEM_DEVELOPER_TOOLS /Developer/Tools    setenv SYSTEM_DEVELOPER_TOOLS_DOC_DIR "/Developer/ADC Reference Library/documentation/DeveloperTools"    setenv SYSTEM_DEVELOPER_TOOLS_RELEASENOTES_DIR "/Developer/ADC Reference Library/releasenotes/DeveloperTools"    setenv SYSTEM_DEVELOPER_USR_DIR /Developer/usr    setenv SYSTEM_DEVELOPER_UTILITIES_DIR /Developer/Applications/Utilities    setenv SYSTEM_DOCUMENTATION_DIR /Library/Documentation    setenv SYSTEM_LIBRARY_DIR /System/Library    setenv TARGETNAME CIS467Project    setenv TARGET_BUILD_DIR /Users/josephroth/Projects/CIS467Project/build/Debug    setenv TARGET_NAME CIS467Project    setenv TARGET_TEMP_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build    setenv TEMP_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build    setenv TEMP_FILES_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build    setenv TEMP_FILE_DIR /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build    setenv TEMP_ROOT /Users/josephroth/Projects/CIS467Project/build    setenv UID 501    setenv UNLOCALIZED_RESOURCES_FOLDER_PATH CIS467Project.app/Contents/Resources    setenv UNSTRIPPED_PRODUCT NO    setenv USER josephroth    setenv USER_APPS_DIR /Users/josephroth/Applications    setenv USER_LIBRARY_DIR /Users/josephroth/Library    setenv USE_DYNAMIC_NO_PIC YES    setenv USE_HEADERMAP YES    setenv USE_HEADER_SYMLINKS NO    setenv VALIDATE_PRODUCT NO    setenv VALID_ARCHS "i386 ppc ppc64 ppc7400 ppc970 x86_64"    setenv VERBOSE_PBXCP NO    setenv VERSIONPLIST_PATH CIS467Project.app/Contents/version.plist    setenv VERSION_INFO_BUILDER josephroth    setenv VERSION_INFO_FILE CIS467Project_vers.c    setenv VERSION_INFO_STRING "\"@(#)PROGRAM:CIS467Project  PROJECT:CIS467Project-\""    setenv WRAPPER_EXTENSION app    setenv WRAPPER_NAME CIS467Project.app    setenv WRAPPER_SUFFIX .app    setenv XCODE_APP_SUPPORT_DIR /Developer/Library/Xcode    setenv XCODE_VERSION_ACTUAL 0324    setenv XCODE_VERSION_MAJOR 0300    setenv XCODE_VERSION_MINOR 0320    setenv YACC /Developer/usr/bin/yacc    setenv YACCFLAGS -d    /bin/sh -c /Users/josephroth/Projects/CIS467Project/build/CIS467Project.build/Debug/CIS467Project.build/Script-D7BA7D76DAB5DD13389D6332.sh0#
-
-CProcessInfoPlistFile /Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app/Contents/Info.plist Info.plist
-s310427404.961288
-e310427404.989734
-r1
-xProcessInfoPlistFile
-x/Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app/Contents/Info.plist
-xInfo.plist
-lSLF07#2@18"Process Info.plist310427404#310427404#0(0"0(0#0#51"/Users/josephroth/Projects/CIS467Project/Info.plist29836824280170576#320"    cd /Users/josephroth/Projects/CIS467Project    builtin-infoPlistUtility Info.plist -genpkginfo /Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app/Contents/Info.plist0#
-
-CTouch /Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app
-s310427411.337209
-e310427411.368122
-r1
-xTouch
-x/Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app
-lSLF07#2@76"Touch /Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app310427411#310427411#0(0"0(0#0#0"8604706048#141"    cd /Users/josephroth/Projects/CIS467Project    /usr/bin/touch -c /Users/josephroth/Projects/CIS467Project/build/Debug/CIS467Project.app0#
-
