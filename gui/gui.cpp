@@ -66,7 +66,7 @@ void Gui::setCell(unsigned row, unsigned column, Maze::CellType type, Maze::Faci
 {
 	if(row < (unsigned)mazeGrid->rowCount() && column < (unsigned)mazeGrid->columnCount())
 	{
-		qDebug() << "setCell(" << row << ',' << column << ',' << type << ',' << facing << ')';
+//		qDebug() << "setCell(" << row << ',' << column << ',' << type << ',' << facing << ')';
 		Cell *cell = (Cell*)mazeGrid->itemAt(row, column);
 		cell->setCellType(type);
 		cell->setFacing(facing);

@@ -1,4 +1,13 @@
 #include "generator.h"
+#define UP 1
+#define LEFT 2
+#define DOWN 3
+#define RIGHT 4
+#define FRONTIER 5
+#define AVAIL_UP 8
+#define AVAIL_LEFT 16
+#define AVAIL_DOWN 32
+#define AVAIL_RIGHT 64
 
 Generator::Generator(Maze *maze, QObject *parent) :
 	QObject(parent)
@@ -23,183 +32,119 @@ void Generator::backAndForth()
 
 void Generator::prims()
 {
-/*//	void init(int rows, int cols, Cell * cells[rows][cols]) {
-	int y = maze->height(), x = maze->width();
-	int rows = y, cols = x;
-		int a,b;
-		neighbors_left=0;
-		List * neighbors;
-		List * head = NULL;
-		srand(time(NULL));
-		//Cell cells[maze->height()][maze->width()];
-		cells = new Cell**[y];
-		for(a=0;a<x;a++) {
-			cells[a] = new Cell*[x];
-			for(b=0;b<y;b++) {
-				cells[a][b] = (Cell *)malloc(sizeof(Cell));
-			}
-		}
-		for(b=0;b<y;b++) {
-			for(a=0;a<x;a++) {
-				cells[a][b]->state=Maze::WALL;
-				if(a!=0)
-					cells[a][b]->west = cells[b][a-1];
-				else
-					if (a<x-1)
-						cells[a][b]->east = cells[b][a+1];
-					else
-						if (b!=0)
-							cells[a][b]->north = cells[b-1][a];
-						else
-							if (b<y-1)
-								cells[a][b]->south = cells[b+1][a];
-			}
-		}
-		int h,v;
-		h=rand()%x;
-		v=rand()%y;
-		cells[v][h]->state=Maze::PATH;
-		addNeighbors(rows,cols,v,h,cells,&head);
-		while(neighbors_left>=0) {
-			int r;
-			int count=0;
-			if (neighbors_left > 0) {
-				r=rand()%neighbors_left;
-			} else {
-				r=0;
-			}
-			List * tmp = head;
-			int i;
-			for(i=0;i!=r;i++);
-				if(tmp!=NULL && tmp->next != NULL)
-					tmp = tmp->next;
-				else
-					printf("ERROR");
-			cells[tmp->x][tmp->y]->state=Maze::PATH;
+	// The spanning tree is half as large as the grid
+	unsigned width = (maze->width() + 1) / 2, height = (maze->height() + 1) / 2;
+	// Holds info about which nodes are untouched
+	unsigned **tree = new unsigned*[height];
+	for (unsigned i = 0; i < height; i++) {
+		tree[i] = new unsigned[width];
+		for (unsigned j = 0; j < width; j++)
+			tree[i][j] = 0;
+	}
+	// Count of remaining frontier nodes
+	int numFrontier = 0, nodeX = 0, nodeY = 0, frontSel = 0;
+	
+	for (unsigned i = 0; i < width * height; i++) {
 
-			v=tmp->x;
-			h=tmp->y;
-			addNeighbors(rows,cols,v,h,cells,&head);
-			int escape=0;
-			while(!escape){
-				r=rand()%4;
-				printf("%d\n",r);
-				if(r==0 && v>0) {
-					cells[v-1][h]->southWall=Maze::PATH;
-					cells[v][h]->northWall=Maze::PATH;
-					escape++;
+		if (i == 0) {
+			// First node must be top left
+			tree[0][0] = UP;
+			tree[0][1] = FRONTIER;
+			tree[1][0] = FRONTIER;
+			numFrontier = 2;
+		} else {
+			// Pick a random frontier node
+			frontSel = rand()%numFrontier;
+			for (unsigned r = 0; r < height; r++) {
+				for (unsigned c = 0; c < width; c++) {
+					if (tree[r][c] == FRONTIER) {
+						frontSel--;
+						if (frontSel < 0) {
+							nodeX = c;
+							nodeY = r;
+							break;
+						}
+					}
 				}
-				if(r==1 && v<y-1) {
-					cells[v+1][h]->northWall=Maze::PATH;
-					cells[v][h]->southWall=Maze::PATH;
-					escape++;
-				}
-				if(r==2 && h<x-1) {
-				if(r==2 && h<x-1) {
-					cells[v][h+1]->westWall=Maze::PATH;
-					cells[v][h]->eastWall=Maze::PATH;
-					escape++;
-				}
-				if(r==3 && h>0) {
-					cells[v][h-1]->eastWall=Maze::PATH;
-					cells[v][h]->westWall=Maze::PATH;
-					escape++;
-				}
+				if (frontSel < 0) break;
 			}
-			if(tmp->prev!=NULL) tmp->prev->next=tmp->next;
-			if(tmp->next!=NULL) tmp->next->prev=tmp->prev;
-			tmp=NULL;
-			neighbors_left--;
-		}
-                translate(rows, cols, cells);*/
-}
-
-void Generator::addNeighbors(int x, int y, int v, int h, Cell ***cells, List** head) {
-        /*List * neighbors;;
-	if(v>0) {
-		if(cells[v-1][h]!=NULL && cells[v-1][h]->state!=Maze::PATH) {
-			cells[v-1][h]->state=Maze::FRONTIER;
-			neighbors = (List *)malloc(sizeof(List));
-			neighbors->x=v-1;
-			neighbors->y=h;
-			neighbors->next=*head;
-			neighbors->prev=NULL;
-			if(*head!=NULL) (*head)->prev=neighbors;
-			*head=neighbors;
-			neighbors_left++;
-		}
-	}
-	if(v<y-1) {
-		if (cells[v+1][h]!=NULL && cells[v+1][h]->state!=Maze::PATH) {
-			cells[v+1][h]->state=Maze::FRONTIER;
-			neighbors = (List *)malloc(sizeof(List));
-			neighbors->x=v+1;
-			neighbors->y=h;
-			neighbors->next=*head;
-			neighbors->prev=NULL;
-			if(*head!=NULL) (*head)->prev=neighbors;
-			*head=neighbors;
-			neighbors_left++;
-		}
-	}
-	if(h>0) {
-		if (cells[v][h-1]!=NULL && cells[v][h-1]->state!=Maze::PATH) {
-			cells[v][h-1]->state=Maze::FRONTIER;
-			neighbors = (List *)malloc(sizeof(List));
-			neighbors->x=v;
-			neighbors->y=h-1;
-			neighbors->next=*head;
-			neighbors->prev=NULL;
-			if(*head!=NULL) (*head)->prev=neighbors;
-			*head=neighbors;
-			neighbors_left++;
-		}
-	}
-	if(h<x-1) {
-		if (cells[v][h+1]!=NULL && cells[v][h+1]->state!=Maze::PATH) {
-			cells[v][h+1]->state=Maze::FONTIER;
-			neighbors = (List *)malloc(sizeof(List));
-			neighbors->x=v;
-			neighbors->y=h+1;
-			neighbors->next=*head;
-			neighbors->prev=NULL;
-			if(*head!=NULL) (*head)->prev=neighbors;
-			*head=neighbors;
-			neighbors_left++;
-		}
-        }*/
-}
-
-void Generator::translate(int rows, int cols, Cell ***cells) {
-        /*int x = cols, y = rows;
-	Cell * c = (Cell *)malloc(sizeof(Cell));
-	int i,j;
-	cells[y-1][x-1]->southWall=Maze::PATH;
-	cells[0][0]->northWall=Maze::PATH;
-	for(i=0;i<y;i++) {
-		for(j=0;j<x;j++) {
-			c = cells[i][j];
-			printf(" %u %d",Maze::WALL, c->northWall);
-			c = NULL;
-		}
-		printf(" 0\n");
-		for(j=0;j<x;j++) {
-			c = cells[i][j];
-			if(j==0) {
-				printf(" %d %d %d",c->westWall,c->state,c->eastWall);
-			} else {
-				printf(" %d %d",c->state,c->eastWall);
+			
+			// Pick a direction to an open cell
+			int dir = 0;
+			bool flag = false;
+			while (!flag) {
+				dir = rand()%4 + 1;
+				switch (dir) {
+					case UP:
+						if (nodeY - 1 >= 0 && tree[nodeY - 1][nodeX] > 0 && tree[nodeY - 1][nodeX] < 5) {
+							tree[nodeY][nodeX] = UP;
+							flag = true;
+						}
+						break;
+					case DOWN:
+						if (nodeY + 1 < height && tree[nodeY + 1][nodeX] > 0 && tree[nodeY + 1][nodeX] < 5) {
+							tree[nodeY][nodeX] = DOWN;
+							flag = true;
+						}
+						break;
+					case RIGHT:
+						if (nodeX + 1 < width && tree[nodeY][nodeX + 1] > 0 && tree[nodeY][nodeX + 1] < 5) {
+							tree[nodeY][nodeX] = RIGHT;
+							flag = true;
+						}
+						break;
+					case LEFT:
+						if (nodeX - 1 >= 0 && tree[nodeY][nodeX - 1] > 0 && tree[nodeY][nodeX - 1] < 5) {
+							tree[nodeY][nodeX] = LEFT;
+							flag = true;
+						}
+						break;
+				} // switch
+			} // while
+			--numFrontier;
+			
+			// Add frontier nodes
+			if (nodeY - 1 >= 0 && tree[nodeY - 1][nodeX] == 0) {
+				++numFrontier;
+				tree[nodeY - 1][nodeX] = FRONTIER;
 			}
-			c = NULL;
+			if (nodeY + 1 < height && tree[nodeY + 1][nodeX] == 0) {
+				++numFrontier;
+				tree[nodeY + 1][nodeX] = FRONTIER;
+			}
+			if (nodeX - 1 >= 0 && tree[nodeY][nodeX - 1] == 0) {
+				++numFrontier;
+				tree[nodeY][nodeX - 1] = FRONTIER;
+			}
+			if (nodeX + 1 < width && tree[nodeY][nodeX + 1] == 0) {
+				++numFrontier;
+				tree[nodeY][nodeX + 1] = FRONTIER;
+			}
+		} // else
+	} // for
+	
+	// transform tree to maze
+	for (unsigned i = 0; i < height; i++) {
+		for (unsigned j = 0; j < width; j++) {
+			maze->setCell(2*i, 2*j, Maze::PATH);
+			maze->setCell(2*i + 1, 2*j, Maze::WALL);
+			maze->setCell(2*i, 2*j + 1, Maze::WALL);
+			maze->setCell(2*i + 1, 2*j + 1, Maze::WALL);
+			if (tree[i][j] == UP) maze->setCell(2*i - 1, 2*j, Maze::PATH);
+			else if (tree[i][j] == DOWN) maze->setCell(2*i + 1, 2*j, Maze::PATH);
+			else if (tree[i][j] == LEFT) maze->setCell(2*i, 2*j - 1, Maze::PATH);
+			else if (tree[i][j] == RIGHT) maze->setCell(2*i, 2*j + 1, Maze::PATH);
 		}
-		printf(" \n");
 	}
-	for(j=0;j<x;j++) {
-		c = cells[y-1][j];
-		printf(" 0 %d",c->southWall);
-		c = NULL;
-	}
-        printf(" 0\n");*/
+		
+	for (unsigned i = 0; i < height; i++)
+		delete [] tree[i];
+	delete [] tree;
+	
+	maze->setCell(0, 0, Maze::SPRITE);
+	maze->setCell(maze->height() - 1, maze->width() - 1, Maze::PATH);
+	if (maze->height() % 2 == 0 && maze->width() % 2 == 0)
+		maze->setCell(maze->height() - 2, maze->width() - 1, Maze::PATH);
 }
 
 void Generator::recursive()
