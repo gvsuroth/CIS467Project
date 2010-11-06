@@ -20,6 +20,9 @@ void Generator::backAndForth()
 	// Back and forth
 	bool dir = true;
 	unsigned width = maze->width(), height = maze->height();
+	for (unsigned c = 0; c < width; ++c)
+		for (unsigned r = 0; r < height; ++r)
+			maze->setCell(r, c, Maze::PATH);
 	for(unsigned c = 1; c < width; c+=2)
 	{
 		for(unsigned r = 0; r < height - 1; ++r)

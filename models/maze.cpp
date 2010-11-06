@@ -70,7 +70,8 @@ void Maze::moveSprite(unsigned row, unsigned column, Facing facing)
 	if(validCoord(row, column) && data[row][column] != WALL)
 	{
 		qDebug() << "moveSprite(" << row << ',' << column << ')';
-		setCell((unsigned)spriteLoc.y(), (unsigned)spriteLoc.x(), PATH);
+		if (data[row][column] == SPRITE)
+			setCell((unsigned)spriteLoc.y(), (unsigned)spriteLoc.x(), PATH);
 		setCell(row, column, SPRITE, facing);
 		spriteLoc.setY(row);
 		spriteLoc.setX(column);
