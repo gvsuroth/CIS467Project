@@ -34,6 +34,7 @@ public:
 	CellType getCell(unsigned row, unsigned column) const;
 	void setCell(unsigned row, unsigned column, CellType type, Facing facing = UP);
 	void moveSprite(unsigned row, unsigned column, Facing facing = UP);
+	void reset();
 private:
 	unsigned _height;
 	unsigned _width;

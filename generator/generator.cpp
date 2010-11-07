@@ -1,13 +1,11 @@
 #include "generator.h"
+#include <queue>
+
 #define UP 1
 #define LEFT 2
 #define DOWN 3
 #define RIGHT 4
 #define FRONTIER 5
-#define AVAIL_UP 8
-#define AVAIL_LEFT 16
-#define AVAIL_DOWN 32
-#define AVAIL_RIGHT 64
 
 Generator::Generator(Maze *maze, QObject *parent) :
 	QObject(parent)
@@ -20,9 +18,7 @@ void Generator::backAndForth()
 	// Back and forth
 	bool dir = true;
 	unsigned width = maze->width(), height = maze->height();
-	for (unsigned c = 0; c < width; ++c)
-		for (unsigned r = 0; r < height; ++r)
-			maze->setCell(r, c, Maze::PATH);
+	maze->reset();
 	for(unsigned c = 1; c < width; c+=2)
 	{
 		for(unsigned r = 0; r < height - 1; ++r)
@@ -153,4 +149,19 @@ void Generator::prims()
 void Generator::recursive()
 {
 
+}
+
+void Generator::braid()
+{
+	maze->reset();
+}
+
+bool Generator::deadEnd(unsigned r, unsigned c) {
+	if (maze->getCell(r, c) == Maze::WALL) return false;
+	int numOpen = 4;
+	if (maze->getCell(r-1,c) == Maze::WALL) --numOpen;
+	if (maze->getCell(r+1,c) == Maze::WALL) --numOpen;
+	if (maze->getCell(r,c-1) == Maze::WALL) --numOpen;
+	if (maze->getCell(r,c+1) == Maze::WALL) --numOpen;
+	return numOpen != 1;
 }

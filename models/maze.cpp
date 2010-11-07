@@ -48,7 +48,13 @@ Maze::CellType Maze::operator()(unsigned row, unsigned column) const
 {
 	if(validCoord(row, column))
 		return data[row][column];
-	return Maze::ERROR;
+	return Maze::WALL;
+}
+
+void Maze::reset() {
+	for (unsigned c = 0; c < _width; ++c)
+		for (unsigned r = 0; r < _height; ++r)
+			setCell(r, c, Maze::PATH);
 }
 
 Maze::CellType Maze::getCell(unsigned row, unsigned column) const

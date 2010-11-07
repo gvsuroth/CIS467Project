@@ -21,9 +21,11 @@ public slots:
 	void backAndForth();
 	void prims();
 	void recursive();
+	void braid();
 
 private:
 	Maze *maze;
+	bool deadEnd(unsigned r, unsigned c);
 };
 
 #endif // GENERATOR_H
