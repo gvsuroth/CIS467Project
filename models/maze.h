@@ -38,7 +38,7 @@ private:
 	unsigned _height;
 	unsigned _width;
 	CellType **data;
-	QPoint spriteLoc;
+        QPoint spriteLoc;
 	bool validCoord(unsigned row, unsigned column) const;
 signals:
 	void dimensionsSet(unsigned width, unsigned height);

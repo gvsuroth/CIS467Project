@@ -17,10 +17,10 @@ void Solver::rightHandRule()
 		QPoint nextLoc(0, 0);
 		while(true)
 		{
-			nextLoc = curLoc + QPoint(nextFacing == Maze::RIGHT || nextFacing == Maze::LEFT ? -1 * (nextFacing - 2) : 0, nextFacing == Maze::UP || nextFacing == Maze::DOWN ? -1 * (nextFacing - 1) : 0);
-			if(maze->getCell(nextLoc.y(), nextLoc.x()) == Maze::PATH)
+			nextLoc = curLoc + QPoint(nextFacing == Maze::RIGHT || nextFacing == Maze::LEFT ? -1 * (nextFacing - 2) : 0, nextFacing == Maze::UP || nextFacing == Maze::DOWN ? (nextFacing - 1) : 0);
+			if(maze->getCell(nextLoc.y(), nextLoc.x()) == Maze::PATH || maze->getCell(nextLoc.y(), nextLoc.x()) == Maze::SPRITE)
 				break;
-			nextFacing = (Maze::Facing)((nextFacing - 1) % 4);
+			nextFacing = (Maze::Facing)((nextFacing + 3) % 4);
 		}
 		curLoc = nextLoc;
 		facing = nextFacing;

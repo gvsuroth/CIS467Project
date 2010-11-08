@@ -1,21 +1,21 @@
 #include "cell.h"
 
-// Initialize the Cell shared SVG renderers
-QSvgRenderer Cell::wallImage(QString(IMG_PATH"wall.svg"));
-QSvgRenderer Cell::spriteImage(QString(IMG_PATH"sprite.svg"));
+// Initialize the Cell shared SVG renderes
+//QSvgRenderer Cell::wallImage(QString(IMG_PATH"wall.svg"));
+//QSvgRenderer Cell::spriteImage(QString(IMG_PATH"sprite.svg"));
 
 Cell::Cell(QGraphicsItem *parent, Maze::CellType type)
 	: QGraphicsLayoutItem(), QGraphicsItem(parent)
 {
-	img = 0;
+        //img = 0;
 	setGraphicsItem(this);
 	setCellType(type);
 }
 
 Cell::~Cell()
 {
-	if(img)
-		delete img;
+        //if(img)
+                //delete img;
 }
 
 void Cell::setCellType(Maze::CellType type)
@@ -24,23 +24,23 @@ void Cell::setCellType(Maze::CellType type)
 	switch(type)
 	{
 	case Maze::WALL:
-		img = new QGraphicsSvgItem(this);
-		img->setSharedRenderer(&wallImage);
+                //img = new QGraphicsSvgItem(this);
+                //img->setSharedRenderer(&wallImage);
 		break;
 	case Maze::SPRITE:
-		img = new QGraphicsSvgItem(this);
-		img->setSharedRenderer(&spriteImage);
+                //img = new QGraphicsSvgItem(this);
+                //img->setSharedRenderer(&spriteImage);
 		break;
 	case Maze::PATH:
-		delete img;
-		img = NULL;
+                //delete img;
+                //img = NULL;
 	default:
 		return;
 	}
 	// Scale image
-	qreal scaleX = boundingRect().width() / img->boundingRect().width();
-	qreal scaleY = boundingRect().height() / img->boundingRect().height();
-	img->setScale(scaleX > scaleY ? scaleY : scaleX);
+        //qreal scaleX = boundingRect().width() / img->boundingRect().width();
+        //qreal scaleY = boundingRect().height() / img->boundingRect().height();
+        //img->setScale(scaleX > scaleY ? scaleY : scaleX);
 }
 
 Maze::CellType Cell::cellType() const
@@ -64,6 +64,10 @@ void Cell::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 	Q_UNUSED(option);
 
 	painter->drawRect(boundingRect()); // Add a frame to the cell
+	if (_type == Maze::WALL)
+		painter->fillRect(boundingRect(), Qt::black);
+	if (_type == Maze::SPRITE)
+		painter->fillRect(boundingRect(), Qt::red);
 }
 
 QSizeF Cell::sizeHint(Qt::SizeHint which, const QSizeF &constraint) const

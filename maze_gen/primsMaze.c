@@ -181,16 +181,16 @@ void translate(int rows, int cols, Cell * cells[rows][cols]) {
 	for(i=0;i<y;i++) {
 		for(j=0;j<x;j++) {
 			c = cells[i][j];
-			printf(" 0 %d",c->northWall);
+			printf(" 0 %s",(c->northWall == 1 ? " " : "0"));
 			c = NULL;
 		}
 		printf(" 0\n");
 		for(j=0;j<x;j++) {
 			c = cells[i][j];
 			if(j==0) {
-				printf(" %d %d %d",c->westWall,c->state,c->eastWall);
+				printf(" %s %s %s",(c->westWall == 1 ? " " : "0"),(c->state == 1 ? " " : "0"),(c->eastWall == 1 ? " " : "0"));
 			} else {
-				printf(" %d %d",c->state,c->eastWall);
+				printf(" %s %s",(c->state == 1 ? " " : "0"),(c->eastWall == 1 ? " " : "0"));
 			}
 			c = NULL;
 		}
@@ -198,7 +198,7 @@ void translate(int rows, int cols, Cell * cells[rows][cols]) {
 	}
 	for(j=0;j<x;j++) {
 		c = cells[y-1][j];
-		printf(" 0 %d",c->southWall);
+		printf(" 0 %s",(c->southWall == 1 ? " " : "0"));
 		c = NULL;
 	}
 	printf(" 0\n");

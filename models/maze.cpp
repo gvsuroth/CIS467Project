@@ -58,7 +58,7 @@ Maze::CellType Maze::getCell(unsigned row, unsigned column) const
 
 void Maze::setCell(unsigned row, unsigned column, Maze::CellType type, Facing facing)
 {
-	if(type != data[row][column] && validCoord(row, column)) // the new CellType must be different from the current CellType
+	if(validCoord(row, column) && type != data[row][column]) // the new CellType must be different from the current CellType
 	{
 		data[row][column] = type;
 		emit cellChanged(row, column, type, facing);
@@ -70,7 +70,8 @@ void Maze::moveSprite(unsigned row, unsigned column, Facing facing)
 	if(validCoord(row, column) && data[row][column] != WALL)
 	{
 		qDebug() << "moveSprite(" << row << ',' << column << ')';
-		setCell((unsigned)spriteLoc.y(), (unsigned)spriteLoc.x(), PATH);
+		if (data[row][column] == SPRITE)
+			setCell((unsigned)spriteLoc.y(), (unsigned)spriteLoc.x(), PATH);
 		setCell(row, column, SPRITE, facing);
 		spriteLoc.setY(row);
 		spriteLoc.setX(column);

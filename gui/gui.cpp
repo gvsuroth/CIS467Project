@@ -23,7 +23,7 @@ Gui::Gui(QWidget *parent) :
 
 	// Setup view
 	view = new GraphicsView(scene);
-        view->setViewport(new QGLWidget(QGLFormat(QGL::SampleBuffers))); // Enable OpenGL support
+	//view->setViewport(new QGLWidget(QGLFormat(QGL::SampleBuffers))); // Enable OpenGL support
 	connect(scene, SIGNAL(sceneRectChanged(QRectF)), view, SLOT(zoomReset())); // Auto-reset when scene size changes
 	connect(ui->action_Zoom_In, SIGNAL(triggered()), view, SLOT(zoomIn()));
 	connect(ui->action_Zoom_Out, SIGNAL(triggered()), view, SLOT(zoomOut()));
@@ -32,8 +32,8 @@ Gui::Gui(QWidget *parent) :
 	setCentralWidget(view);
 
 	// Setup maze
-	maze = new Maze();
-	connect(maze, SIGNAL(cellChanged(uint,uint,Maze::CellType,Maze::Facing)), this, SLOT(setCell(uint,uint,Maze::CellType,Maze::Facing)));
+    maze = new Maze(this);
+    connect(maze, SIGNAL(cellChanged(uint,uint,Maze::CellType,Maze::Facing)), this, SLOT(setCell(uint,uint,Maze::CellType,Maze::Facing)));
 	connect(maze, SIGNAL(dimensionsSet(uint,uint)), this, SLOT(setDimensions(uint,uint)));
 
 	// Setup generator
@@ -50,10 +50,7 @@ Gui::~Gui()
 {
 	delete ui;
 	delete newMazeUi;
-	delete scene;
 	delete view;
-	delete mazeContainer;
-	delete mazeGrid;
 	delete maze;
 	delete gen;
 }
@@ -69,7 +66,7 @@ void Gui::setCell(unsigned row, unsigned column, Maze::CellType type, Maze::Faci
 {
 	if(row < (unsigned)mazeGrid->rowCount() && column < (unsigned)mazeGrid->columnCount())
 	{
-		qDebug() << "setCell(" << row << ',' << column << ',' << type << ',' << facing << ')';
+//		qDebug() << "setCell(" << row << ',' << column << ',' << type << ',' << facing << ')';
 		Cell *cell = (Cell*)mazeGrid->itemAt(row, column);
 		cell->setCellType(type);
 		cell->setFacing(facing);

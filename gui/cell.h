@@ -31,9 +31,9 @@ public:
 	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = 0);
 private:
 	Maze::CellType _type;
-	QGraphicsSvgItem *img;
-	static QSvgRenderer wallImage;// = new QGraphicsSvgItem(IMG_PATH"wall.svg");
-	static QSvgRenderer spriteImage;// = new QGraphicsSvgItem(IMG_PATH"sprite.svg");
+        //QGraphicsSvgItem *img;
+        //static QSvgRenderer wallImage;// = new QGraphicsSvgItem(IMG_PATH"wall.svg");
+        //static QSvgRenderer spriteImage;// = new QGraphicsSvgItem(IMG_PATH"sprite.svg");
 };
 
 #endif // CELL_H
