@@ -25,7 +25,6 @@ public slots:
 
 private:
 	Maze *maze;
-	bool deadEnd(unsigned r, unsigned c);
 };
 
 #endif // GENERATOR_H
