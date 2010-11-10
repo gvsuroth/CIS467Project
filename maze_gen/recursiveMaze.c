@@ -10,7 +10,7 @@ int makeRand(int num);
 
 int main(int argc, char *argv[])
 {
-mtrace();
+/* mtrace(); */
     int a, b, counter = 0, temp = 20;
     if (argc != 3) {
         x = 11;
@@ -37,7 +37,7 @@ mtrace();
 
 
 
-muntrace();
+/* muntrace(); */
     return 0;
 }
 
@@ -913,7 +913,7 @@ void makeMaze(int rows, int cols, Cell * cells[rows][cols], int counter,
 		for(b = 0; b < cols; b++){
 			if(cells[a][b]->state != 1)
 				cells[a][b]->state = 0;
-			printf("%d ",cells[a][b]->state);
+			printf("%s ",(cells[a][b]->state != 1 ? "0" : " "));
 			free(cells[a][b]);
 		}
 		printf("\n");
