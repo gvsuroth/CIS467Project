@@ -32,14 +32,8 @@ void Generator::prims()
 {
 	srand((unsigned)time(NULL));
 	unsigned width = maze->width(), height = maze->height();
-	// Holds info about which nodes are untouched
-	for (unsigned i = 0; i < height; i++) {
-		for (unsigned j = 0; j < width; j++) {
-			maze->setWall(i, j, Maze::UP, true);
-			maze->setWall(i, j, Maze::LEFT, true);
-			maze->setValue(i, j, 0);
-		}
-	}
+	maze->reset();
+	
 	// Count of remaining frontier nodes
 	int numFrontier = 0, frontSel = 0;
 	unsigned nodeX = 0, nodeY = 0;
@@ -126,6 +120,7 @@ void Generator::prims()
 			}
 		} // else
 	} // for
+	maze->resetValues();
 }
 
 void Generator::recursive()

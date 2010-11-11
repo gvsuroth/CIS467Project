@@ -41,6 +41,7 @@ public:
 	void moveSprite(unsigned row, unsigned column, Facing facing = UP);
 	Cell getCell(unsigned row, unsigned column);
 	void reset();
+	void resetValues();
 	void log();
 private:
 	unsigned _height;

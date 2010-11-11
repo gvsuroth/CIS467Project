@@ -25,6 +25,7 @@ void Maze::setDimensions(unsigned width, unsigned height)
 		{
 			setWall(r, c, UP, true);
 			setWall(r, c, LEFT, true);
+			setValue(r, c, 0);
 		}
 	}
 }
@@ -49,6 +50,15 @@ void Maze::reset() {
 		for (unsigned r = 0; r < _height; ++r) {
 			setWall(r, c, UP, true);
 			setWall(r, c, LEFT, true);
+			setValue(r, c, 0);
+		}
+	}
+}
+
+void Maze::resetValues() {
+	for (unsigned c = 0; c < _width; ++c) {
+		for (unsigned r = 0; r < _height; ++r) {
+			setValue(r, c, 0);
 		}
 	}
 }
@@ -84,26 +94,22 @@ bool Maze::isWall(unsigned row, unsigned column, Facing direction)
 			case UP:
 				if (row == 0)
 					return (column != 0);
-				else
-					return data[row][column].wallUp;
+				return data[row][column].wallUp;
 				break;
 			case LEFT:
 				if (column == 0)
 					return true;
-				else
-					return data[row][column].wallLeft;
+				return data[row][column].wallLeft;
 				break;
 			case DOWN:
 				if (row + 1 == _height)
 					return (column + 1 != _width);
-				else
-					return data[row + 1][column].wallUp;
+				return data[row + 1][column].wallUp;
 				break;
 			case RIGHT:
 				if (column + 1 == _width)
 					return true;
-				else
-					return data[row][column + 1].wallLeft;
+				return data[row][column + 1].wallLeft;
 				break;
 			default:
 				break;
