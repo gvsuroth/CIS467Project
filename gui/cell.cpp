@@ -4,12 +4,13 @@
 //QSvgRenderer Cell::wallImage(QString(IMG_PATH"wall.svg"));
 //QSvgRenderer Cell::spriteImage(QString(IMG_PATH"sprite.svg"));
 
-Cell::Cell(QGraphicsItem *parent, Maze::CellType type)
+Cell::Cell(QGraphicsItem *parent, bool wallUp, bool wallLeft)
 	: QGraphicsLayoutItem(), QGraphicsItem(parent)
 {
         //img = 0;
 	setGraphicsItem(this);
-	setCellType(type);
+	setWallUp(wallUp);
+	setWallLeft(wallLeft);
 }
 
 Cell::~Cell()
@@ -18,34 +19,24 @@ Cell::~Cell()
                 //delete img;
 }
 
-void Cell::setCellType(Maze::CellType type)
+void Cell::setWallUp(bool wallUp)
 {
-	_type = type;
-	switch(type)
-	{
-	case Maze::WALL:
-                //img = new QGraphicsSvgItem(this);
-                //img->setSharedRenderer(&wallImage);
-		break;
-	case Maze::SPRITE:
-                //img = new QGraphicsSvgItem(this);
-                //img->setSharedRenderer(&spriteImage);
-		break;
-	case Maze::PATH:
-                //delete img;
-                //img = NULL;
-	default:
-		return;
-	}
-	// Scale image
-        //qreal scaleX = boundingRect().width() / img->boundingRect().width();
-        //qreal scaleY = boundingRect().height() / img->boundingRect().height();
-        //img->setScale(scaleX > scaleY ? scaleY : scaleX);
+	_wallUp = wallUp;
 }
 
-Maze::CellType Cell::cellType() const
+bool Cell::wallUp() const
 {
-	return _type;
+	return _wallUp;
+}
+
+void Cell::setWallLeft(bool wallLeft)
+{
+	_wallLeft = wallLeft;
+}
+
+bool Cell::wallLeft() const
+{
+	return _wallLeft;
 }
 
 void Cell::setFacing(Maze::Facing facing)
@@ -63,11 +54,11 @@ void Cell::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 	Q_UNUSED(widget);
 	Q_UNUSED(option);
 
-	painter->drawRect(boundingRect()); // Add a frame to the cell
-	if (_type == Maze::WALL)
-		painter->fillRect(boundingRect(), Qt::black);
-	if (_type == Maze::SPRITE)
-		painter->fillRect(boundingRect(), Qt::red);
+//	painter->drawRect(boundingRect()); // Add a frame to the cell
+	if (_wallUp)
+		painter->drawLine(QPointF(0, 0), QPointF(geometry().size().width(), 0));
+	if (_wallLeft)
+		painter->drawLine(QPointF(0, 0), QPointF(0, geometry().size().height()));
 }
 
 QSizeF Cell::sizeHint(Qt::SizeHint which, const QSizeF &constraint) const
