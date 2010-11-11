@@ -57,9 +57,12 @@ Gui::~Gui()
 
 void Gui::setDimensions(unsigned width, unsigned height)
 {
-	for(unsigned r = 0; r < height; ++r)
-		for(unsigned c = 0; c < width; ++c)
-			mazeGrid->addItem(new Cell(), r, c, Qt::AlignCenter);
+//	for(unsigned r = 0; r < height; ++r)
+//		for(unsigned c = 0; c < width; ++c)
+//			mazeGrid->addItem(new Cell(), r, c, Qt::AlignCenter);
+	Cell *cell = new Cell();
+	cell->setMaze(maze);
+	mazeGrid->addItem(cell, 0, 0, Qt::AlignCenter);
 }
 
 void Gui::setCell(unsigned row, unsigned column, bool wallUp, bool wallLeft, Maze::Facing facing)
@@ -67,10 +70,10 @@ void Gui::setCell(unsigned row, unsigned column, bool wallUp, bool wallLeft, Maz
 	if(row < (unsigned)mazeGrid->rowCount() && column < (unsigned)mazeGrid->columnCount())
 	{
 //		qDebug() << "setCell(" << row << ',' << column << ',' << type << ',' << facing << ')';
-		Cell *_cell = (Cell*)mazeGrid->itemAt(row, column);
-		_cell->setWallUp(wallUp);
-		_cell->setWallLeft(wallLeft);
-		_cell->setFacing(facing);
+//		Cell *_cell = (Cell*)mazeGrid->itemAt(row, column);
+//		_cell->setWallUp(wallUp);
+//		_cell->setWallLeft(wallLeft);
+//		_cell->setFacing(facing);
 		view->update();
 	}
 }

@@ -126,8 +126,6 @@ void Generator::prims()
 			}
 		} // else
 	} // for
-		
-	maze->log();
 }
 
 void Generator::recursive()

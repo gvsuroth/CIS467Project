@@ -18,6 +18,7 @@ class Cell : public QGraphicsLayoutItem, public QGraphicsItem
 public:
 	Cell(QGraphicsItem *parent = 0, bool wallUp = true, bool wallLeft = true);
 	~Cell();
+	void setMaze(Maze *maze);
 	void setWallUp(bool wallUp);
 	bool wallUp() const;
 	void setWallLeft(bool wallLeft);
@@ -32,6 +33,7 @@ public:
 	QRectF boundingRect() const;
 	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = 0);
 private:
+	Maze *_maze;
 	bool _wallLeft;
 	bool _wallUp;
         //QGraphicsSvgItem *img;

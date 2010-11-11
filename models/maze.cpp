@@ -147,11 +147,11 @@ void Maze::log()
 {
 	for (unsigned r = 0; r < _height; ++r) {
 		for (unsigned c = 0; c < _width; ++c) {
-			printf(" %s", (data[r][c].wallUp ? "-" : " "));
+			printf(" %s", (isWall(r, c, UP) ? "-" : " "));
 		}
 		printf("\n");
 		for (unsigned c = 0; c < _width; ++c) {
-			printf("%s ", (data[r][c].wallLeft ? "|" : " "));
+			printf("%s ", (isWall(r, c, LEFT) ? "|" : " "));
 		}
 		printf("|\n");
 	}
