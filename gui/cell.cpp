@@ -4,12 +4,13 @@
 //QSvgRenderer Cell::wallImage(QString(IMG_PATH"wall.svg"));
 //QSvgRenderer Cell::spriteImage(QString(IMG_PATH"sprite.svg"));
 
-Cell::Cell(QGraphicsItem *parent, Maze::CellType type)
+Cell::Cell(QGraphicsItem *parent, bool wallUp, bool wallLeft)
 	: QGraphicsLayoutItem(), QGraphicsItem(parent)
 {
         //img = 0;
 	setGraphicsItem(this);
-	setCellType(type);
+	setWallUp(wallUp);
+	setWallLeft(wallLeft);
 }
 
 Cell::~Cell()
@@ -18,34 +19,28 @@ Cell::~Cell()
                 //delete img;
 }
 
-void Cell::setCellType(Maze::CellType type)
-{
-	_type = type;
-	switch(type)
-	{
-	case Maze::WALL:
-                //img = new QGraphicsSvgItem(this);
-                //img->setSharedRenderer(&wallImage);
-		break;
-	case Maze::SPRITE:
-                //img = new QGraphicsSvgItem(this);
-                //img->setSharedRenderer(&spriteImage);
-		break;
-	case Maze::PATH:
-                //delete img;
-                //img = NULL;
-	default:
-		return;
-	}
-	// Scale image
-        //qreal scaleX = boundingRect().width() / img->boundingRect().width();
-        //qreal scaleY = boundingRect().height() / img->boundingRect().height();
-        //img->setScale(scaleX > scaleY ? scaleY : scaleX);
+void Cell::setMaze(Maze *maze) {
+	_maze = maze;
 }
 
-Maze::CellType Cell::cellType() const
+void Cell::setWallUp(bool wallUp)
 {
-	return _type;
+	_wallUp = wallUp;
+}
+
+bool Cell::wallUp() const
+{
+	return _wallUp;
+}
+
+void Cell::setWallLeft(bool wallLeft)
+{
+	_wallLeft = wallLeft;
+}
+
+bool Cell::wallLeft() const
+{
+	return _wallLeft;
 }
 
 void Cell::setFacing(Maze::Facing facing)
@@ -63,11 +58,30 @@ void Cell::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 	Q_UNUSED(widget);
 	Q_UNUSED(option);
 
-	painter->drawRect(boundingRect()); // Add a frame to the cell
-	if (_type == Maze::WALL)
-		painter->fillRect(boundingRect(), Qt::black);
-	if (_type == Maze::SPRITE)
-		painter->fillRect(boundingRect(), Qt::red);
+	unsigned deltaX = geometry().size().width() / _maze->width();
+	unsigned deltaY = geometry().size().height() / _maze->height();
+	printf("Drawing Maze: (%d, %d)\n", deltaX, deltaY);
+	
+	for (unsigned r = 0; r < _maze->height(); ++r) {
+		for (unsigned c = 0; c < _maze->width(); ++c) {
+			if (_maze->isWall(r, c, Maze::UP))
+				painter->drawLine(QPoint(c * deltaX, r * deltaY), QPoint(c * deltaX + deltaX, r * deltaY));
+		}
+		for (unsigned c = 0; c < _maze->width(); ++c) {
+			if (_maze->isWall(r, c, Maze::LEFT))
+				painter->drawLine(QPoint(c * deltaX, r * deltaY), QPoint(c * deltaX, r * deltaY + deltaY));
+		}
+	}
+	// Right wall
+	painter->drawLine(QPoint(_maze->width() * deltaX, 0), QPoint(_maze->width() * deltaX, _maze->height() * deltaY));
+	// Bottom row
+	painter->drawLine(QPoint(0, _maze->height() * deltaY), QPoint((_maze->width() - 1) * deltaX, _maze->height() * deltaY));
+	
+//	painter->drawRect(boundingRect()); // Add a frame to the cell
+//	if (_wallUp)
+//		painter->drawLine(QPointF(0, 0), QPointF(geometry().size().width(), 0));
+//	if (_wallLeft)
+//		painter->drawLine(QPointF(0, 0), QPointF(0, geometry().size().height()));
 }
 
 QSizeF Cell::sizeHint(Qt::SizeHint which, const QSizeF &constraint) const
@@ -75,11 +89,11 @@ QSizeF Cell::sizeHint(Qt::SizeHint which, const QSizeF &constraint) const
 	switch(which)
 	{
 	case Qt::MinimumSize:
-		return QSizeF(20, 20);
+		return QSizeF(_maze->width(), _maze->height());
 	case Qt::PreferredSize:
 		return QSizeF(100, 100);
 	case Qt::MaximumSize:
-		return QSizeF(1000, 1000);
+		return QSizeF(100000, 100000);
 	default:
 		break;
 	}

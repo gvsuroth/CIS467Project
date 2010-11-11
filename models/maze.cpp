@@ -64,7 +64,7 @@ void Maze::setWall(unsigned row, unsigned column, Facing direction, bool wall)
 				data[row][column].wallLeft = wall;
 				break;
 			case DOWN:
-				if (row + 1< _height)
+				if (row + 1 < _height)
 					data[row + 1][column].wallUp = wall;
 				break;
 			case RIGHT:
@@ -75,6 +75,59 @@ void Maze::setWall(unsigned row, unsigned column, Facing direction, bool wall)
 				break;
 		}
 	}
+}
+
+bool Maze::isWall(unsigned row, unsigned column, Facing direction)
+{
+	if (validCoord(row, column)) {
+		switch (direction) {
+			case UP:
+				if (row == 0)
+					return (column != 0);
+				else
+					return data[row][column].wallUp;
+				break;
+			case LEFT:
+				if (column == 0)
+					return true;
+				else
+					return data[row][column].wallLeft;
+				break;
+			case DOWN:
+				if (row + 1 == _height)
+					return (column + 1 != _width);
+				else
+					return data[row + 1][column].wallUp;
+				break;
+			case RIGHT:
+				if (column + 1 == _width)
+					return true;
+				else
+					return data[row][column + 1].wallLeft;
+				break;
+			default:
+				break;
+		}
+		emit cellChanged(row, column, data[row][column].wallLeft, data[row][column].wallUp, UP);
+	}
+	return false;
+}
+
+void Maze::setValue(unsigned row, unsigned column, int value)
+{
+	if (validCoord(row, column))
+		data[row][column].value = value;
+}
+
+int Maze::getValue(unsigned row, unsigned column) {
+	if (validCoord(row, column))
+		return data[row][column].value;
+	return 0;
+}
+
+Maze::Cell Maze::getCell(unsigned row, unsigned column) {
+	if (validCoord(row, column))
+		return data[row][column];
 }
 
 void Maze::moveSprite(unsigned row, unsigned column, Facing facing)
@@ -94,11 +147,11 @@ void Maze::log()
 {
 	for (unsigned r = 0; r < _height; ++r) {
 		for (unsigned c = 0; c < _width; ++c) {
-			printf(" %s", (data[r][c].wallUp ? "-" : " "));
+			printf(" %s", (isWall(r, c, UP) ? "-" : " "));
 		}
 		printf("\n");
 		for (unsigned c = 0; c < _width; ++c) {
-			printf("%s ", (data[r][c].wallLeft ? "|" : " "));
+			printf("%s ", (isWall(r, c, LEFT) ? "|" : " "));
 		}
 		printf("|\n");
 	}

@@ -12,7 +12,7 @@ Q_OBJECT
 public:
 	struct Cell {
 		bool wallUp, wallLeft;
-		int data;
+		int value;
 	};
 	enum CellType
 	{
@@ -35,7 +35,11 @@ public:
 	unsigned width();
 	unsigned height();
 	void setWall(unsigned row, unsigned column, Facing direction, bool wall);
+	bool isWall(unsigned row, unsigned column, Facing direction);
+	void setValue(unsigned row, unsigned column, int value);
+	int getValue(unsigned row, unsigned column);
 	void moveSprite(unsigned row, unsigned column, Facing facing = UP);
+	Cell getCell(unsigned row, unsigned column);
 	void reset();
 	void log();
 private:
@@ -45,7 +49,7 @@ private:
 	bool validCoord(unsigned row, unsigned column) const;
 signals:
 	void dimensionsSet(unsigned width, unsigned height);
-	void cellChanged(unsigned row, unsigned column, Maze::CellType type, Maze::Facing facing);
+	void cellChanged(unsigned row, unsigned column, bool, bool, Maze::Facing facing);
 };
 
 #endif // MAZE_H

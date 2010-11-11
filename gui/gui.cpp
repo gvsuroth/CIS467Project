@@ -33,7 +33,7 @@ Gui::Gui(QWidget *parent) :
 
 	// Setup maze
     maze = new Maze(this);
-    connect(maze, SIGNAL(cellChanged(uint,uint,Maze::CellType,Maze::Facing)), this, SLOT(setCell(uint,uint,Maze::CellType,Maze::Facing)));
+    connect(maze, SIGNAL(cellChanged(uint,uint,bool,bool,Maze::Facing)), this, SLOT(setCell(uint,uint,bool,bool,Maze::Facing)));
 	connect(maze, SIGNAL(dimensionsSet(uint,uint)), this, SLOT(setDimensions(uint,uint)));
 
 	// Setup generator
@@ -57,19 +57,23 @@ Gui::~Gui()
 
 void Gui::setDimensions(unsigned width, unsigned height)
 {
-	for(unsigned r = 0; r < height; ++r)
-		for(unsigned c = 0; c < width; ++c)
-			mazeGrid->addItem(new Cell(), r, c, Qt::AlignCenter);
+//	for(unsigned r = 0; r < height; ++r)
+//		for(unsigned c = 0; c < width; ++c)
+//			mazeGrid->addItem(new Cell(), r, c, Qt::AlignCenter);
+	Cell *cell = new Cell();
+	cell->setMaze(maze);
+	mazeGrid->addItem(cell, 0, 0, Qt::AlignCenter);
 }
 
-void Gui::setCell(unsigned row, unsigned column, Maze::CellType type, Maze::Facing facing)
+void Gui::setCell(unsigned row, unsigned column, bool wallUp, bool wallLeft, Maze::Facing facing)
 {
 	if(row < (unsigned)mazeGrid->rowCount() && column < (unsigned)mazeGrid->columnCount())
 	{
 //		qDebug() << "setCell(" << row << ',' << column << ',' << type << ',' << facing << ')';
-		Cell *cell = (Cell*)mazeGrid->itemAt(row, column);
-		cell->setCellType(type);
-		cell->setFacing(facing);
+//		Cell *_cell = (Cell*)mazeGrid->itemAt(row, column);
+//		_cell->setWallUp(wallUp);
+//		_cell->setWallLeft(wallLeft);
+//		_cell->setFacing(facing);
 		view->update();
 	}
 }
@@ -91,10 +95,6 @@ void Gui::setNewMazeDimensions()
 	bool columnsOk;
 	unsigned rows = newMazeUi->rows->text().toUInt(&rowsOk, 10);
 	unsigned columns = newMazeUi->columns->text().toUInt(&columnsOk, 10);
-	if (rows%2 == 0 || columns%2 == 0) {
-		QMessageBox(QMessageBox::Warning, "Maze Dimensions", "Use odd numbers").exec();
-		return;
-	}
 	if(rowsOk && columnsOk)
 		maze->setDimensions(rows, columns);
 	else

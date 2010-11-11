@@ -43,7 +43,7 @@ private:
 
 public slots:
 	void setDimensions(unsigned width, unsigned height);
-	void setCell(unsigned y, unsigned x, Maze::CellType type, Maze::Facing facing = Maze::UP);
+	void setCell(unsigned y, unsigned x, bool wallUp, bool wallLeft, Maze::Facing facing = Maze::UP);
 	void setDimensionsDialog();
 	void setNewMazeDimensions();
 };
