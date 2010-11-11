@@ -70,6 +70,7 @@ void Gui::setCell(unsigned row, unsigned column, Maze::CellType type, Maze::Faci
 		Cell *cell = (Cell*)mazeGrid->itemAt(row, column);
 		cell->setCellType(type);
 		cell->setFacing(facing);
+		view->update();
 	}
 }
 
@@ -90,6 +91,10 @@ void Gui::setNewMazeDimensions()
 	bool columnsOk;
 	unsigned rows = newMazeUi->rows->text().toUInt(&rowsOk, 10);
 	unsigned columns = newMazeUi->columns->text().toUInt(&columnsOk, 10);
+	if (rows%2 == 0 || columns%2 == 0) {
+		QMessageBox(QMessageBox::Warning, "Maze Dimensions", "Use odd numbers").exec();
+		return;
+	}
 	if(rowsOk && columnsOk)
 		maze->setDimensions(rows, columns);
 	else

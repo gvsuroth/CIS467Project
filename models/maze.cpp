@@ -1,7 +1,7 @@
 #include "maze.h"
 
 Maze::Maze(QObject *parent)
-	: QObject(parent), spriteLoc(0, 0)
+	: QObject(parent)
 {
 }
 
@@ -17,14 +17,14 @@ void Maze::setDimensions(unsigned width, unsigned height)
 	emit dimensionsSet(width, height);
 	_width = width;
 	_height = height;
-	data = new CellType*[height];
+	data = new Cell*[height];
 	for(unsigned r = 0; r < height; ++r)
 	{
-		data[r] = new CellType[width];
+		data[r] = new Cell[width];
 		for(unsigned c = 0; c < width; ++c)
 		{
-			data[r][c] = ERROR;
-			setCell(r, c, PATH);
+			setWall(r, c, UP, true);
+			setWall(r, c, LEFT, true);
 		}
 	}
 }
@@ -44,36 +44,66 @@ inline bool Maze::validCoord(unsigned row, unsigned column) const
 	return row < _height && column < _width;
 }
 
-Maze::CellType Maze::operator()(unsigned row, unsigned column) const
-{
-	if(validCoord(row, column))
-		return data[row][column];
-	return Maze::ERROR;
+void Maze::reset() {
+	for (unsigned c = 0; c < _width; ++c) {
+		for (unsigned r = 0; r < _height; ++r) {
+			setWall(r, c, UP, true);
+			setWall(r, c, LEFT, true);
+		}
+	}
 }
 
-Maze::CellType Maze::getCell(unsigned row, unsigned column) const
+void Maze::setWall(unsigned row, unsigned column, Facing direction, bool wall)
 {
-	return operator()(row, column);
-}
-
-void Maze::setCell(unsigned row, unsigned column, Maze::CellType type, Facing facing)
-{
-	if(validCoord(row, column) && type != data[row][column]) // the new CellType must be different from the current CellType
-	{
-		data[row][column] = type;
-		emit cellChanged(row, column, type, facing);
+	if (validCoord(row, column)) {
+		switch (direction) {
+			case UP:
+				data[row][column].wallUp = wall;
+				break;
+			case LEFT:
+				data[row][column].wallLeft = wall;
+				break;
+			case DOWN:
+				if (row + 1< _height)
+					data[row + 1][column].wallUp = wall;
+				break;
+			case RIGHT:
+				if (column + 1 < _width)
+					data[row][column + 1].wallLeft = wall;
+				break;
+			default:
+				break;
+		}
 	}
 }
 
 void Maze::moveSprite(unsigned row, unsigned column, Facing facing)
 {
-	if(validCoord(row, column) && data[row][column] != WALL)
-	{
-		qDebug() << "moveSprite(" << row << ',' << column << ')';
-		if (data[row][column] == SPRITE)
-			setCell((unsigned)spriteLoc.y(), (unsigned)spriteLoc.x(), PATH);
-		setCell(row, column, SPRITE, facing);
-		spriteLoc.setY(row);
-		spriteLoc.setX(column);
+//	if(validCoord(row, column) && data[row][column] != WALL)
+//	{
+//		qDebug() << "moveSprite(" << row << ',' << column << ')';
+//		if (data[row][column] == SPRITE)
+//			setCell((unsigned)spriteLoc.y(), (unsigned)spriteLoc.x(), PATH);
+//		setCell(row, column, SPRITE, facing);
+//		spriteLoc.setY(row);
+//		spriteLoc.setX(column);
+//	}
+}
+
+void Maze::log()
+{
+	for (unsigned r = 0; r < _height; ++r) {
+		for (unsigned c = 0; c < _width; ++c) {
+			printf(" %s", (data[r][c].wallUp ? "-" : " "));
+		}
+		printf("\n");
+		for (unsigned c = 0; c < _width; ++c) {
+			printf("%s ", (data[r][c].wallLeft ? "|" : " "));
+		}
+		printf("|\n");
 	}
+	for (unsigned c = 0; c < _width - 1; ++c)
+		printf(" -");
+	printf("\n");
+		
 }

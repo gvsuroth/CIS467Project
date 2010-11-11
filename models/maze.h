@@ -10,6 +10,10 @@ class Maze : public QObject
 {
 Q_OBJECT
 public:
+	struct Cell {
+		bool wallUp, wallLeft;
+		int data;
+	};
 	enum CellType
 	{
 		PATH,
@@ -30,15 +34,14 @@ public:
 	void setDimensions(unsigned width, unsigned height);
 	unsigned width();
 	unsigned height();
-	CellType operator()(unsigned row, unsigned column) const;
-	CellType getCell(unsigned row, unsigned column) const;
-	void setCell(unsigned row, unsigned column, CellType type, Facing facing = UP);
+	void setWall(unsigned row, unsigned column, Facing direction, bool wall);
 	void moveSprite(unsigned row, unsigned column, Facing facing = UP);
+	void reset();
+	void log();
 private:
 	unsigned _height;
 	unsigned _width;
-	CellType **data;
-        QPoint spriteLoc;
+	Cell **data;
 	bool validCoord(unsigned row, unsigned column) const;
 signals:
 	void dimensionsSet(unsigned width, unsigned height);

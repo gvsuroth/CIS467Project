@@ -1,13 +1,10 @@
 #include "generator.h"
-#define UP 1
-#define LEFT 2
-#define DOWN 3
-#define RIGHT 4
+
+#define _UP 1
+#define _LEFT 2
+#define _DOWN 3
+#define _RIGHT 4
 #define FRONTIER 5
-#define AVAIL_UP 8
-#define AVAIL_LEFT 16
-#define AVAIL_DOWN 32
-#define AVAIL_RIGHT 64
 
 Generator::Generator(Maze *maze, QObject *parent) :
 	QObject(parent)
@@ -17,41 +14,43 @@ Generator::Generator(Maze *maze, QObject *parent) :
 
 void Generator::backAndForth()
 {
-	// Back and forth
-	bool dir = true;
-	unsigned width = maze->width(), height = maze->height();
-	for (unsigned c = 0; c < width; ++c)
-		for (unsigned r = 0; r < height; ++r)
-			maze->setCell(r, c, Maze::PATH);
-	for(unsigned c = 1; c < width; c+=2)
-	{
-		for(unsigned r = 0; r < height - 1; ++r)
-			maze->setCell(dir ? r : height-r-1, c, Maze::WALL);
-		dir=!dir;
-	}
-	maze->setCell(0, 0, Maze::SPRITE);
-	maze->setCell(height - 1, width - 1, Maze::PATH);
+//	// Back and forth
+//	bool dir = true;
+//	unsigned width = maze->width(), height = maze->height();
+//	maze->reset();
+//	for(unsigned c = 1; c < width; c+=2)
+//	{
+//		for(unsigned r = 0; r < height - 1; ++r)
+//			maze->setCell(dir ? r : height-r-1, c, Maze::WALL);
+//		dir=!dir;
+//	}
+//	maze->setCell(0, 0, Maze::SPRITE);
+//	maze->setCell(height - 1, width - 1, Maze::PATH);
 }
 
 void Generator::prims()
 {
-	// The spanning tree is half as large as the grid
-	unsigned width = (maze->width() + 1) / 2, height = (maze->height() + 1) / 2;
+	srand((unsigned)time(NULL));
+	unsigned width = maze->width(), height = maze->height();
 	// Holds info about which nodes are untouched
 	unsigned **tree = new unsigned*[height];
 	for (unsigned i = 0; i < height; i++) {
 		tree[i] = new unsigned[width];
-		for (unsigned j = 0; j < width; j++)
+		for (unsigned j = 0; j < width; j++) {
+			maze->setWall(i, j, Maze::UP, true);
+			maze->setWall(i, j, Maze::LEFT, true);
 			tree[i][j] = 0;
+		}
 	}
 	// Count of remaining frontier nodes
-	int numFrontier = 0, nodeX = 0, nodeY = 0, frontSel = 0;
+	int numFrontier = 0, frontSel = 0;
+	unsigned nodeX = 0, nodeY = 0;
 	
 	for (unsigned i = 0; i < width * height; i++) {
 
 		if (i == 0) {
 			// First node must be top left
-			tree[0][0] = UP;
+			tree[0][0] = _UP;
 			tree[0][1] = FRONTIER;
 			tree[1][0] = FRONTIER;
 			numFrontier = 2;
@@ -78,27 +77,27 @@ void Generator::prims()
 			while (!flag) {
 				dir = rand()%4 + 1;
 				switch (dir) {
-					case UP:
-						if (nodeY - 1 >= 0 && tree[nodeY - 1][nodeX] > 0 && tree[nodeY - 1][nodeX] < 5) {
-							tree[nodeY][nodeX] = UP;
+					case _UP:
+						if (nodeY > 0 && tree[nodeY - 1][nodeX] > 0 && tree[nodeY - 1][nodeX] < 5) {
+							tree[nodeY][nodeX] = _UP;
 							flag = true;
 						}
 						break;
-					case DOWN:
+					case _DOWN:
 						if (nodeY + 1 < height && tree[nodeY + 1][nodeX] > 0 && tree[nodeY + 1][nodeX] < 5) {
-							tree[nodeY][nodeX] = DOWN;
+							tree[nodeY][nodeX] = _DOWN;
 							flag = true;
 						}
 						break;
-					case RIGHT:
+					case _RIGHT:
 						if (nodeX + 1 < width && tree[nodeY][nodeX + 1] > 0 && tree[nodeY][nodeX + 1] < 5) {
-							tree[nodeY][nodeX] = RIGHT;
+							tree[nodeY][nodeX] = _RIGHT;
 							flag = true;
 						}
 						break;
-					case LEFT:
-						if (nodeX - 1 >= 0 && tree[nodeY][nodeX - 1] > 0 && tree[nodeY][nodeX - 1] < 5) {
-							tree[nodeY][nodeX] = LEFT;
+					case _LEFT:
+						if (nodeX > 0 && tree[nodeY][nodeX - 1] > 0 && tree[nodeY][nodeX - 1] < 5) {
+							tree[nodeY][nodeX] = _LEFT;
 							flag = true;
 						}
 						break;
@@ -107,7 +106,7 @@ void Generator::prims()
 			--numFrontier;
 			
 			// Add frontier nodes
-			if (nodeY - 1 >= 0 && tree[nodeY - 1][nodeX] == 0) {
+			if (nodeY > 0 && tree[nodeY - 1][nodeX] == 0) {
 				++numFrontier;
 				tree[nodeY - 1][nodeX] = FRONTIER;
 			}
@@ -115,7 +114,7 @@ void Generator::prims()
 				++numFrontier;
 				tree[nodeY + 1][nodeX] = FRONTIER;
 			}
-			if (nodeX - 1 >= 0 && tree[nodeY][nodeX - 1] == 0) {
+			if (nodeX > 0 && tree[nodeY][nodeX - 1] == 0) {
 				++numFrontier;
 				tree[nodeY][nodeX - 1] = FRONTIER;
 			}
@@ -129,28 +128,26 @@ void Generator::prims()
 	// transform tree to maze
 	for (unsigned i = 0; i < height; i++) {
 		for (unsigned j = 0; j < width; j++) {
-			maze->setCell(2*i, 2*j, Maze::PATH);
-			maze->setCell(2*i + 1, 2*j, Maze::WALL);
-			maze->setCell(2*i, 2*j + 1, Maze::WALL);
-			maze->setCell(2*i + 1, 2*j + 1, Maze::WALL);
-			if (tree[i][j] == UP) maze->setCell(2*i - 1, 2*j, Maze::PATH);
-			else if (tree[i][j] == DOWN) maze->setCell(2*i + 1, 2*j, Maze::PATH);
-			else if (tree[i][j] == LEFT) maze->setCell(2*i, 2*j - 1, Maze::PATH);
-			else if (tree[i][j] == RIGHT) maze->setCell(2*i, 2*j + 1, Maze::PATH);
+			if (tree[i][j] == _UP) maze->setWall(i, j, Maze::UP, false);
+			if (tree[i][j] == _DOWN) maze->setWall(i, j, Maze::DOWN, false);
+			if (tree[i][j] == _LEFT) maze->setWall(i, j, Maze::LEFT, false);
+			if (tree[i][j] == _RIGHT) maze->setWall(i, j, Maze::RIGHT, false);
 		}
 	}
+	
+	maze->log();
 		
 	for (unsigned i = 0; i < height; i++)
 		delete [] tree[i];
 	delete [] tree;
-	
-	maze->setCell(0, 0, Maze::SPRITE);
-	maze->setCell(maze->height() - 1, maze->width() - 1, Maze::PATH);
-	if (maze->height() % 2 == 0 && maze->width() % 2 == 0)
-		maze->setCell(maze->height() - 2, maze->width() - 1, Maze::PATH);
 }
 
 void Generator::recursive()
 {
 
+}
+
+void Generator::braid()
+{
+	maze->reset();
 }

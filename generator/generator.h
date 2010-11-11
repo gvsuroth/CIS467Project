@@ -21,6 +21,7 @@ public slots:
 	void backAndForth();
 	void prims();
 	void recursive();
+	void braid();
 
 private:
 	Maze *maze;
