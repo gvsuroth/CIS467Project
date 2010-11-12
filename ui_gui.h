@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'gui.ui'
 **
-** Created: Tue Oct 26 15:33:21 2010
+** Created: Fri Nov 12 13:55:08 2010
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -34,6 +34,7 @@ public:
     QAction *action_Right_Hand_Rule;
     QAction *action_Back_and_Forth;
     QAction *action_Recursive_Algorithm;
+    QAction *action_Dead_End_Filler;
     QWidget *centralWidget;
     QMenuBar *menuBar;
     QMenu *menu_View;
@@ -68,12 +69,14 @@ public:
         action_Back_and_Forth->setObjectName(QString::fromUtf8("action_Back_and_Forth"));
         action_Recursive_Algorithm = new QAction(Gui);
         action_Recursive_Algorithm->setObjectName(QString::fromUtf8("action_Recursive_Algorithm"));
+        action_Dead_End_Filler = new QAction(Gui);
+        action_Dead_End_Filler->setObjectName(QString::fromUtf8("action_Dead_End_Filler"));
         centralWidget = new QWidget(Gui);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         Gui->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(Gui);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 600, 25));
+        menuBar->setGeometry(QRect(0, 0, 600, 22));
         menu_View = new QMenu(menuBar);
         menu_View->setObjectName(QString::fromUtf8("menu_View"));
         menu_Maze = new QMenu(menuBar);
@@ -99,6 +102,7 @@ public:
         menu_Generator->addAction(action_Back_and_Forth);
         menu_Generator->addAction(action_Recursive_Algorithm);
         menu_Solve->addAction(action_Right_Hand_Rule);
+        menu_Solve->addAction(action_Dead_End_Filler);
 
         retranslateUi(Gui);
 
@@ -120,6 +124,7 @@ public:
         action_Right_Hand_Rule->setText(QApplication::translate("Gui", "&Right-Hand Rule", 0, QApplication::UnicodeUTF8));
         action_Back_and_Forth->setText(QApplication::translate("Gui", "&Back and Forth", 0, QApplication::UnicodeUTF8));
         action_Recursive_Algorithm->setText(QApplication::translate("Gui", "&Recursive Algorithm", 0, QApplication::UnicodeUTF8));
+        action_Dead_End_Filler->setText(QApplication::translate("Gui", "&Dead End Filler", 0, QApplication::UnicodeUTF8));
         menu_View->setTitle(QApplication::translate("Gui", "&View", 0, QApplication::UnicodeUTF8));
         menu_Maze->setTitle(QApplication::translate("Gui", "&Maze", 0, QApplication::UnicodeUTF8));
         menu_Generator->setTitle(QApplication::translate("Gui", "&Generate", 0, QApplication::UnicodeUTF8));

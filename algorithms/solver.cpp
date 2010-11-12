@@ -50,5 +50,26 @@ void Solver::rightHandRule()
 
 void Solver::deadEndFiller()
 {
-	printf("I am filling in dead ends\n");
+	bool flag = true;
+	while (flag) {
+		flag = false;
+		// Find all dead ends, fill them by adding the remaining wall.
+		for (unsigned r = 0; r < maze->height(); ++r) {
+			for (unsigned c = 0; c < maze->width(); ++c) {
+				int numWalls = 0;
+				if (maze->isWall(r, c, Maze::UP)) ++numWalls;
+				if (maze->isWall(r, c, Maze::DOWN)) ++numWalls;
+				if (maze->isWall(r, c, Maze::LEFT)) ++numWalls;
+				if (maze->isWall(r, c, Maze::RIGHT)) ++numWalls;
+				if (numWalls == 3) {
+					// Dead end
+					maze->setWall(r, c, Maze::UP, true);
+					maze->setWall(r, c, Maze::DOWN, true);
+					maze->setWall(r, c, Maze::LEFT, true);
+					maze->setWall(r, c, Maze::RIGHT, true);
+					flag = true;
+				}
+			}
+		}
+	}
 }

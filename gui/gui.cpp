@@ -44,6 +44,7 @@ Gui::Gui(QWidget *parent) :
 	// Setup solver
 	solver = new Solver(maze);
 	connect(ui->action_Right_Hand_Rule, SIGNAL(triggered()), solver, SLOT(rightHandRule()));
+	connect(ui->action_Dead_End_Filler, SIGNAL(triggered()), solver, SLOT(deadEndFiller()));
 }
 
 Gui::~Gui()

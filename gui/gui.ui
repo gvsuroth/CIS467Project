@@ -26,7 +26,7 @@
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_View">
@@ -56,6 +56,7 @@
      <string>&amp;Solve</string>
     </property>
     <addaction name="action_Right_Hand_Rule"/>
+    <addaction name="action_Dead_End_Filler"/>
    </widget>
    <addaction name="menu_Maze"/>
    <addaction name="menu_Generator"/>
@@ -113,6 +114,11 @@
   <action name="action_Recursive_Algorithm">
    <property name="text">
     <string>&amp;Recursive Algorithm</string>
+   </property>
+  </action>
+  <action name="action_Dead_End_Filler">
+   <property name="text">
+    <string>&amp;Dead End Filler</string>
    </property>
   </action>
  </widget>
