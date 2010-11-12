@@ -125,7 +125,7 @@ void Generator::prims()
 
 void Generator::recursive()
 {
-
+	maze->reset();
 }
 
 void Generator::braid()

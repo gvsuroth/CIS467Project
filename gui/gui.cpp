@@ -18,7 +18,7 @@ Gui::Gui(QWidget *parent) :
 	mazeGrid = new QGraphicsGridLayout;
 	mazeGrid->setSpacing(0); // Make the cell spacing nothing
 	mazeContainer->setLayout(mazeGrid);
-	scene->setBackgroundBrush(QBrush(QColor("chocolate"), Qt::SolidPattern)); // Set background color
+	scene->setBackgroundBrush(QBrush(QColor(210, 105, 30), Qt::SolidPattern)); // Set background color
 	scene->addItem(mazeContainer);
 
 	// Setup view
