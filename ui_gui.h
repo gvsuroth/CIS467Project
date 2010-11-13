@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'gui.ui'
 **
-** Created: Fri Nov 12 13:55:08 2010
+** Created: Sat Nov 13 11:08:44 2010
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -33,8 +33,9 @@ public:
     QAction *action_Prim_s_Algorithm;
     QAction *action_Right_Hand_Rule;
     QAction *action_Back_and_Forth;
-    QAction *action_Recursive_Algorithm;
+    QAction *action_Backtracker_Algorithm;
     QAction *action_Dead_End_Filler;
+    QAction *action_Braid_Maze;
     QWidget *centralWidget;
     QMenuBar *menuBar;
     QMenu *menu_View;
@@ -67,10 +68,12 @@ public:
         action_Right_Hand_Rule->setObjectName(QString::fromUtf8("action_Right_Hand_Rule"));
         action_Back_and_Forth = new QAction(Gui);
         action_Back_and_Forth->setObjectName(QString::fromUtf8("action_Back_and_Forth"));
-        action_Recursive_Algorithm = new QAction(Gui);
-        action_Recursive_Algorithm->setObjectName(QString::fromUtf8("action_Recursive_Algorithm"));
+        action_Backtracker_Algorithm = new QAction(Gui);
+        action_Backtracker_Algorithm->setObjectName(QString::fromUtf8("action_Backtracker_Algorithm"));
         action_Dead_End_Filler = new QAction(Gui);
         action_Dead_End_Filler->setObjectName(QString::fromUtf8("action_Dead_End_Filler"));
+        action_Braid_Maze = new QAction(Gui);
+        action_Braid_Maze->setObjectName(QString::fromUtf8("action_Braid_Maze"));
         centralWidget = new QWidget(Gui);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         Gui->setCentralWidget(centralWidget);
@@ -100,7 +103,8 @@ public:
         menu_Maze->addAction(action_Dimensions);
         menu_Generator->addAction(action_Prim_s_Algorithm);
         menu_Generator->addAction(action_Back_and_Forth);
-        menu_Generator->addAction(action_Recursive_Algorithm);
+        menu_Generator->addAction(action_Backtracker_Algorithm);
+        menu_Generator->addAction(action_Braid_Maze);
         menu_Solve->addAction(action_Right_Hand_Rule);
         menu_Solve->addAction(action_Dead_End_Filler);
 
@@ -123,8 +127,9 @@ public:
         action_Prim_s_Algorithm->setText(QApplication::translate("Gui", "&Prim's Algorithm", 0, QApplication::UnicodeUTF8));
         action_Right_Hand_Rule->setText(QApplication::translate("Gui", "&Right-Hand Rule", 0, QApplication::UnicodeUTF8));
         action_Back_and_Forth->setText(QApplication::translate("Gui", "&Back and Forth", 0, QApplication::UnicodeUTF8));
-        action_Recursive_Algorithm->setText(QApplication::translate("Gui", "&Recursive Algorithm", 0, QApplication::UnicodeUTF8));
+        action_Backtracker_Algorithm->setText(QApplication::translate("Gui", "Back&tracker Algorithm", 0, QApplication::UnicodeUTF8));
         action_Dead_End_Filler->setText(QApplication::translate("Gui", "&Dead End Filler", 0, QApplication::UnicodeUTF8));
+        action_Braid_Maze->setText(QApplication::translate("Gui", "B&raid Maze", 0, QApplication::UnicodeUTF8));
         menu_View->setTitle(QApplication::translate("Gui", "&View", 0, QApplication::UnicodeUTF8));
         menu_Maze->setTitle(QApplication::translate("Gui", "&Maze", 0, QApplication::UnicodeUTF8));
         menu_Generator->setTitle(QApplication::translate("Gui", "&Generate", 0, QApplication::UnicodeUTF8));

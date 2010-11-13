@@ -50,6 +50,7 @@ private:
 	bool validCoord(unsigned row, unsigned column) const;
 signals:
 	void dimensionsSet(unsigned width, unsigned height);
+	void refreshGui();
 	void cellChanged(unsigned row, unsigned column, bool, bool, Maze::Facing facing);
 };
 

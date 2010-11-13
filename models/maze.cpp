@@ -23,9 +23,9 @@ void Maze::setDimensions(unsigned width, unsigned height)
 		data[r] = new Cell[width];
 		for(unsigned c = 0; c < width; ++c)
 		{
-			setWall(r, c, UP, true);
-			setWall(r, c, LEFT, true);
-			setValue(r, c, 0);
+			data[r][c].wallUp = true;
+			data[r][c].wallLeft = true;
+			data[r][c].value = 0;
 		}
 	}
 }
@@ -48,9 +48,9 @@ inline bool Maze::validCoord(unsigned row, unsigned column) const
 void Maze::reset() {
 	for (unsigned c = 0; c < _width; ++c) {
 		for (unsigned r = 0; r < _height; ++r) {
-			setWall(r, c, UP, true);
-			setWall(r, c, LEFT, true);
-			setValue(r, c, 0);
+			data[r][c].wallUp = true;
+			data[r][c].wallLeft = true;
+			data[r][c].value = 0;
 		}
 	}
 }
@@ -58,7 +58,7 @@ void Maze::reset() {
 void Maze::resetValues() {
 	for (unsigned c = 0; c < _width; ++c) {
 		for (unsigned r = 0; r < _height; ++r) {
-			setValue(r, c, 0);
+			data[r][c].value = 0;
 		}
 	}
 }
@@ -85,6 +85,7 @@ void Maze::setWall(unsigned row, unsigned column, Facing direction, bool wall)
 				break;
 		}
 	}
+	emit refreshGui();
 }
 
 bool Maze::isWall(unsigned row, unsigned column, Facing direction)
@@ -114,7 +115,6 @@ bool Maze::isWall(unsigned row, unsigned column, Facing direction)
 			default:
 				break;
 		}
-		emit cellChanged(row, column, data[row][column].wallLeft, data[row][column].wallUp, UP);
 	}
 	return false;
 }
@@ -123,12 +123,13 @@ void Maze::setValue(unsigned row, unsigned column, int value)
 {
 	if (validCoord(row, column))
 		data[row][column].value = value;
+	emit cellChanged(0, 0, true, true, UP);
 }
 
 int Maze::getValue(unsigned row, unsigned column) {
 	if (validCoord(row, column))
 		return data[row][column].value;
-	return 0;
+	return -1;
 }
 
 Maze::Cell Maze::getCell(unsigned row, unsigned column) {
