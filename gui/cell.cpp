@@ -70,7 +70,7 @@ void Cell::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 			if (val == 1000)
 				painter->fillRect(QRectF(QPointF(c * deltaX + 1, r * deltaY + 1), QPointF(c*deltaX + deltaX - 1, r*deltaY+deltaY - 1)), Qt::red);
 			else if (val > 0)
-				painter->fillRect(QRectF(QPointF(c * deltaX + 1, r * deltaY + 1), QPointF(c*deltaX + deltaX - 1, r*deltaY+deltaY - 1)), QColor(210-20*val, 105-20*val, 30-8*val));
+				painter->fillRect(QRectF(QPointF(c * deltaX + 1, r * deltaY + 1), QPointF(c*deltaX + deltaX - 1, r*deltaY+deltaY - 1)), QColor(210-20*val, 105-20*val, 30-5*val));
 		}
 		for (unsigned c = 0; c < _maze->width(); ++c) {
 			if (_maze->isWall(r, c, Maze::LEFT))
