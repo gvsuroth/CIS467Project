@@ -18,7 +18,7 @@ Gui::Gui(QWidget *parent) :
 	mazeGrid = new QGraphicsGridLayout;
 	mazeGrid->setSpacing(0); // Make the cell spacing nothing
 	mazeContainer->setLayout(mazeGrid);
-	scene->setBackgroundBrush(QBrush(QColor("chocolate"), Qt::SolidPattern)); // Set background color
+	scene->setBackgroundBrush(QBrush(QColor(210, 105, 30), Qt::SolidPattern)); // Set background color
 	scene->addItem(mazeContainer);
 
 	// Setup view
@@ -33,6 +33,7 @@ Gui::Gui(QWidget *parent) :
 
 	// Setup maze
     maze = new Maze(this);
+    connect(maze, SIGNAL(refreshGui()), this, SLOT(redrawGui()));
     connect(maze, SIGNAL(cellChanged(uint,uint,bool,bool,Maze::Facing)), this, SLOT(setCell(uint,uint,bool,bool,Maze::Facing)));
 	connect(maze, SIGNAL(dimensionsSet(uint,uint)), this, SLOT(setDimensions(uint,uint)));
 
@@ -40,10 +41,13 @@ Gui::Gui(QWidget *parent) :
 	gen = new Generator(maze);
 	connect(ui->action_Back_and_Forth, SIGNAL(triggered()), gen, SLOT(backAndForth()));
 	connect(ui->action_Prim_s_Algorithm, SIGNAL(triggered()), gen, SLOT(prims()));
+	connect(ui->action_Backtracker_Algorithm, SIGNAL(triggered()), gen, SLOT(backtracker()));
+	connect(ui->action_Braid_Maze, SIGNAL(triggered()), gen, SLOT(braid()));
 
 	// Setup solver
 	solver = new Solver(maze);
 	connect(ui->action_Right_Hand_Rule, SIGNAL(triggered()), solver, SLOT(rightHandRule()));
+	connect(ui->action_Dead_End_Filler, SIGNAL(triggered()), solver, SLOT(deadEndFiller()));
 }
 
 Gui::~Gui()
@@ -65,6 +69,12 @@ void Gui::setDimensions(unsigned width, unsigned height)
 	mazeGrid->addItem(cell, 0, 0, Qt::AlignCenter);
 }
 
+void Gui::redrawGui()
+{
+	view->update();
+	QCoreApplication::processEvents();	
+}
+
 void Gui::setCell(unsigned row, unsigned column, bool wallUp, bool wallLeft, Maze::Facing facing)
 {
 	if(row < (unsigned)mazeGrid->rowCount() && column < (unsigned)mazeGrid->columnCount())
@@ -73,8 +83,7 @@ void Gui::setCell(unsigned row, unsigned column, bool wallUp, bool wallLeft, Maz
 //		Cell *_cell = (Cell*)mazeGrid->itemAt(row, column);
 //		_cell->setWallUp(wallUp);
 //		_cell->setWallLeft(wallLeft);
-//		_cell->setFacing(facing);
-		view->update();
+//		_cell->setFacing(facing);		
 	}
 }
 

@@ -41,6 +41,7 @@ public:
 	void moveSprite(unsigned row, unsigned column, Facing facing = UP);
 	Cell getCell(unsigned row, unsigned column);
 	void reset();
+	void resetValues();
 	void log();
 private:
 	unsigned _height;
@@ -49,6 +50,7 @@ private:
 	bool validCoord(unsigned row, unsigned column) const;
 signals:
 	void dimensionsSet(unsigned width, unsigned height);
+	void refreshGui();
 	void cellChanged(unsigned row, unsigned column, bool, bool, Maze::Facing facing);
 };
 

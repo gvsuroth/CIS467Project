@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include <QLinkedList>
 
 
 #include "models/maze.h"
@@ -20,11 +21,12 @@ signals:
 public slots:
 	void backAndForth();
 	void prims();
-	void recursive();
+	void backtracker(bool addDeadEnds = false);
 	void braid();
 
 private:
 	Maze *maze;
+	QLinkedList<QPoint> deadEnds;
 };
 
 #endif // GENERATOR_H
