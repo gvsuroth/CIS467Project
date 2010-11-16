@@ -69,4 +69,5 @@ void MazeCanvas::updateAll()
 void MazeCanvas::updateCell(unsigned row, unsigned column)
 {
 	update(column * CELL_EDGE, row * CELL_EDGE, CELL_EDGE, CELL_EDGE);
+	QCoreApplication::processEvents();
 }

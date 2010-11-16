@@ -3,6 +3,7 @@
 
 #include <QGraphicsObject>
 #include <QPainter>
+#include <QCoreApplication>
 
 #include <models/maze.h>
 
