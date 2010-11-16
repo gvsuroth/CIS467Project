@@ -22,7 +22,8 @@ HEADERS += gui/gui.h \
 	generator/generator.h \
 	models/maze.h \
 	gui/graphicsview.h \
-	algorithms/solver.h
+	algorithms/solver.h \
+gui/mazecanvas.h
 FORMS += gui/gui.ui \
 	gui/newmaze.ui
 SOURCES += gui/gui.cpp \
@@ -31,7 +32,8 @@ SOURCES += gui/gui.cpp \
 	generator/generator.cpp \
 	models/maze.cpp \
 	gui/graphicsview.cpp \
-	algorithms/solver.cpp
+	algorithms/solver.cpp \
+   gui/mazecanvas.cpp
 
 RESOURCES += \
 	CIS467Project.qrc

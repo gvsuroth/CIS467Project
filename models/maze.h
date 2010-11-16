@@ -10,7 +10,8 @@ class Maze : public QObject
 {
 Q_OBJECT
 public:
-	struct Cell {
+	struct Cell
+	{
 		bool wallUp, wallLeft;
 		int value;
 	};
@@ -49,9 +50,8 @@ private:
 	Cell **data;
 	bool validCoord(unsigned row, unsigned column) const;
 signals:
-	void dimensionsSet(unsigned width, unsigned height);
-	void refreshGui();
-	void cellChanged(unsigned row, unsigned column, bool, bool, Maze::Facing facing);
+	void updateAll();
+	void updateCell(unsigned row, unsigned column);
 };
 
 #endif // MAZE_H

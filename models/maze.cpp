@@ -3,6 +3,8 @@
 Maze::Maze(QObject *parent)
 	: QObject(parent)
 {
+	_width = 0;
+	_height = 0;
 }
 
 Maze::~Maze()
@@ -14,7 +16,6 @@ Maze::~Maze()
 
 void Maze::setDimensions(unsigned width, unsigned height)
 {
-	emit dimensionsSet(width, height);
 	_width = width;
 	_height = height;
 	data = new Cell*[height];
@@ -28,6 +29,7 @@ void Maze::setDimensions(unsigned width, unsigned height)
 			data[r][c].value = 0;
 		}
 	}
+	emit updateAll();
 }
 
 unsigned Maze::width()
@@ -85,7 +87,7 @@ void Maze::setWall(unsigned row, unsigned column, Facing direction, bool wall)
 				break;
 		}
 	}
-	emit refreshGui();
+	emit updateCell(row, column);
 }
 
 bool Maze::isWall(unsigned row, unsigned column, Facing direction)
@@ -123,7 +125,7 @@ void Maze::setValue(unsigned row, unsigned column, int value)
 {
 	if (validCoord(row, column))
 		data[row][column].value = value;
-	emit cellChanged(0, 0, true, true, UP);
+	emit updateCell(row, column);
 }
 
 int Maze::getValue(unsigned row, unsigned column) {
@@ -165,5 +167,5 @@ void Maze::log()
 	for (unsigned c = 0; c < _width - 1; ++c)
 		printf(" -");
 	printf("\n");
-		
+
 }
