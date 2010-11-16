@@ -17,10 +17,7 @@ public slots:
 	void zoomIn();
 	void zoomOut();
 	void zoomReset();
-	//void zoomReset();
 protected:
-	//void resizeEvent(QResizeEvent *event);
-	//void showEvent(QShowEvent *event);
 	void wheelEvent(QWheelEvent *event);
 };
 

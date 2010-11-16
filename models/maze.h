@@ -39,8 +39,8 @@ public:
 	bool isWall(unsigned row, unsigned column, Facing direction);
 	void setValue(unsigned row, unsigned column, int value);
 	int getValue(unsigned row, unsigned column);
-	void moveSprite(unsigned row, unsigned column, Facing facing = UP);
-	Cell getCell(unsigned row, unsigned column);
+	//void moveSprite(unsigned row, unsigned column, Facing facing = UP);
+	Cell& getCell(unsigned row, unsigned column);
 	void reset();
 	void resetValues();
 	void log();
@@ -49,6 +49,7 @@ private:
 	unsigned _width;
 	Cell **data;
 	bool validCoord(unsigned row, unsigned column) const;
+	void cleanUp();
 signals:
 	void updateAll();
 	void updateCell(unsigned row, unsigned column);

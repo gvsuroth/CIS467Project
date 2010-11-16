@@ -26,7 +26,7 @@ void Solver::rightHandRule()
 			nextFacing = (Maze::Facing)((nextFacing + 3) % 4);
 		}
 		curLoc = curLoc + QPoint(nextFacing == Maze::RIGHT || nextFacing == Maze::LEFT ? -1 * (nextFacing - 2) : 0, nextFacing == Maze::UP || nextFacing == Maze::DOWN ? (nextFacing - 1) : 0);
-		
+
 		// Add point to path
 		// If point already exists in path, remove all points after that point
 		QPoint newPoint(curLoc.x(), curLoc.y());
@@ -37,10 +37,10 @@ void Solver::rightHandRule()
 			}
 		}
 		path << QPoint(curLoc.x(), curLoc.y());
-				
+
 		maze->setValue(curLoc.y(), curLoc.x(), maze->getValue(curLoc.y(), curLoc.x()) + 1);
 		facing = nextFacing;
-		maze->moveSprite(curLoc.y(), curLoc.x(), facing);
+		//maze->moveSprite(curLoc.y(), curLoc.x(), facing);
 	}
 	while (!path.isEmpty()) {
 		QPoint tmp = path.takeFirst();

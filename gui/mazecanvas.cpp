@@ -11,7 +11,6 @@ MazeCanvas::MazeCanvas(Maze *maze, QGraphicsItem *parent) :
 
 QRectF MazeCanvas::boundingRect() const
 {
-	//qDebug() << "MazeCanvas::boundingRect()";
 	return QRectF(0, 0, maze->width() * CELL_EDGE, maze->height() * CELL_EDGE);
 }
 

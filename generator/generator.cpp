@@ -15,18 +15,16 @@ Generator::Generator(Maze *maze, QObject *parent) :
 
 void Generator::backAndForth()
 {
-//	// Back and forth
-//	bool dir = true;
-//	unsigned width = maze->width(), height = maze->height();
-//	maze->reset();
-//	for(unsigned c = 1; c < width; c+=2)
-//	{
-//		for(unsigned r = 0; r < height - 1; ++r)
-//			maze->setCell(dir ? r : height-r-1, c, Maze::WALL);
-//		dir=!dir;
-//	}
-//	maze->setCell(0, 0, Maze::SPRITE);
-//	maze->setCell(height - 1, width - 1, Maze::PATH);
+	// Back and forth
+	bool dir = true;
+	unsigned width = maze->width(), height = maze->height();
+	for(unsigned c = 0; c < width; ++c)
+	{
+		for(unsigned r = 1; r < height; ++r)
+			maze->setWall(r, c, Maze::UP, false);
+		maze->setWall(dir ? height - 1 : 0, c, Maze::RIGHT, false);
+		dir=!dir;
+	}
 }
 
 void Generator::prims()
@@ -34,7 +32,7 @@ void Generator::prims()
 	srand((unsigned)time(NULL));
 	unsigned width = maze->width(), height = maze->height();
 	maze->reset();
-	
+
 	// Count of remaining frontier nodes
 	int numFrontier = 0, frontSel = 0;
 	unsigned nodeX = 0, nodeY = 0;
@@ -42,7 +40,7 @@ void Generator::prims()
 	maze->setValue(0, 1, FRONTIER);
 	maze->setValue(1, 0, FRONTIER);
 	numFrontier = 2;
-	
+
 	for (unsigned i = 1; i < width * height; i++) {
 		// Pick a random frontier node
 		frontSel = rand()%numFrontier;
@@ -59,7 +57,7 @@ void Generator::prims()
 			}
 			if (frontSel < 0) break;
 		}
-		
+
 		// Pick a direction to an open cell
 		int dir = 0;
 		bool flag = false;
@@ -97,7 +95,7 @@ void Generator::prims()
 			} // switch
 		} // while
 		--numFrontier;
-		
+
 		// Add frontier nodes
 		if (nodeY > 0 && maze->getValue(nodeY - 1, nodeX) == 0) {
 			++numFrontier;
@@ -127,7 +125,7 @@ void Generator::backtracker(bool addDeadEnds)
 	maze->setValue(0, 0, VISITED);
 	QPoint curLoc = QPoint(0, 0);
 	bool haveEaten = false;
-	
+
 	while (!cue.isEmpty()) {
 		// Find neighbors
 		int neighbors[4][3];
@@ -146,13 +144,13 @@ void Generator::backtracker(bool addDeadEnds)
 			neighbors[numNeighbors][0] = curLoc.y();
 			neighbors[numNeighbors][1] = curLoc.x() - 1;
 			neighbors[numNeighbors++][2] = Maze::LEFT;
-		}			
+		}
 		if (maze->getValue(curLoc.y(), curLoc.x() + 1) == 0) {
 			neighbors[numNeighbors][0] = curLoc.y();
 			neighbors[numNeighbors][1] = curLoc.x() + 1;
 			neighbors[numNeighbors++][2] = Maze::RIGHT;
 		}
-		
+
 		if (numNeighbors > 0) {
 			haveEaten = true;
 			// Pick a random neighbor
@@ -184,13 +182,13 @@ void Generator::braid()
 		int numNeighbors = 0;
 		if (loc.y() > 0 && maze->isWall(loc.y(), loc.x(), Maze::UP))
 			neighbors[numNeighbors++] = Maze::UP;
-		if (loc.y() < maze->height() - 1 && maze->isWall(loc.y(), loc.x(), Maze::DOWN))
+		if ((unsigned)loc.y() < maze->height() - 1 && maze->isWall(loc.y(), loc.x(), Maze::DOWN))
 			neighbors[numNeighbors++] = Maze::DOWN;
 		if (loc.x() > 0 && maze->isWall(loc.y(), loc.x(), Maze::LEFT))
 			neighbors[numNeighbors++] = Maze::LEFT;
-		if (loc.x() < maze->width() - 1 && maze->isWall(loc.y(), loc.x(), Maze::RIGHT))
+		if ((unsigned)loc.x() < maze->width() - 1 && maze->isWall(loc.y(), loc.x(), Maze::RIGHT))
 			neighbors[numNeighbors++] = Maze::RIGHT;
-		
+
 		// Break down a random wall
 		int randWall = rand() % numNeighbors;
 		maze->setWall(loc.y(), loc.x(), neighbors[randWall], false);

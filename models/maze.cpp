@@ -5,17 +5,17 @@ Maze::Maze(QObject *parent)
 {
 	_width = 0;
 	_height = 0;
+	data = NULL;
 }
 
 Maze::~Maze()
 {
-	for(unsigned r = 0; r < _height; ++r)
-		delete [] data[r];
-	delete [] data;
+	cleanUp();
 }
 
 void Maze::setDimensions(unsigned width, unsigned height)
 {
+	cleanUp();
 	_width = width;
 	_height = height;
 	data = new Cell*[height];
@@ -134,23 +134,24 @@ int Maze::getValue(unsigned row, unsigned column) {
 	return -1;
 }
 
-Maze::Cell Maze::getCell(unsigned row, unsigned column) {
+Maze::Cell& Maze::getCell(unsigned row, unsigned column)
+{
 	if (validCoord(row, column))
 		return data[row][column];
 }
 
-void Maze::moveSprite(unsigned row, unsigned column, Facing facing)
+/*void Maze::moveSprite(unsigned row, unsigned column, Facing facing)
 {
-//	if(validCoord(row, column) && data[row][column] != WALL)
-//	{
-//		qDebug() << "moveSprite(" << row << ',' << column << ')';
-//		if (data[row][column] == SPRITE)
-//			setCell((unsigned)spriteLoc.y(), (unsigned)spriteLoc.x(), PATH);
-//		setCell(row, column, SPRITE, facing);
-//		spriteLoc.setY(row);
-//		spriteLoc.setX(column);
-//	}
-}
+	if(validCoord(row, column) && data[row][column] != WALL)
+	{
+		qDebug() << "moveSprite(" << row << ',' << column << ')';
+		if (data[row][column] == SPRITE)
+			setCell((unsigned)spriteLoc.y(), (unsigned)spriteLoc.x(), PATH);
+		setCell(row, column, SPRITE, facing);
+		spriteLoc.setY(row);
+		spriteLoc.setX(column);
+	}
+}*/
 
 void Maze::log()
 {
@@ -168,4 +169,14 @@ void Maze::log()
 		printf(" -");
 	printf("\n");
 
+}
+
+void Maze::cleanUp()
+{
+	if(data)
+	{
+		for(unsigned r = 0; r < _height; ++r)
+			delete [] data[r];
+		delete [] data;
+	}
 }
