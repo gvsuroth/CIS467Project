@@ -15,6 +15,7 @@ Generator::Generator(Maze *maze, QObject *parent) :
 
 void Generator::backAndForth()
 {
+	maze->reset();
 	// Back and forth
 	bool dir = true;
 	unsigned width = maze->width(), height = maze->height();

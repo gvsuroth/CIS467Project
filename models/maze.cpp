@@ -55,6 +55,7 @@ void Maze::reset() {
 			data[r][c].value = 0;
 		}
 	}
+	emit updateAll();
 }
 
 void Maze::resetValues() {
@@ -63,6 +64,7 @@ void Maze::resetValues() {
 			data[r][c].value = 0;
 		}
 	}
+	emit updateAll();
 }
 
 void Maze::setWall(unsigned row, unsigned column, Facing direction, bool wall)

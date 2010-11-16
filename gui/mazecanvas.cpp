@@ -58,6 +58,8 @@ void MazeCanvas::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 				painter->fillRect(QRectF(upperLeft + QPointF(PADDING, PADDING), fillSize), val < 1000 ? QColor(210-20*val, 105-20*val, 30-5*val) : Qt::red);
 		}
 	}
+	painter->drawLine(QPointF(0, maze->height() * CELL_EDGE), QPointF(maze->width() * CELL_EDGE - CELL_EDGE, maze->height() * CELL_EDGE));
+	painter->drawLine(QPointF(maze->width() * CELL_EDGE, 0), QPointF(maze->width() * CELL_EDGE, maze->height() * CELL_EDGE));
 }
 
 void MazeCanvas::updateAll()
