@@ -34,7 +34,7 @@ void MazeCanvas::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 			if (val == 1000)
 				painter->fillRect(QRectF(QPointF(c * deltaX + 1, r * deltaY + 1), QPointF(c*deltaX + deltaX - 1, r*deltaY+deltaY - 1)), Qt::red);
 			else if (val > 0)
-				painter->fillRect(QRectF(QPointF(c * deltaX + 1, r * deltaY + 1), QPointF(c*deltaX + deltaX - 1, r*deltaY+deltaY - 1)), QColor(210-20*val, 105-20*val, 30-5*val));
+				painter->fillRect(QRectF(QPointF(c * deltaX + 1, r * deltaY + 1), QPointF(c*deltaX + deltaX - 1, r*deltaY+deltaY - 1)), QColor(210-2*val, 105-2*val, 30-val));
 		}
 		for (unsigned c = 0; c < maze->width(); ++c) {
 			if (maze->isWall(r, c, Maze::LEFT))
@@ -55,17 +55,20 @@ void MazeCanvas::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 				painter->drawLine(upperLeft, upperLeft + QPointF(0, CELL_EDGE));
 			val = maze->getValue(r, c);
 			if(val) // Color of the cell
-				painter->fillRect(QRectF(upperLeft + QPointF(PADDING, PADDING), fillSize), val < 1000 ? QColor(210-20*val, 105-20*val, 30-5*val) : Qt::red);
+				painter->fillRect(QRectF(upperLeft + QPointF(PADDING, PADDING), fillSize), val < 1000 ? QColor(255-val, 255-val, 255-val) : Qt::red);
 		}
 	}
-	painter->drawLine(QPointF(0, maze->height() * CELL_EDGE), QPointF(maze->width() * CELL_EDGE - CELL_EDGE, maze->height() * CELL_EDGE));
-	painter->drawLine(QPointF(maze->width() * CELL_EDGE, 0), QPointF(maze->width() * CELL_EDGE, maze->height() * CELL_EDGE));
+	if (maze->height() > 0) {
+		painter->drawLine(QPointF(0, maze->height() * CELL_EDGE), QPointF(maze->width() * CELL_EDGE - CELL_EDGE, maze->height() * CELL_EDGE));
+		painter->drawLine(QPointF(maze->width() * CELL_EDGE, 0), QPointF(maze->width() * CELL_EDGE, maze->height() * CELL_EDGE));
+	}
 }
 
 void MazeCanvas::updateAll()
 {
 	qDebug() << boundingRect();
 	update(boundingRect());
+	QCoreApplication::processEvents();
 }
 
 void MazeCanvas::updateCell(unsigned row, unsigned column)

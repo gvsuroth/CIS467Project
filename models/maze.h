@@ -38,6 +38,7 @@ public:
 	void setWall(unsigned row, unsigned column, Facing direction, bool wall);
 	bool isWall(unsigned row, unsigned column, Facing direction);
 	void setValue(unsigned row, unsigned column, int value);
+	void setValue(QPoint *point, int value);
 	int getValue(unsigned row, unsigned column);
 	//void moveSprite(unsigned row, unsigned column, Facing facing = UP);
 	Cell& getCell(unsigned row, unsigned column);

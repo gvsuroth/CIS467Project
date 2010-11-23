@@ -24,6 +24,7 @@ Gui::Gui(QWidget *parent) :
 	solver = new Solver(maze);
 	connect(ui->action_Right_Hand_Rule, SIGNAL(triggered()), solver, SLOT(rightHandRule()));
 	connect(ui->action_Dead_End_Filler, SIGNAL(triggered()), solver, SLOT(deadEndFiller()));
+	connect(ui->action_Breadth_First, SIGNAL(triggered()), solver, SLOT(breadthFirst()));
 
 	// Setup scene
 	scene = new QGraphicsScene;
@@ -83,6 +84,7 @@ void Gui::setNewMazeDimensions()
 void Gui::updateAll()
 {
 	scene->setSceneRect(mc->boundingRect()); // Setting the sceneRect is quicker than letting the scene find its own boundaries, and also triggers the signal sceneRectChanged, which activates the auto-zoom from the view
+	mc->updateAll();
 }
 
 void Gui::changeEvent(QEvent *e)

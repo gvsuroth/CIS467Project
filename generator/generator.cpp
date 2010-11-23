@@ -1,4 +1,5 @@
 #include "generator.h"
+#include <QList>
 
 #define _UP 1
 #define _LEFT 2
@@ -33,31 +34,23 @@ void Generator::prims()
 	srand((unsigned)time(NULL));
 	unsigned width = maze->width(), height = maze->height();
 	maze->reset();
+	QList<QPoint> frontier;
 
 	// Count of remaining frontier nodes
-	int numFrontier = 0, frontSel = 0;
+	int frontSel = 0;
 	unsigned nodeX = 0, nodeY = 0;
 	maze->setValue(0, 0, _UP);
 	maze->setValue(0, 1, FRONTIER);
 	maze->setValue(1, 0, FRONTIER);
-	numFrontier = 2;
+	frontier.append(QPoint(0, 1));
+	frontier.append(QPoint(1, 0));
 
 	for (unsigned i = 1; i < width * height; i++) {
 		// Pick a random frontier node
-		frontSel = rand()%numFrontier;
-		for (unsigned r = 0; r < height; r++) {
-			for (unsigned c = 0; c < width; c++) {
-				if (maze->getValue(r, c) == FRONTIER) {
-					frontSel--;
-					if (frontSel < 0) {
-						nodeX = c;
-						nodeY = r;
-						break;
-					}
-				}
-			}
-			if (frontSel < 0) break;
-		}
+		frontSel = rand() % frontier.size();
+		QPoint nextNode = frontier.takeAt(frontSel);
+		nodeX = nextNode.x();
+		nodeY = nextNode.y();
 
 		// Pick a direction to an open cell
 		int dir = 0;
@@ -95,23 +88,22 @@ void Generator::prims()
 					break;
 			} // switch
 		} // while
-		--numFrontier;
 
 		// Add frontier nodes
 		if (nodeY > 0 && maze->getValue(nodeY - 1, nodeX) == 0) {
-			++numFrontier;
+			frontier.append(QPoint(nodeX, nodeY - 1));
 			maze->setValue(nodeY - 1, nodeX, FRONTIER);
 		}
 		if (nodeY + 1 < height && maze->getValue(nodeY + 1, nodeX) == 0) {
-			++numFrontier;
+			frontier.append(QPoint(nodeX, nodeY + 1));
 			maze->setValue(nodeY + 1, nodeX, FRONTIER);
 		}
 		if (nodeX > 0 && maze->getValue(nodeY, nodeX - 1) == 0) {
-			++numFrontier;
+			frontier.append(QPoint(nodeX - 1, nodeY));
 			maze->setValue(nodeY, nodeX - 1, FRONTIER);
 		}
 		if (nodeX + 1 < width && maze->getValue(nodeY, nodeX + 1) == 0) {
-			++numFrontier;
+			frontier.append(QPoint(nodeX + 1, nodeY));
 			maze->setValue(nodeY, nodeX + 1, FRONTIER);
 		}
 	} // for
@@ -176,7 +168,6 @@ void Generator::braid()
 	deadEnds.empty();
 	backtracker(true);
 	while (!deadEnds.isEmpty()) {
-//		maze->log();
 		QPoint loc = deadEnds.takeFirst();
 		// Find neighbors that have walls that we can break down
 		Maze::Facing neighbors[4];

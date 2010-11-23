@@ -16,6 +16,7 @@ signals:
 public slots:
 	void rightHandRule();
 	void deadEndFiller();
+	void breadthFirst();
 private:
 	Maze *maze;
 };

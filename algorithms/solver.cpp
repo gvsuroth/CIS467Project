@@ -15,36 +15,31 @@ void Solver::rightHandRule()
 	QPoint end(maze->width() - 1, maze->height() - 1);
 	maze->setValue(0, 0, maze->getValue(0, 0) + 1);
 	path << QPoint(curLoc.x(), curLoc.y());
+	maze->setValue(curLoc.y(), curLoc.x(), 1000);
+	
 	while(curLoc != end)
 	{
 		Maze::Facing nextFacing = (Maze::Facing)((facing + 1) % 4);
 		QPoint nextLoc(0, 0);
-		while(true)
-		{
-			if(!maze->isWall(curLoc.y(), curLoc.x(), nextFacing))
-				break;
+		while (maze->isWall(curLoc.y(), curLoc.x(), nextFacing))
 			nextFacing = (Maze::Facing)((nextFacing + 3) % 4);
-		}
 		curLoc = curLoc + QPoint(nextFacing == Maze::RIGHT || nextFacing == Maze::LEFT ? -1 * (nextFacing - 2) : 0, nextFacing == Maze::UP || nextFacing == Maze::DOWN ? (nextFacing - 1) : 0);
 
 		// Add point to path
 		// If point already exists in path, remove all points after that point
 		QPoint newPoint(curLoc.x(), curLoc.y());
 		if (path.contains(newPoint)) {
-			while (true) {
+			QPoint tmp;
+			do {
 				QPoint tmp = path.takeLast();
+				maze->setValue(tmp.y(), tmp.x(), maze->getValue(tmp.y(), tmp.x()) - 1000);
 				if (tmp == newPoint) break;
-			}
+			} while (tmp != newPoint);
 		}
 		path << QPoint(curLoc.x(), curLoc.y());
 
-		maze->setValue(curLoc.y(), curLoc.x(), maze->getValue(curLoc.y(), curLoc.x()) + 1);
+		maze->setValue(curLoc.y(), curLoc.x(), maze->getValue(curLoc.y(), curLoc.x()) + 1001);
 		facing = nextFacing;
-		//maze->moveSprite(curLoc.y(), curLoc.x(), facing);
-	}
-	while (!path.isEmpty()) {
-		QPoint tmp = path.takeFirst();
-		maze->setValue(tmp.y(), tmp.x(), 1000);
 	}
 }
 
@@ -70,6 +65,40 @@ void Solver::deadEndFiller()
 					flag = true;
 				}
 			}
+		}
+	}
+}
+
+void Solver::breadthFirst()
+{
+	QLinkedList<QPoint> path;
+	QPoint end(maze->width() - 1, maze->height() - 1);
+	int i = 0;
+
+	maze->setValue(0, 0, 1);
+	path.append(QPoint(0, 0));
+	while (!path.empty()) {
+		QPoint curLoc = path.takeFirst();
+		if (maze->getValue(curLoc.y(), curLoc.x()) > i) ++i;
+		if (!maze->isWall(curLoc.y(), curLoc.x(), Maze::UP) && maze->getValue(curLoc.y() - 1, curLoc.x()) == 0) {
+			path.append(QPoint(curLoc.x(), curLoc.y() - 1));
+			maze->setValue(curLoc.y() - 1, curLoc.x(), i + 1);
+			if (path.last() == end) break;
+		}
+		if (!maze->isWall(curLoc.y(), curLoc.x(), Maze::DOWN) && maze->getValue(curLoc.y() + 1, curLoc.x()) == 0) {
+			path.append(QPoint(curLoc.x(), curLoc.y() + 1));
+			maze->setValue(curLoc.y() + 1, curLoc.x(), i + 1);
+			if (path.last() == end) break;
+		}
+		if (!maze->isWall(curLoc.y(), curLoc.x(), Maze::LEFT) && maze->getValue(curLoc.y(), curLoc.x() - 1) == 0) {
+			path.append(QPoint(curLoc.x() - 1, curLoc.y()));
+			maze->setValue(curLoc.y(), curLoc.x() - 1, i + 1);
+			if (path.last() == end) break;
+		}
+		if (!maze->isWall(curLoc.y(), curLoc.x(), Maze::RIGHT) && maze->getValue(curLoc.y(), curLoc.x() + 1) == 0) {
+			path.append(QPoint(curLoc.x() + 1, curLoc.y()));
+			maze->setValue(curLoc.y(), curLoc.x() + 1, i + 1);
+			if (path.last() == end) break;
 		}
 	}
 }

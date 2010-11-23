@@ -130,6 +130,11 @@ void Maze::setValue(unsigned row, unsigned column, int value)
 	emit updateCell(row, column);
 }
 
+void Maze::setValue(QPoint *point, int value)
+{
+	setValue(point->y(), point->x(), value);
+}
+
 int Maze::getValue(unsigned row, unsigned column) {
 	if (validCoord(row, column))
 		return data[row][column].value;
