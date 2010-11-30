@@ -1,6 +1,7 @@
 #include "solver.h"
 #include "mazecanvas.h"
 #include <QLinkedList>
+#include <QTime>
 
 Solver::Solver(Maze *maze, QObject *parent) :
 	QObject(parent)
@@ -10,6 +11,7 @@ Solver::Solver(Maze *maze, QObject *parent) :
 
 void Solver::rightHandRule()
 {
+	QTime beginTime = QTime::currentTime();
 	maze->resetValues();
 	QLinkedList<QPoint> path;
 	Maze::Facing facing = Maze::DOWN;
@@ -43,6 +45,8 @@ void Solver::rightHandRule()
 		maze->setValue(curLoc.y(), curLoc.x(), maze->getValue(curLoc.y(), curLoc.x()) + MazeCanvas::MAGIC + 1);
 		facing = nextFacing;
 	}
+	QTime endTime = QTime::currentTime();
+	printf("Time %d\n", beginTime.msecsTo(endTime));
 }
 
 void Solver::deadEndFiller()

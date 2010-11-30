@@ -34,7 +34,7 @@ Gui::Gui(QWidget *parent) :
 	// Setup maze canvas
 	mc = new MazeCanvas(maze);
 	connect(maze, SIGNAL(updateAll()), this, SLOT(updateAll()));
-	connect(maze, SIGNAL(updateCell(uint,uint)), mc, SLOT(updateCell(uint,uint)));
+//	connect(maze, SIGNAL(updateCell(uint,uint)), mc, SLOT(updateCell(uint,uint)));
 	scene->addItem(mc);
 
 	// Setup view

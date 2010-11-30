@@ -1,5 +1,6 @@
 #include "generator.h"
 #include <QList>
+#include <QSet>
 
 #define _UP 1
 #define _LEFT 2
@@ -186,3 +187,40 @@ void Generator::braid()
 		maze->setWall(loc.y(), loc.x(), neighbors[randWall], false);
 	}
 }
+
+//void Generator::kruskals()
+//{
+//	int width = maze->width(), height = maze->height();
+//	QList<int> walls;
+//	for (int i = 0; i < maze->height() * maze->width() * 2 - maze->width(); ++i)
+//		if (i % (width * 2) != width - 1) walls.append(i);
+//	
+//	int row1, row2, col1, col2;
+//	while (true) {
+//		int wall = walls.takeAt(rand() % (walls.size()));
+//		int mod = wall % (width * 2);
+//		int div = wall / (width * 2);
+//		if (mod < width) {
+//			row1 = row2 = div;
+//			col1 = mod;
+//			col2 = mod + 1;
+//		} else {
+//			col1 = col2 = mod;
+//			row1 = div;
+//			row2 = div + 1;
+//		}
+//		
+//	}
+//	QList< QSet<int [2]> > sets;
+//	for (unsigned r = 0; r < maze->height(); ++r) {
+//		for (unsigned c = 0; c < maze->width(); ++c) {
+//			QSet<int [2]> set;
+//			int point[2];
+//			point[0] = r;
+//			point[1] = c;
+//			set.insert(point);
+//			sets.append(set);
+//		}
+//	}
+//	
+//}

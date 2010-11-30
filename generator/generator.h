@@ -23,7 +23,8 @@ public slots:
 	void prims();
 	void backtracker(bool addDeadEnds = false);
 	void braid();
-
+//	void kruskals();
+	
 private:
 	Maze *maze;
 	QLinkedList<QPoint> deadEnds;
