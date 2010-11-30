@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'gui.ui'
 **
-** Created: Tue Nov 23 14:39:25 2010
+** Created: Tue Nov 30 12:11:49 2010
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -36,6 +36,7 @@ public:
     QAction *action_Backtracker_Algorithm;
     QAction *action_Dead_End_Filler;
     QAction *action_Breadth_First;
+    QAction *action_A_Star;
     QAction *action_Braid_Maze;
     QWidget *centralWidget;
     QMenuBar *menuBar;
@@ -75,6 +76,8 @@ public:
         action_Dead_End_Filler->setObjectName(QString::fromUtf8("action_Dead_End_Filler"));
         action_Breadth_First = new QAction(Gui);
         action_Breadth_First->setObjectName(QString::fromUtf8("action_Breadth_First"));
+        action_A_Star = new QAction(Gui);
+        action_A_Star->setObjectName(QString::fromUtf8("action_A_Star"));
         action_Braid_Maze = new QAction(Gui);
         action_Braid_Maze->setObjectName(QString::fromUtf8("action_Braid_Maze"));
         centralWidget = new QWidget(Gui);
@@ -111,6 +114,7 @@ public:
         menu_Solve->addAction(action_Right_Hand_Rule);
         menu_Solve->addAction(action_Dead_End_Filler);
         menu_Solve->addAction(action_Breadth_First);
+        menu_Solve->addAction(action_A_Star);
 
         retranslateUi(Gui);
 
@@ -134,6 +138,7 @@ public:
         action_Backtracker_Algorithm->setText(QApplication::translate("Gui", "Back&tracker Algorithm", 0, QApplication::UnicodeUTF8));
         action_Dead_End_Filler->setText(QApplication::translate("Gui", "&Dead End Filler", 0, QApplication::UnicodeUTF8));
         action_Breadth_First->setText(QApplication::translate("Gui", "&Breadth First", 0, QApplication::UnicodeUTF8));
+        action_A_Star->setText(QApplication::translate("Gui", "&A Star", 0, QApplication::UnicodeUTF8));
         action_Braid_Maze->setText(QApplication::translate("Gui", "B&raid Maze", 0, QApplication::UnicodeUTF8));
         menu_View->setTitle(QApplication::translate("Gui", "&View", 0, QApplication::UnicodeUTF8));
         menu_Maze->setTitle(QApplication::translate("Gui", "&Maze", 0, QApplication::UnicodeUTF8));

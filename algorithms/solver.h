@@ -17,6 +17,7 @@ public slots:
 	void rightHandRule();
 	void deadEndFiller();
 	void breadthFirst();
+	void aStar();
 private:
 	Maze *maze;
 };

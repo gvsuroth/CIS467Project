@@ -25,6 +25,7 @@ Gui::Gui(QWidget *parent) :
 	connect(ui->action_Right_Hand_Rule, SIGNAL(triggered()), solver, SLOT(rightHandRule()));
 	connect(ui->action_Dead_End_Filler, SIGNAL(triggered()), solver, SLOT(deadEndFiller()));
 	connect(ui->action_Breadth_First, SIGNAL(triggered()), solver, SLOT(breadthFirst()));
+	connect(ui->action_A_Star, SIGNAL(triggered()), solver, SLOT(aStar()));
 
 	// Setup scene
 	scene = new QGraphicsScene;

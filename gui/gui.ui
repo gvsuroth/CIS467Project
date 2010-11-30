@@ -59,6 +59,7 @@
     <addaction name="action_Right_Hand_Rule"/>
     <addaction name="action_Dead_End_Filler"/>
     <addaction name="action_Breadth_First"/>
+    <addaction name="action_A_Star"/>
    </widget>
    <addaction name="menu_Maze"/>
    <addaction name="menu_Generator"/>
@@ -126,6 +127,11 @@
   <action name="action_Breadth_First">
    <property name="text">
     <string>&amp;Breadth First</string>
+   </property>
+  </action>
+  <action name="action_A_Star">
+   <property name="text">
+    <string>&amp;A Star</string>
    </property>
   </action>
   <action name="action_Braid_Maze">

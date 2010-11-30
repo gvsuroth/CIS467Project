@@ -9,6 +9,7 @@ Solver::Solver(Maze *maze, QObject *parent) :
 
 void Solver::rightHandRule()
 {
+	maze->resetValues();
 	QLinkedList<QPoint> path;
 	Maze::Facing facing = Maze::DOWN;
 	QPoint curLoc(0, 0);
@@ -71,6 +72,7 @@ void Solver::deadEndFiller()
 
 void Solver::breadthFirst()
 {
+	maze->resetValues();
 	QLinkedList<QPoint> path;
 	QPoint end(maze->width() - 1, maze->height() - 1);
 	int i = 0;
@@ -100,5 +102,74 @@ void Solver::breadthFirst()
 			maze->setValue(curLoc.y(), curLoc.x() + 1, i + 1);
 			if (path.last() == end) break;
 		}
+	}
+}
+
+void Solver::aStar()
+{
+	maze->resetValues();
+	QList<QPoint> potential;
+	int width = maze->width() - 1, height = maze->height() - 1;
+	QPoint end(width, height);
+	potential.append(QPoint(0, 0));
+	maze->setValue(0, 0, 1);
+	
+	QPoint curLoc, nextLoc, testLoc;
+	int curVal, nextVal, i;
+	while (!potential.empty()) {
+		curLoc = potential.takeFirst();
+		curVal = maze->getValue(curLoc.y(), curLoc.x());
+		if (!maze->isWall(curLoc.y(), curLoc.x(), Maze::UP) && maze->getValue(curLoc.y() - 1, curLoc.x()) == 0) {
+			nextLoc = QPoint(curLoc.x(), curLoc.y() - 1);
+			maze->setValue(curLoc.y() - 1, curLoc.x(), curVal + 1);
+			nextVal = curVal + 1 + (width - nextLoc.x()) + (height - nextLoc.y());
+			if (nextLoc == end) break;
+			i = -1;
+			do {
+				++i;
+				if (i >= potential.size()) break;
+				testLoc = potential.at(i);
+			} while (maze->getValue(testLoc.y(), testLoc.x()) + (width - testLoc.x()) + (height - testLoc.y()) < nextVal);
+			potential.insert(i, nextLoc);
+		}
+		if (!maze->isWall(curLoc.y(), curLoc.x(), Maze::DOWN) && maze->getValue(curLoc.y() + 1, curLoc.x()) == 0) {
+			nextLoc = QPoint(curLoc.x(), curLoc.y() + 1);
+			maze->setValue(curLoc.y() + 1, curLoc.x(), curVal + 1);
+			nextVal = curVal + 1 + (width - nextLoc.x()) + (height - nextLoc.y());
+			if (nextLoc == end) break;
+			i = -1;
+			do {
+				++i;
+				if (i >= potential.size()) break;
+				testLoc = potential.at(i);
+			} while (maze->getValue(testLoc.y(), testLoc.x()) + (width - testLoc.x()) + (height - testLoc.y()) < nextVal);
+			potential.insert(i, nextLoc);
+		}
+		if (!maze->isWall(curLoc.y(), curLoc.x(), Maze::LEFT) && maze->getValue(curLoc.y(), curLoc.x() - 1) == 0) {
+			nextLoc = QPoint(curLoc.x() - 1, curLoc.y());
+			maze->setValue(curLoc.y(), curLoc.x() - 1, curVal + 1);
+			nextVal = curVal + 1 + (width - nextLoc.x()) + (height - nextLoc.y());
+			if (nextLoc == end) break;
+			i = -1;
+			do {
+				++i;
+				if (i >= potential.size()) break;
+				testLoc = potential.at(i);
+			} while (maze->getValue(testLoc.y(), testLoc.x()) + (width - testLoc.x()) + (height - testLoc.y()) < nextVal);
+			potential.insert(i, nextLoc);
+		}
+		if (!maze->isWall(curLoc.y(), curLoc.x(), Maze::RIGHT) && maze->getValue(curLoc.y(), curLoc.x() + 1) == 0) {
+			nextLoc = QPoint(curLoc.x() + 1, curLoc.y());
+			maze->setValue(curLoc.y(), curLoc.x() + 1, curVal + 1);
+			nextVal = curVal + 1 + (width - nextLoc.x()) + (height - nextLoc.y());
+			if (nextLoc == end) break;
+			i = -1;
+			do {
+				++i;
+				if (i >= potential.size()) break;
+				testLoc = potential.at(i);
+			} while (maze->getValue(testLoc.y(), testLoc.x()) + (width - testLoc.x()) + (height - testLoc.y()) < nextVal);
+			potential.insert(i, nextLoc);
+		}		
 	}
 }
