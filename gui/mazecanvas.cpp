@@ -55,7 +55,7 @@ void MazeCanvas::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 				painter->drawLine(upperLeft, upperLeft + QPointF(0, CELL_EDGE));
 			val = maze->getValue(r, c);
 			if(val) // Color of the cell
-				painter->fillRect(QRectF(upperLeft + QPointF(PADDING, PADDING), fillSize), val < 1000 ? QColor(255-val, 255-val, 255-val) : Qt::red);
+				painter->fillRect(QRectF(upperLeft + QPointF(PADDING, PADDING), fillSize), val < MAGIC ? QColor(255-val, 255-val, 255-val) : Qt::red);
 		}
 	}
 	if (maze->height() > 0) {

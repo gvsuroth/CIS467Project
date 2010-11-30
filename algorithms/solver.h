@@ -20,6 +20,7 @@ public slots:
 	void aStar();
 private:
 	Maze *maze;
+	void detectPath();
 };
 
 #endif // SOLVER_H

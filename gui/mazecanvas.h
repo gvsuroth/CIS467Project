@@ -11,6 +11,7 @@ class MazeCanvas : public QGraphicsObject
 {
 	Q_OBJECT
 public:
+	static const int MAGIC = 10000;
 	explicit MazeCanvas(Maze *maze, QGraphicsItem *parent = 0);
 	QRectF boundingRect() const;
 	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);

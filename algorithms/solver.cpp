@@ -1,4 +1,5 @@
 #include "solver.h"
+#include "mazecanvas.h"
 #include <QLinkedList>
 
 Solver::Solver(Maze *maze, QObject *parent) :
@@ -16,7 +17,7 @@ void Solver::rightHandRule()
 	QPoint end(maze->width() - 1, maze->height() - 1);
 	maze->setValue(0, 0, maze->getValue(0, 0) + 1);
 	path << QPoint(curLoc.x(), curLoc.y());
-	maze->setValue(curLoc.y(), curLoc.x(), 1000);
+	maze->setValue(curLoc.y(), curLoc.x(), MazeCanvas::MAGIC);
 	
 	while(curLoc != end)
 	{
@@ -33,13 +34,13 @@ void Solver::rightHandRule()
 			QPoint tmp;
 			do {
 				QPoint tmp = path.takeLast();
-				maze->setValue(tmp.y(), tmp.x(), maze->getValue(tmp.y(), tmp.x()) - 1000);
+				maze->setValue(tmp.y(), tmp.x(), maze->getValue(tmp.y(), tmp.x()) - MazeCanvas::MAGIC);
 				if (tmp == newPoint) break;
 			} while (tmp != newPoint);
 		}
 		path << QPoint(curLoc.x(), curLoc.y());
 
-		maze->setValue(curLoc.y(), curLoc.x(), maze->getValue(curLoc.y(), curLoc.x()) + 1001);
+		maze->setValue(curLoc.y(), curLoc.x(), maze->getValue(curLoc.y(), curLoc.x()) + MazeCanvas::MAGIC + 1);
 		facing = nextFacing;
 	}
 }
@@ -103,6 +104,7 @@ void Solver::breadthFirst()
 			if (path.last() == end) break;
 		}
 	}
+	detectPath();
 }
 
 void Solver::aStar()
@@ -171,5 +173,35 @@ void Solver::aStar()
 			} while (maze->getValue(testLoc.y(), testLoc.x()) + (width - testLoc.x()) + (height - testLoc.y()) < nextVal);
 			potential.insert(i, nextLoc);
 		}		
+	}
+	detectPath();
+}
+
+void Solver::detectPath()
+{
+	int col = maze->width() - 1;
+	int row = maze->height() - 1;
+	int curVal = maze->getValue(row, col);
+	
+	while (true) {
+		--curVal;
+		maze->setValue(row, col, MazeCanvas::MAGIC);
+		if (row == 0 && col == 0) break;
+		if (!maze->isWall(row, col, Maze::UP) && maze->getValue(row - 1, col) == curVal) {
+			row -= 1;
+			continue;
+		}
+		if (!maze->isWall(row, col, Maze::DOWN) && maze->getValue(row + 1, col) == curVal) {
+			row += 1;
+			continue;
+		}
+		if (!maze->isWall(row, col, Maze::LEFT) && maze->getValue(row, col - 1) == curVal) {
+			col -= 1;
+			continue;
+		}
+		if (!maze->isWall(row, col, Maze::RIGHT) && maze->getValue(row, col + 1) == curVal) {
+			col += 1;
+			continue;
+		}
 	}
 }
