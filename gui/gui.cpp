@@ -29,7 +29,7 @@ Gui::Gui(QWidget *parent) :
 
 	// Setup scene
 	scene = new QGraphicsScene;
-	scene->setBackgroundBrush(QBrush(QColor(210, 105, 30), Qt::SolidPattern)); // Set background color
+	scene->setBackgroundBrush(QBrush(Qt::white, Qt::SolidPattern));//QColor(210, 105, 30), Qt::SolidPattern)); // Set background color
 
 	// Setup maze canvas
 	mc = new MazeCanvas(maze);
