@@ -37,10 +37,25 @@ private:
 	Generator *gen;
 	Solver *solver;
 
+private slots:
+	// Generator calls
+	void genBackAndForth();
+	void genPrims();
+	void genBacktracker();
+	void genBraid();
+
+	// Solver calls
+	void solveRightHandRule();
+	void solveDeadEndFiller();
+	void solveBreadthFirst();
+	void solveAStar();
+
 public slots:
 	void setDimensionsDialog();
 	void setNewMazeDimensions();
 	void updateAll();
+	void toggleAnimation(bool show);
+	void showStatistics(int time);
 };
 
 #endif // GUI_H

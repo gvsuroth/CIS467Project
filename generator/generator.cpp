@@ -1,6 +1,8 @@
-#include "generator.h"
 #include <QList>
 #include <QSet>
+#include <QTime>
+
+#include "generator.h"
 
 #define _UP 1
 #define _LEFT 2
@@ -13,11 +15,21 @@ Generator::Generator(Maze *maze, QObject *parent) :
 	QObject(parent)
 {
 	this->maze = maze;
+	backtrackerAddDeadEnds = false;
+}
+
+void Generator::generate(GeneratorAlgorithm algorithm)
+{
+	maze->reset();
+	QTime beginTime = QTime::currentTime();
+	CALL_MEMBER_FN(*this, algorithm)();
+	QTime endTime = QTime::currentTime();
+	emit showStatistics(beginTime.msecsTo(endTime));
+	maze->resetValues();
 }
 
 void Generator::backAndForth()
 {
-	maze->reset();
 	// Back and forth
 	bool dir = true;
 	unsigned width = maze->width(), height = maze->height();
@@ -34,7 +46,6 @@ void Generator::prims()
 {
 	srand((unsigned)time(NULL));
 	unsigned width = maze->width(), height = maze->height();
-	maze->reset();
 	QList<QPoint> frontier;
 
 	// Count of remaining frontier nodes
@@ -108,12 +119,10 @@ void Generator::prims()
 			maze->setValue(nodeY, nodeX + 1, FRONTIER);
 		}
 	} // for
-	maze->resetValues();
 }
 
-void Generator::backtracker(bool addDeadEnds)
+void Generator::backtracker()
 {
-	maze->reset();
 	QLinkedList<QPoint> cue;
 	cue.append(QPoint(0, 0));
 	maze->setValue(0, 0, VISITED);
@@ -156,18 +165,19 @@ void Generator::backtracker(bool addDeadEnds)
 			curLoc = newPoint;
 		} else {
 			// Find point on cue with neighbors - backtrack
-			if (addDeadEnds && haveEaten) deadEnds.append(curLoc);
+			if (backtrackerAddDeadEnds && haveEaten) deadEnds.append(curLoc);
 			curLoc = cue.takeFirst();
 			haveEaten = false;
 		}
 	}
-	maze->resetValues();
 }
 
 void Generator::braid()
 {
 	deadEnds.empty();
-	backtracker(true);
+	backtrackerAddDeadEnds = true;
+	backtracker();
+	backtrackerAddDeadEnds = false;
 	while (!deadEnds.isEmpty()) {
 		QPoint loc = deadEnds.takeFirst();
 		// Find neighbors that have walls that we can break down
@@ -194,7 +204,7 @@ void Generator::braid()
 //	QList<int> walls;
 //	for (int i = 0; i < maze->height() * maze->width() * 2 - maze->width(); ++i)
 //		if (i % (width * 2) != width - 1) walls.append(i);
-//	
+//
 //	int row1, row2, col1, col2;
 //	while (true) {
 //		int wall = walls.takeAt(rand() % (walls.size()));
@@ -209,7 +219,7 @@ void Generator::braid()
 //			row1 = div;
 //			row2 = div + 1;
 //		}
-//		
+//
 //	}
 //	QList< QSet<int [2]> > sets;
 //	for (unsigned r = 0; r < maze->height(); ++r) {
@@ -222,5 +232,5 @@ void Generator::braid()
 //			sets.append(set);
 //		}
 //	}
-//	
+//
 //}

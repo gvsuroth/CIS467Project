@@ -26,7 +26,7 @@
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_View">
@@ -36,6 +36,7 @@
     <addaction name="action_Zoom_In"/>
     <addaction name="action_Zoom_Out"/>
     <addaction name="action_Reset"/>
+    <addaction name="action_Animation"/>
    </widget>
    <widget class="QMenu" name="menu_Maze">
     <property name="title">
@@ -137,6 +138,17 @@
   <action name="action_Braid_Maze">
    <property name="text">
     <string>B&amp;raid Maze</string>
+   </property>
+  </action>
+  <action name="action_Animation">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Animation</string>
    </property>
   </action>
  </widget>

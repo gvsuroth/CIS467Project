@@ -9,10 +9,18 @@ Solver::Solver(Maze *maze, QObject *parent) :
 	this->maze = maze;
 }
 
+void Solver::solve(SolverAlgorithm algorithm)
+{
+	maze->resetValues();
+	QTime beginTime = QTime::currentTime();
+	CALL_MEMBER_FN(*this, algorithm)();
+	QTime endTime = QTime::currentTime();
+	emit showStatistics(beginTime.msecsTo(endTime));
+	maze->update();
+}
+
 void Solver::rightHandRule()
 {
-	QTime beginTime = QTime::currentTime();
-	maze->resetValues();
 	QLinkedList<QPoint> path;
 	Maze::Facing facing = Maze::DOWN;
 	QPoint curLoc(0, 0);
@@ -20,7 +28,7 @@ void Solver::rightHandRule()
 	maze->setValue(0, 0, maze->getValue(0, 0) + 1);
 	path << QPoint(curLoc.x(), curLoc.y());
 	maze->setValue(curLoc.y(), curLoc.x(), MazeCanvas::MAGIC);
-	
+
 	while(curLoc != end)
 	{
 		Maze::Facing nextFacing = (Maze::Facing)((facing + 1) % 4);
@@ -45,8 +53,6 @@ void Solver::rightHandRule()
 		maze->setValue(curLoc.y(), curLoc.x(), maze->getValue(curLoc.y(), curLoc.x()) + MazeCanvas::MAGIC + 1);
 		facing = nextFacing;
 	}
-	QTime endTime = QTime::currentTime();
-	printf("Time %d\n", beginTime.msecsTo(endTime));
 }
 
 void Solver::deadEndFiller()
@@ -77,7 +83,6 @@ void Solver::deadEndFiller()
 
 void Solver::breadthFirst()
 {
-	maze->resetValues();
 	QLinkedList<QPoint> path;
 	QPoint end(maze->width() - 1, maze->height() - 1);
 	int i = 0;
@@ -113,13 +118,12 @@ void Solver::breadthFirst()
 
 void Solver::aStar()
 {
-	maze->resetValues();
 	QList<QPoint> potential;
 	int width = maze->width() - 1, height = maze->height() - 1;
 	QPoint end(width, height);
 	potential.append(QPoint(0, 0));
 	maze->setValue(0, 0, 1);
-	
+
 	QPoint curLoc, nextLoc, testLoc;
 	int curVal, nextVal, i;
 	while (!potential.empty()) {
@@ -176,7 +180,7 @@ void Solver::aStar()
 				testLoc = potential.at(i);
 			} while (maze->getValue(testLoc.y(), testLoc.x()) + (width - testLoc.x()) + (height - testLoc.y()) < nextVal);
 			potential.insert(i, nextLoc);
-		}		
+		}
 	}
 	detectPath();
 }
@@ -186,7 +190,7 @@ void Solver::detectPath()
 	int col = maze->width() - 1;
 	int row = maze->height() - 1;
 	int curVal = maze->getValue(row, col);
-	
+
 	while (true) {
 		--curVal;
 		maze->setValue(row, col, MazeCanvas::MAGIC);

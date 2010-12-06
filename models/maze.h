@@ -45,6 +45,7 @@ public:
 	void reset();
 	void resetValues();
 	void log();
+	void update();
 private:
 	unsigned _height;
 	unsigned _width;

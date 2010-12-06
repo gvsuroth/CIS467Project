@@ -29,7 +29,7 @@ void Maze::setDimensions(unsigned width, unsigned height)
 			data[r][c].value = 0;
 		}
 	}
-	emit updateAll();
+	update();
 }
 
 unsigned Maze::width()
@@ -55,16 +55,14 @@ void Maze::reset() {
 			data[r][c].value = 0;
 		}
 	}
-	emit updateAll();
+	update();
 }
 
 void Maze::resetValues() {
-	for (unsigned c = 0; c < _width; ++c) {
-		for (unsigned r = 0; r < _height; ++r) {
+	for (unsigned c = 0; c < _width; ++c)
+		for (unsigned r = 0; r < _height; ++r)
 			data[r][c].value = 0;
-		}
-	}
-	emit updateAll();
+	update();
 }
 
 void Maze::setWall(unsigned row, unsigned column, Facing direction, bool wall)
@@ -175,7 +173,11 @@ void Maze::log()
 	for (unsigned c = 0; c < _width - 1; ++c)
 		printf(" -");
 	printf("\n");
+}
 
+void Maze::update()
+{
+	emit updateAll();
 }
 
 void Maze::cleanUp()

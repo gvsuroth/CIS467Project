@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'gui.ui'
 **
-** Created: Tue Nov 30 12:11:49 2010
+** Created: Mon Dec 6 14:37:55 2010
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -38,6 +38,7 @@ public:
     QAction *action_Breadth_First;
     QAction *action_A_Star;
     QAction *action_Braid_Maze;
+    QAction *action_Animation;
     QWidget *centralWidget;
     QMenuBar *menuBar;
     QMenu *menu_View;
@@ -80,12 +81,16 @@ public:
         action_A_Star->setObjectName(QString::fromUtf8("action_A_Star"));
         action_Braid_Maze = new QAction(Gui);
         action_Braid_Maze->setObjectName(QString::fromUtf8("action_Braid_Maze"));
+        action_Animation = new QAction(Gui);
+        action_Animation->setObjectName(QString::fromUtf8("action_Animation"));
+        action_Animation->setCheckable(true);
+        action_Animation->setChecked(true);
         centralWidget = new QWidget(Gui);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         Gui->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(Gui);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 600, 22));
+        menuBar->setGeometry(QRect(0, 0, 600, 25));
         menu_View = new QMenu(menuBar);
         menu_View->setObjectName(QString::fromUtf8("menu_View"));
         menu_Maze = new QMenu(menuBar);
@@ -106,6 +111,7 @@ public:
         menu_View->addAction(action_Zoom_In);
         menu_View->addAction(action_Zoom_Out);
         menu_View->addAction(action_Reset);
+        menu_View->addAction(action_Animation);
         menu_Maze->addAction(action_Dimensions);
         menu_Generator->addAction(action_Prim_s_Algorithm);
         menu_Generator->addAction(action_Back_and_Forth);
@@ -140,6 +146,7 @@ public:
         action_Breadth_First->setText(QApplication::translate("Gui", "&Breadth First", 0, QApplication::UnicodeUTF8));
         action_A_Star->setText(QApplication::translate("Gui", "&A Star", 0, QApplication::UnicodeUTF8));
         action_Braid_Maze->setText(QApplication::translate("Gui", "B&raid Maze", 0, QApplication::UnicodeUTF8));
+        action_Animation->setText(QApplication::translate("Gui", "&Animation", 0, QApplication::UnicodeUTF8));
         menu_View->setTitle(QApplication::translate("Gui", "&View", 0, QApplication::UnicodeUTF8));
         menu_Maze->setTitle(QApplication::translate("Gui", "&Maze", 0, QApplication::UnicodeUTF8));
         menu_Generator->setTitle(QApplication::translate("Gui", "&Generate", 0, QApplication::UnicodeUTF8));
