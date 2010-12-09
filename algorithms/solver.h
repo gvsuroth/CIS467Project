@@ -19,6 +19,7 @@ public:
 
 signals:
 	void showStatistics(int time);
+	void requestMazeDimensions();
 
 public slots:
 	void rightHandRule();

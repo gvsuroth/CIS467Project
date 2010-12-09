@@ -20,6 +20,7 @@ Gui::Gui(QWidget *parent) :
 	connect(ui->action_Backtracker_Algorithm, SIGNAL(triggered()), this, SLOT(genBacktracker()));
 	connect(ui->action_Braid_Maze, SIGNAL(triggered()), this, SLOT(genBraid()));
 	connect(gen, SIGNAL(showStatistics(int)), this, SLOT(showStatistics(int)));
+	connect(gen, SIGNAL(requestMazeDimensions()), this, SLOT(setDimensionsDialog()));
 
 	// Setup solver
 	solver = new Solver(maze);
@@ -28,6 +29,7 @@ Gui::Gui(QWidget *parent) :
 	connect(ui->action_Breadth_First, SIGNAL(triggered()), this, SLOT(solveBreadthFirst()));
 	connect(ui->action_A_Star, SIGNAL(triggered()), this, SLOT(solveAStar()));
 	connect(solver, SIGNAL(showStatistics(int)), this, SLOT(showStatistics(int)));
+	connect(solver, SIGNAL(requestMazeDimensions()), this, SLOT(setDimensionsDialog()));
 
 	// Setup scene
 	scene = new QGraphicsScene;

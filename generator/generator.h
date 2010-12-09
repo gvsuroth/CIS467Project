@@ -22,6 +22,7 @@ public:
 signals:
 	//void generationDone(unsigned height, unsigned width, Maze::CellType **maze);
 	void showStatistics(int time);
+	void requestMazeDimensions();
 
 public slots:
 	void backAndForth();

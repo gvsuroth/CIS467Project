@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'gui.ui'
 **
-** Created: Mon Dec 6 14:37:55 2010
+** Created: Wed Dec 8 23:02:09 2010
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -147,6 +147,7 @@ public:
         action_A_Star->setText(QApplication::translate("Gui", "&A Star", 0, QApplication::UnicodeUTF8));
         action_Braid_Maze->setText(QApplication::translate("Gui", "B&raid Maze", 0, QApplication::UnicodeUTF8));
         action_Animation->setText(QApplication::translate("Gui", "&Animation", 0, QApplication::UnicodeUTF8));
+        action_Animation->setShortcut(QApplication::translate("Gui", "Ctrl+A", 0, QApplication::UnicodeUTF8));
         menu_View->setTitle(QApplication::translate("Gui", "&View", 0, QApplication::UnicodeUTF8));
         menu_Maze->setTitle(QApplication::translate("Gui", "&Maze", 0, QApplication::UnicodeUTF8));
         menu_Generator->setTitle(QApplication::translate("Gui", "&Generate", 0, QApplication::UnicodeUTF8));

@@ -150,6 +150,9 @@
    <property name="text">
     <string>&amp;Animation</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
   </action>
  </widget>
  <resources/>

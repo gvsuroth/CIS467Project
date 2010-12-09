@@ -20,6 +20,9 @@ Generator::Generator(Maze *maze, QObject *parent) :
 
 void Generator::generate(GeneratorAlgorithm algorithm)
 {
+	if(!(maze->width() && maze->height()))
+		emit requestMazeDimensions();
+	qDebug() << "here";
 	maze->reset();
 	QTime beginTime = QTime::currentTime();
 	CALL_MEMBER_FN(*this, algorithm)();

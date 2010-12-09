@@ -11,6 +11,11 @@ Solver::Solver(Maze *maze, QObject *parent) :
 
 void Solver::solve(SolverAlgorithm algorithm)
 {
+	if(!(maze->width() && maze->height()))
+	{
+		emit requestMazeDimensions();
+		return;
+	}
 	maze->resetValues();
 	QTime beginTime = QTime::currentTime();
 	CALL_MEMBER_FN(*this, algorithm)();
