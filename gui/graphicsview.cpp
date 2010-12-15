@@ -18,6 +18,7 @@ void GraphicsView::zoomOut()
 void GraphicsView::zoomReset()
 {
 	fitInView(sceneRect(), Qt::KeepAspectRatio);
+	scale(1 / 1.1, 1 / 1.1);
 }
 
 void GraphicsView::wheelEvent(QWheelEvent *event)
