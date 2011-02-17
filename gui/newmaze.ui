@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>207</width>
+    <width>213</width>
     <height>101</height>
    </rect>
   </property>
@@ -32,8 +32,8 @@
      <property name="maxLength">
       <number>32767</number>
      </property>
-     <property name="placeholderText">
-      <string>rows</string>
+     <property name="placeholderText" stdset="0">
+      <string/>
      </property>
     </widget>
    </item>
@@ -46,8 +46,8 @@
    </item>
    <item row="1" column="2">
     <widget class="QLineEdit" name="columns">
-     <property name="placeholderText">
-      <string>columns</string>
+     <property name="placeholderText" stdset="0">
+      <string/>
      </property>
     </widget>
    </item>
