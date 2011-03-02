@@ -1,0 +1,10 @@
+To compile this project on EOS do the following...
+
+In the project's root directory:
+
+qmake-qt4
+make
+
+To run the project:
+
+./CIS467Project
